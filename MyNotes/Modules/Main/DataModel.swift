@@ -1,8 +1,8 @@
 //
-//  Model.swift
+//  DataModel.swift
 //  MyNotes
 //
-//  Created by admin on 26.06.2020.
+//  Created by admin on 28.06.2020.
 //  Copyright © 2020 Natali. All rights reserved.
 //
 
@@ -12,7 +12,8 @@ import Foundation
 // MARK: - Places
 struct Places: Codable {
     let count: Int
-    let next, previous: String
+    let next: String?
+//  let previous: String?
     let results: [Result]
 }
 
@@ -35,4 +36,3 @@ struct Result: Codable {
         case hasParkingLot = "has_parking_lot"
     }
 }
-

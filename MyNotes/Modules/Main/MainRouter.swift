@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class MainRouter: PresenterToRouterProtocol {
+  func prepare() {
+    print ("Prepare for segue")
+  }
+  
+    
+    
+}

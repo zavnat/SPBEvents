@@ -7,8 +7,33 @@
 //
 
 import Foundation
+import UIKit
 
-
-class MainPresenter {
+class MainPresenter: ViewToPresenterProtocol {
+  var view: PresenterToViewProtocol?
   
+  var interactor: PresenterToInteractorProtocol?
+
+  var router: PresenterToRouterProtocol?
+  
+
+  func startFetchingPlaces() {
+    print("start fetch from presenter")
+    interactor?.fetchData()
+  }
+  func showMovieController(navigationController:UINavigationController){}
 }
+
+
+extension MainPresenter: InteractorToPresenterProtocol{
+    func dataFetchedSuccess(with data: Array<Result>) {
+      print("data fetch success")
+      view?.showPlaces(placesArray: data)
+    }
+
+    func noticeFetchFailed() {
+      view?.showError()
+    }
+
+}
+

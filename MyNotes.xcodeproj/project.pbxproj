@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
+		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
 		84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE07C24A61DA50018F925 /* AppDelegate.swift */; };
 		84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE07E24A61DA50018F925 /* SceneDelegate.swift */; };
 		84BFE08124A61DA50018F925 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE08024A61DA50018F925 /* ViewController.swift */; };
@@ -15,7 +17,6 @@
 		84BFE08924A61DA80018F925 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE08824A61DA80018F925 /* Assets.xcassets */; };
 		84BFE08C24A61DA80018F925 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE08A24A61DA80018F925 /* LaunchScreen.storyboard */; };
 		84BFE09424A623FD0018F925 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE09324A623FD0018F925 /* NoteViewController.swift */; };
-		84BFE09D24A6536C0018F925 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE09C24A6536C0018F925 /* Model.swift */; };
 		84BFE0A024A65C200018F925 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE09F24A65C200018F925 /* MainPresenter.swift */; };
 		84BFE0A224A65C3C0018F925 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0A124A65C3C0018F925 /* MainInteractor.swift */; };
 		84BFE0A424A65C900018F925 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE0A324A65C900018F925 /* MainRouter.swift */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		027156C00E0DC579AE6661E9 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD813DCF89C0A036C65B785 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
+		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
+		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		84BFE07924A61DA50018F925 /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BFE07C24A61DA50018F925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BFE07E24A61DA50018F925 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +43,6 @@
 		84BFE08B24A61DA80018F925 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84BFE08D24A61DA80018F925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84BFE09324A623FD0018F925 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
-		84BFE09C24A6536C0018F925 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		84BFE09F24A65C200018F925 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		84BFE0A124A65C3C0018F925 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		84BFE0A324A65C900018F925 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -70,7 +72,6 @@
 				BB14F0EAEEDB69B4DDDA89A2 /* Pods-MyNotes.debug.xcconfig */,
 				0BD813DCF89C0A036C65B785 /* Pods-MyNotes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -143,11 +144,13 @@
 		84BFE09924A64ED30018F925 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				84BFE08024A61DA50018F925 /* ViewController.swift */,
 				84BFE0AD24A65D5E0018F925 /* MainProtocols.swift */,
+				84BFE08024A61DA50018F925 /* ViewController.swift */,
 				84BFE09F24A65C200018F925 /* MainPresenter.swift */,
 				84BFE0A124A65C3C0018F925 /* MainInteractor.swift */,
 				84BFE0A324A65C900018F925 /* MainRouter.swift */,
+				843CE64124A7915A0095ED53 /* MainConfigurator.swift */,
+				843CE64324A8C6380095ED53 /* DataModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -164,7 +167,6 @@
 		84BFE09B24A6533B0018F925 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				84BFE09C24A6536C0018F925 /* Model.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -309,8 +311,8 @@
 				84BFE0AE24A65D5E0018F925 /* MainProtocols.swift in Sources */,
 				84BFE08124A61DA50018F925 /* ViewController.swift in Sources */,
 				84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */,
+				843CE64424A8C6380095ED53 /* DataModel.swift in Sources */,
 				84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */,
-				84BFE09D24A6536C0018F925 /* Model.swift in Sources */,
 				84BFE09424A623FD0018F925 /* NoteViewController.swift in Sources */,
 				84BFE0A024A65C200018F925 /* MainPresenter.swift in Sources */,
 				84BFE08724A61DA50018F925 /* MyNotes.xcdatamodeld in Sources */,
@@ -318,6 +320,7 @@
 				84BFE0A424A65C900018F925 /* MainRouter.swift in Sources */,
 				84BFE0AA24A65D0D0018F925 /* NoteRouter.swift in Sources */,
 				84BFE0A824A65CC30018F925 /* NoteInteractor.swift in Sources */,
+				843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
