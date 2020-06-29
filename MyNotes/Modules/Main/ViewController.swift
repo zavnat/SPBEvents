@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
   
-  var presentor: ViewToPresenterProtocol?
+  var presenter: ViewToPresenterProtocol?
   var configurator: MainConfiguratorProtocol = MainConfigurator()
   
   var places: Array<Result> = Array()
@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
     tableView.dataSource = self
     print("view did load")
     configurator.configure(with: self)
-    presentor?.startFetchingPlaces()
+    presenter?.startFetchingPlaces()
   }
   
   @IBAction func addButtonPressed(_ sender: Any) {
@@ -54,4 +54,13 @@ extension ViewController {
     
     return cell
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let indexPath = tableView.indexPathForSelectedRow {
+      let itemForDetail = places[indexPath.row]
+      presenter?.router?.prepare(for: segue, data: itemForDetail)
+    }
+    
+  }
+  
 }

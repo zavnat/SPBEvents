@@ -30,12 +30,12 @@ protocol ViewToPresenterProtocol: class {
   var interactor: PresenterToInteractorProtocol? {get set}
   var router: PresenterToRouterProtocol? {get set}
   func startFetchingPlaces()
-  //func showNoteViewController(navigationController: UINavigationController)
+  
 
 }
 
 protocol PresenterToRouterProtocol: class {
-  func prepare()
+  func prepare(for segue: UIStoryboardSegue, data: Result)
 }
 
 protocol MainConfiguratorProtocol: class {

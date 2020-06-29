@@ -7,12 +7,33 @@
 //
 
 import Foundation
+import UIKit
 
 class MainRouter: PresenterToRouterProtocol {
-  func prepare() {
-    print ("Prepare for segue")
+ 
+  
+  
+  weak var viewController: ViewController!
+  
+  init(viewController: ViewController) {
+      self.viewController = viewController
   }
   
-    
-    
+  func prepare(for segue: UIStoryboardSegue, data: Result){
+    //let destinationVC = segue.destination as! NoteViewController
+    NoteRouter.createNoteModule(with: data)
+  }
+  
+
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      let destinationVC = segue.destination as! DetailViewController
+//      
+//      if let indexPath = tableView.indexPathForSelectedRow {
+//        destinationVC.item = dataToUI[indexPath.row]
+//      }
+//
+//
+//}
 }
+

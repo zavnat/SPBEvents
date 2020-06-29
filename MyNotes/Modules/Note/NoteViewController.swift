@@ -10,6 +10,8 @@ import UIKit
 
 class NoteViewController: UIViewController {
 
+  let place: Result? = nil
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class MainPresenter: ViewToPresenterProtocol {
+  
+  
   var view: PresenterToViewProtocol?
   
   var interactor: PresenterToInteractorProtocol?
@@ -21,7 +23,7 @@ class MainPresenter: ViewToPresenterProtocol {
     print("start fetch from presenter")
     interactor?.fetchData()
   }
-  func showMovieController(navigationController:UINavigationController){}
+  
 }
 
 

@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class NoteRouter {
+  static func createNoteModule(with place: Result) {
+    presenter.view.place = place
+  }
+}
