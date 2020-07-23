@@ -20,7 +20,7 @@ struct PlaceDetail: Codable {
     let coords: Coords
     let subway: String
     let favoritesCount: Int
-    let images: [Image]
+    let images: [ImageItem]
     let commentsCount: Int
     let isClosed: Bool
     let categories: [String]
@@ -57,7 +57,7 @@ struct Coords: Codable {
 }
 
 // MARK: - Image
-struct Image: Codable {
+struct ImageItem: Codable {
     let image: String
     let source: Source
 }

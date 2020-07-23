@@ -15,7 +15,7 @@ class NoteViewController: UIViewController {
   @IBOutlet weak var textField: UITextView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    textField.text = place?.title
+//    textField.text = place?.title
   }
   
   

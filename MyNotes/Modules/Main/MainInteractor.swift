@@ -13,16 +13,17 @@ class MainInteractor: PresenterToInteractorProtocol {
   
   var presenter: InteractorToPresenterProtocol?
   
-  let placesURL = "https://kudago.com/public-api/v1.4/places"
+  let placesURL = "https://kudago.com/public-api/v2.0/places"
   var currentPage = 2
   
-   func fetchData() {
+  func fetchData() {
     print("fetch data")
     
     let parameters : [String : String] = [
-    "location" : "spb",
-    "page" : "\(currentPage)"
-  ]
+      "location" : "spb",
+      "page" : "\(currentPage)",
+      "fields" : "id,slug,images,title"
+    ]
     
     
     Alamofire.request(placesURL, method: .get, parameters: parameters).response { (response) in
