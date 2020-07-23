@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UICollectionViewController {
   
   var presenter: ViewToPresenterProtocol?
   var configurator: MainConfiguratorProtocol = MainConfigurator()
