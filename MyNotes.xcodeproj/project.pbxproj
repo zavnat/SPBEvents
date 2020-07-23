@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
 		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
+		843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64524AA1B210095ED53 /* DetailModel.swift */; };
 		84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE07C24A61DA50018F925 /* AppDelegate.swift */; };
 		84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE07E24A61DA50018F925 /* SceneDelegate.swift */; };
 		84BFE08124A61DA50018F925 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE08024A61DA50018F925 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		0BD813DCF89C0A036C65B785 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
 		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		843CE64524AA1B210095ED53 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		84BFE07924A61DA50018F925 /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BFE07C24A61DA50018F925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BFE07E24A61DA50018F925 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,11 +176,12 @@
 		84BFE09E24A65B400018F925 /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				84BFE0AB24A65D400018F925 /* NoteProtocols.swift */,
 				84BFE09324A623FD0018F925 /* NoteViewController.swift */,
 				84BFE0A524A65CB00018F925 /* NotePresenter.swift */,
 				84BFE0A724A65CC30018F925 /* NoteInteractor.swift */,
 				84BFE0A924A65D0D0018F925 /* NoteRouter.swift */,
-				84BFE0AB24A65D400018F925 /* NoteProtocols.swift */,
+				843CE64524AA1B210095ED53 /* DetailModel.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */,
 				84BFE0AC24A65D400018F925 /* NoteProtocols.swift in Sources */,
 				84BFE0A624A65CB00018F925 /* NotePresenter.swift in Sources */,
 				84BFE0AE24A65D5E0018F925 /* MainProtocols.swift in Sources */,

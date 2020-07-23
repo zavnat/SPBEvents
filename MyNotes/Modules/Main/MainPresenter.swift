@@ -28,7 +28,7 @@ class MainPresenter: ViewToPresenterProtocol {
 
 
 extension MainPresenter: InteractorToPresenterProtocol{
-    func dataFetchedSuccess(with data: Array<Result>) {
+    func dataFetchedSuccess(with data: [Result]) {
       print("data fetch success")
       view?.showPlaces(placesArray: data)
     }

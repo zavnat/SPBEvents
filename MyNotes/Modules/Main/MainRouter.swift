@@ -20,8 +20,8 @@ class MainRouter: PresenterToRouterProtocol {
   }
   
   func prepare(for segue: UIStoryboardSegue, data: Result){
-    //let destinationVC = segue.destination as! NoteViewController
-    NoteRouter.createNoteModule(with: data)
+    let destinationVC = segue.destination as! NoteViewController
+    NoteRouter.createNoteModule(with: data, destination: destinationVC)
   }
   
 

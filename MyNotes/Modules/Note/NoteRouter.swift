@@ -9,7 +9,7 @@
 import Foundation
 
 class NoteRouter {
-  static func createNoteModule(with place: Result) {
-    presenter.view.place = place
+  static func createNoteModule(with place: Result, destination: NoteViewController) {
+    destination.place = place
   }
 }

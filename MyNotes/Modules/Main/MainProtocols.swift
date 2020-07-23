@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol InteractorToPresenterProtocol: class {
-  func dataFetchedSuccess(with data: Array<Result>)
+  func dataFetchedSuccess(with data: [Result])
   func noticeFetchFailed()
 }
 
@@ -20,7 +20,7 @@ protocol PresenterToInteractorProtocol: class {
 }
 
 protocol PresenterToViewProtocol: class {
-  func showPlaces(placesArray: Array<Result>)
+  func showPlaces(placesArray: [Result])
   func showError()
 }
 

@@ -13,7 +13,7 @@ class ViewController: UITableViewController {
   var presenter: ViewToPresenterProtocol?
   var configurator: MainConfiguratorProtocol = MainConfigurator()
   
-  var places: Array<Result> = Array()
+  var places = [Result]()
   
   
   override func viewDidLoad() {
@@ -31,7 +31,7 @@ class ViewController: UITableViewController {
 }
 
 extension ViewController: PresenterToViewProtocol {
-  func showPlaces(placesArray: Array<Result>) {
+  func showPlaces(placesArray: [Result]) {
     places = placesArray
     tableView.reloadData()
   }
@@ -51,6 +51,7 @@ extension ViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     cell.textLabel?.text = places[indexPath.row].title
+    
     
     return cell
   }

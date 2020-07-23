@@ -69,6 +69,9 @@
                     <navigationItem key="navigationItem" id="0kp-1x-gN3">
                         <barButtonItem key="rightBarButtonItem" title="Готово" id="x2d-4j-CTj"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="x4X-NM-0oo" id="Cm8-4P-v0x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kr1-Hq-2kq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,15 +12,6 @@ import UIKit
 class MainConfigurator: MainConfiguratorProtocol {
     
     func configure(with controller: ViewController) {
-//        let presenter = MainPresenter(view: controller)
-//        let interactor = MainInteractor(presenter: presenter)
-//        let router = MainRouter(viewController: controller)
-        
-//        controller.presenter = presenter
-//        presenter.interactor = interactor
-//        presenter.router = router
-//        presenter.currencyPickerView = controller.currencyPickerView
-//        controller.currencyPickerView.delegate = presenter
       
       let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = MainPresenter()
       let interactor: PresenterToInteractorProtocol = MainInteractor()

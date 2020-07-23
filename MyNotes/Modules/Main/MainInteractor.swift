@@ -16,7 +16,7 @@ class MainInteractor: PresenterToInteractorProtocol {
   let placesURL = "https://kudago.com/public-api/v1.4/places"
   var currentPage = 2
   
-  @objc func fetchData() {
+   func fetchData() {
     print("fetch data")
     
     let parameters : [String : String] = [
