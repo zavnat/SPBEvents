@@ -33,7 +33,7 @@ class MainInteractor: PresenterToInteractorProtocol {
       let decoder = JSONDecoder()
       do {
         let places = try decoder.decode(Places.self, from: data)
-        print(places.results)
+        
      self.presenter?.dataFetchedSuccess(with: places.results)
       } catch {
         print(error.localizedDescription)
