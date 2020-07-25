@@ -3,20 +3,28 @@ PODS:
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
+  - Pageboy (3.6.1)
+  - Tabman (2.9.1):
+    - Pageboy (~> 3.6.0)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher (~> 5.0)
+  - Tabman (~> 2.9)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - Pageboy
+    - Tabman
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
+  Pageboy: 29a2d474ad99404b4d77f325e0ab6d705930a4fb
+  Tabman: 085d89c65be9e883629bdaf5b1453a6397e57846
 
-PODFILE CHECKSUM: 21bacb26237a172040e23c1fcddca62003d86b6e
+PODFILE CHECKSUM: 8c2be399db4758c28f3bf59d1b60e40376109fdb
 
 COCOAPODS: 1.8.4

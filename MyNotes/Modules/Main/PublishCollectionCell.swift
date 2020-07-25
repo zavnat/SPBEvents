@@ -9,9 +9,8 @@
 import UIKit
 
 class PublishCollectionCell: UICollectionViewCell {
-    
-  
-
+ 
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var image: UIImageView!
+  
 }

@@ -34,7 +34,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PublishCollectionCell
     cell.label.text = places[indexPath.row].title
-    cell.layer.cornerRadius = 10
     cell.image.kf.setImage(with: places[indexPath.row].image)
     
     return cell

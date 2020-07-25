@@ -70,6 +70,12 @@
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="200" height="224"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="image" destination="ORx-WQ-Go7" id="aSX-BB-DeJ"/>
                                     <outlet property="label" destination="EBd-mK-i5C" id="n7Q-vJ-vyq"/>
