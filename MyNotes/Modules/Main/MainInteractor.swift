@@ -12,32 +12,48 @@ import Alamofire
 class MainInteractor: PresenterToInteractorProtocol {
   
   var presenter: InteractorToPresenterProtocol?
+  var fetchingMore = false
   
   let placesURL = "https://kudago.com/public-api/v2.0/places"
-  var currentPage = 2
+  var currentPage = 1
+  
+  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
+     if offsetY > contentHeight - frameHeight * 2 {
+          if !fetchingMore && currentPage < 5 {
+            self.fetchData()
+          }
+        }
+  }
   
   func fetchData() {
-    print("fetch data")
     
-    let parameters : [String : String] = [
-      "location" : "spb",
-      "page" : "\(currentPage)",
-      "fields" : "id,slug,images,title"
-    ]
+      fetchingMore = true
+      print("fetch data")
+    print(currentPage)
     
-    
-    Alamofire.request(placesURL, method: .get, parameters: parameters).response { (response) in
-      //print(response)
-      guard let data = response.data else { return }
-      print(data.count)
-      let decoder = JSONDecoder()
-      do {
-        let places = try decoder.decode(Places.self, from: data)
-        print(places.results)
-     self.presenter?.dataFetchedSuccess(with: places.results)
-      } catch {
-        print(error.localizedDescription)
+      
+      let parameters : [String : String] = [
+        "location" : "spb",
+        "page" : "\(currentPage)",
+        "fields" : "id,slug,images,title"
+      ]
+      
+      
+      Alamofire.request(placesURL, method: .get, parameters: parameters).response { (response) in
+        guard let data = response.data else { return }
+        print(data.count)
+        let decoder = JSONDecoder()
+        do {
+          let places = try decoder.decode(Places.self, from: data)
+          
+
+          self.currentPage += 1
+          self.fetchingMore = false
+          
+          self.presenter?.dataFetchedSuccess(with: places.results)
+        } catch {
+          print(error.localizedDescription)
+        }
       }
     }
-  }
 }

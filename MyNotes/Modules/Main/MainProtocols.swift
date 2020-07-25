@@ -17,10 +17,11 @@ protocol InteractorToPresenterProtocol: class {
 protocol PresenterToInteractorProtocol: class {
   var presenter:InteractorToPresenterProtocol? {get set}
   func fetchData()
+  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
 }
 
 protocol PresenterToViewProtocol: class {
-  func showPlaces(placesArray: [Result])
+  func showPlaces(placesArray: [ViewModel])
   func showError()
 }
 
@@ -30,7 +31,7 @@ protocol ViewToPresenterProtocol: class {
   var interactor: PresenterToInteractorProtocol? {get set}
   var router: PresenterToRouterProtocol? {get set}
   func startFetchingPlaces()
-  
+  func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
 
 }
 
