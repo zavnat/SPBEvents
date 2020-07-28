@@ -27,6 +27,10 @@ class MainPresenter: ViewToPresenterProtocol {
     print("start fetch from presenter")
     interactor?.fetchData()
   }
+  
+  func cellSelected(_ index : Int) {
+    router?.created(with: index)
+  }
 }
 
 

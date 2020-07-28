@@ -32,11 +32,13 @@ protocol ViewToPresenterProtocol: class {
   var router: PresenterToRouterProtocol? {get set}
   func startFetchingPlaces()
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
+  func cellSelected(_ index: Int)
 
 }
 
 protocol PresenterToRouterProtocol: class {
-  func prepare(for segue: UIStoryboardSegue, data: Result)
+//  func prepare(for segue: UIStoryboardSegue, data: Result)
+  func created(with index: Int)
 }
 
 protocol MainConfiguratorProtocol: class {

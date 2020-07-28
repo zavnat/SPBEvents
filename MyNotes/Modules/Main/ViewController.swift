@@ -61,6 +61,15 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     presenter?.didScroll(offsrtY: offsetY, contentHeight: contentHeight, frameHeight: frameHeight)
   }
   
+//  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    print("You tapped cell number \(indexPath.row).")
+//    presenter?.cellSelected(places [indexPath.row].id)
+////    performSegue(withIdentifier: "goToDetail", sender: self)
+//  }
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print(indexPath)
+  }
+  
 }
 
 extension ViewController: PresenterToViewProtocol {
