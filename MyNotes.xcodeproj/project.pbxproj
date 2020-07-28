@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		843AC7E724C9C5C2005F70EE /* PublishCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC7E624C9C5C2005F70EE /* PublishCollectionCell.swift */; };
+		843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86224D04A18005F70EE /* PagingViewController.swift */; };
+		843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */; };
+		843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86624D04AAF005F70EE /* WormTabStripButton.swift */; };
 		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
 		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
 		843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64524AA1B210095ED53 /* DetailModel.swift */; };
@@ -34,6 +37,9 @@
 		027156C00E0DC579AE6661E9 /* Pods_MyNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD813DCF89C0A036C65B785 /* Pods-MyNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyNotes.release.xcconfig"; path = "Target Support Files/Pods-MyNotes/Pods-MyNotes.release.xcconfig"; sourceTree = "<group>"; };
 		843AC7E624C9C5C2005F70EE /* PublishCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCollectionCell.swift; sourceTree = "<group>"; };
+		843AC86224D04A18005F70EE /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
+		843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripDelegate.swift; sourceTree = "<group>"; };
+		843AC86624D04AAF005F70EE /* WormTabStripButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripButton.swift; sourceTree = "<group>"; };
 		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		843CE64524AA1B210095ED53 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 		843AC86124D049A9005F70EE /* Paging */ = {
 			isa = PBXGroup;
 			children = (
+				843AC86224D04A18005F70EE /* PagingViewController.swift */,
+				843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */,
+				843AC86624D04AAF005F70EE /* WormTabStripButton.swift */,
 			);
 			path = Paging;
 			sourceTree = "<group>";
@@ -326,11 +335,14 @@
 				84BFE0AE24A65D5E0018F925 /* MainProtocols.swift in Sources */,
 				84BFE08124A61DA50018F925 /* ViewController.swift in Sources */,
 				843AC7E724C9C5C2005F70EE /* PublishCollectionCell.swift in Sources */,
+				843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */,
 				84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */,
 				843CE64424A8C6380095ED53 /* DataModel.swift in Sources */,
 				84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */,
+				843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */,
 				84BFE09424A623FD0018F925 /* NoteViewController.swift in Sources */,
 				84BFE0A024A65C200018F925 /* MainPresenter.swift in Sources */,
+				843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */,
 				84BFE08724A61DA50018F925 /* MyNotes.xcdatamodeld in Sources */,
 				84BFE0A224A65C3C0018F925 /* MainInteractor.swift in Sources */,
 				84BFE0A424A65C900018F925 /* MainRouter.swift in Sources */,
