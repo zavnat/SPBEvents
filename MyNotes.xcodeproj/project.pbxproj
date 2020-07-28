@@ -79,6 +79,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		843AC86124D049A9005F70EE /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Paging;
+			sourceTree = "<group>";
+		};
 		84BFE07024A61DA50018F925 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +146,7 @@
 		84BFE09824A64EA60018F925 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				843AC86124D049A9005F70EE /* Paging */,
 				84BFE09924A64ED30018F925 /* Main */,
 				84BFE09E24A65B400018F925 /* Note */,
 			);

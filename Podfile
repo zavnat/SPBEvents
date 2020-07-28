@@ -7,6 +7,5 @@ target 'MyNotes' do
   # Pods for MyNotes
 pod 'Alamofire'
 pod 'Kingfisher', '~> 5.0'
-pod 'Tabman', '~> 2.9'
 
 end
