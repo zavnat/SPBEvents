@@ -10,6 +10,7 @@ import UIKit
 
 class PublishCollectionCell: UICollectionViewCell {
  
+  @IBOutlet weak var favorites: UIButton!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var image: UIImageView!
   

@@ -15,13 +15,15 @@ class MainConfigurator: MainConfiguratorProtocol {
       
       let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = MainPresenter()
       let interactor: PresenterToInteractorProtocol = MainInteractor()
-//      let router: PresenterToRouterProtocol = MainRouter(viewController: controller)
-      
+      let router: PresenterToRouterProtocol = MainRouter(viewController: controller)
+     
+     
       controller.presenter = presenter
       presenter.view = controller
-//      presenter.router = router
+      presenter.router = router
       presenter.interactor = interactor
       interactor.presenter = presenter
     }
 }
+
 

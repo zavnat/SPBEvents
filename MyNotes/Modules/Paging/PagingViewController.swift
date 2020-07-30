@@ -10,10 +10,13 @@ import Foundation
 import UIKit
 
 class PagingViewController: UIViewController,WormTabStripDelegate {
+  
+  
   var tabs:[UIViewController] = []
   let numberOfTabs = 2
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.isNavigationBarHidden = true
     self.view.backgroundColor = UIColor(netHex: 0x364756)
     setUpTabs()
     setUpViewPager()
@@ -22,6 +25,8 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
   func setUpTabs(){
     for _ in 1...numberOfTabs {
       let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//      let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Nav") as! UINavigationController
+     
       tabs.append(vc)
     }
   }

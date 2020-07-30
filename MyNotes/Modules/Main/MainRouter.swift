@@ -11,12 +11,13 @@ import UIKit
 
 class MainRouter: PresenterToRouterProtocol {
  
+  var index = 0
+  weak var paging: PagingViewController?
+  
   
   func created(with index: Int){
-   let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
-//    vc.index = index
-    viewController.present(vc, animated:true , completion: nil)
-    
+//let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! NoteViewController
+    viewController.performSegue(withIdentifier: "goToDetail", sender: nil)
   }
   
   weak var viewController: ViewController!
@@ -24,22 +25,12 @@ class MainRouter: PresenterToRouterProtocol {
   init(viewController: ViewController) {
       self.viewController = viewController
   }
-  
-//  func prepare(for segue: UIStoryboardSegue, data: Result){
-//    let destinationVC = segue.destination as! NoteViewController
-//    NoteRouter.createNoteModule(with: data, destination: destinationVC)
-//  }
-  
 
+  func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      guard segue.identifier == "showSecond" else { return }
+      guard let destination = segue.destination as? NoteViewController else { return }
+      destination.id = index
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      let destinationVC = segue.destination as! DetailViewController
-//      
-//      if let indexPath = tableView.indexPathForSelectedRow {
-//        destinationVC.item = dataToUI[indexPath.row]
-//      }
-//
-//
-//}
+  }
 }
 

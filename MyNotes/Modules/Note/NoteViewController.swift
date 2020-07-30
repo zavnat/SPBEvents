@@ -10,6 +10,7 @@ import UIKit
 
 class NoteViewController: UIViewController {
   
+  var id: Int?
   var place: Result? = nil
   
   @IBOutlet weak var textField: UITextView!

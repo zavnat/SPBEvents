@@ -11,7 +11,7 @@ import Kingfisher
 
 
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-  
+ 
   var presenter: ViewToPresenterProtocol?
   var configurator: MainConfiguratorProtocol = MainConfigurator()
   
@@ -20,6 +20,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
   override func viewDidLoad() {
     super.viewDidLoad()
     
+   
     collectionView.delegate = self
     collectionView.dataSource = self
     
@@ -37,7 +38,23 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     cell.label.text = places[indexPath.row].title
     cell.image.kf.setImage(with: places[indexPath.row].image)
     
+    
     return cell
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    print(indexPath)
+//    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//    let navigationController = storyBoard.instantiateViewController(withIdentifier: "YourNavControllerIdentifier") as! UINavigationController
+//
+//    let viewController = storyBoard.instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
+//    navigationController.pushViewController(viewController, animated: true)
+//
+//    self.present(navigationController, animated: true, completion: nil)
+//   performSegue(withIdentifier: "goToDetail", sender: self)
+//    performSegue(withIdentifier: "goToDetail", sender: self)
+    presenter?.cellSelected(places [indexPath.row].id)
+    
   }
   
   
@@ -66,9 +83,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 //    presenter?.cellSelected(places [indexPath.row].id)
 ////    performSegue(withIdentifier: "goToDetail", sender: self)
 //  }
-  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print(indexPath)
-  }
+  
   
 }
 

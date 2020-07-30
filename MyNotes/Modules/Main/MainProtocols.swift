@@ -44,3 +44,4 @@ protocol PresenterToRouterProtocol: class {
 protocol MainConfiguratorProtocol: class {
     func configure(with viewController: ViewController)
 }
+

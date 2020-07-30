@@ -8,8 +8,10 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 class MainInteractor: PresenterToInteractorProtocol {
+  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   
   var presenter: InteractorToPresenterProtocol?
   var fetchingMore = false
@@ -56,4 +58,18 @@ class MainInteractor: PresenterToInteractorProtocol {
         }
       }
     }
+  
+  
+  func saveDataToDatabase(with text: String, date: String, type: String, comment: String){
+    let note = Note(context: context)
+    note.id
+    
+    
+    
+    do{
+      try  context.save()
+    }catch{
+      
+    }
+  }
 }
