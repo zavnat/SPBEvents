@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Data.swift">
+   </FileRef>
+   <FileRef
       location = "group:MyNotes.xcodeproj">
    </FileRef>
    <FileRef

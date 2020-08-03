@@ -11,6 +11,7 @@
 		843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86224D04A18005F70EE /* PagingViewController.swift */; };
 		843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */; };
 		843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86624D04AAF005F70EE /* WormTabStripButton.swift */; };
+		843AC86D24D839C0005F70EE /* DataServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86C24D839C0005F70EE /* DataServise.swift */; };
 		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
 		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
 		843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64524AA1B210095ED53 /* DetailModel.swift */; };
@@ -40,6 +41,7 @@
 		843AC86224D04A18005F70EE /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripDelegate.swift; sourceTree = "<group>"; };
 		843AC86624D04AAF005F70EE /* WormTabStripButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripButton.swift; sourceTree = "<group>"; };
+		843AC86C24D839C0005F70EE /* DataServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServise.swift; sourceTree = "<group>"; };
 		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		843CE64524AA1B210095ED53 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
@@ -180,17 +182,10 @@
 		84BFE09A24A652DC0018F925 /* Data Store */ = {
 			isa = PBXGroup;
 			children = (
-				84BFE09B24A6533B0018F925 /* Entities */,
+				843AC86C24D839C0005F70EE /* DataServise.swift */,
 				84BFE08524A61DA50018F925 /* MyNotes.xcdatamodeld */,
 			);
 			path = "Data Store";
-			sourceTree = "<group>";
-		};
-		84BFE09B24A6533B0018F925 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		84BFE09E24A65B400018F925 /* Note */ = {
@@ -333,6 +328,7 @@
 				84BFE0AC24A65D400018F925 /* NoteProtocols.swift in Sources */,
 				84BFE0A624A65CB00018F925 /* NotePresenter.swift in Sources */,
 				84BFE0AE24A65D5E0018F925 /* MainProtocols.swift in Sources */,
+				843AC86D24D839C0005F70EE /* DataServise.swift in Sources */,
 				84BFE08124A61DA50018F925 /* ViewController.swift in Sources */,
 				843AC7E724C9C5C2005F70EE /* PublishCollectionCell.swift in Sources */,
 				843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */,
