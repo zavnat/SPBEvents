@@ -26,12 +26,7 @@ class DataServise {
 
       notesList.append(note)
     }
-    
-//    let note = Note(context: context)
-//    note.id = id
-//    note.title = title
-//    note.image = image
-//    note.favorite = favorite
+
     
     do{
       try  context.save()
@@ -41,25 +36,25 @@ class DataServise {
     }
   }
   
-  func fetchFavoritesData () {
-    let type = true
-    let request: NSFetchRequest<Note> = Note.fetchRequest()
-    request.predicate = NSPredicate(format: "favorite = %@", type)
-//          let sort = NSSortDescriptor(key: "name", ascending: false)
-      //    request.sortDescriptors = [sort]
-      do{
-        let data = try context.fetch(request)
-        print("Success load data from database")
-        //      completion(data)
-        
-      }catch {
-        print("Error context fetch data")
-      }
-    }
+//  func fetchFavoritesData () {
+//    let type = true
+//    let request: NSFetchRequest<Note> = Note.fetchRequest()
+//    request.predicate = NSPredicate(format: "favorite = %@", type)
+////          let sort = NSSortDescriptor(key: "name", ascending: false)
+//      //    request.sortDescriptors = [sort]
+//      do{
+//        let data = try context.fetch(request)
+//        print("Success load data from database")
+////              completion(data)
+//        
+//      }catch {
+//        print("Error context fetch data")
+//      }
+//    }
   
   
   
-  func fetchData (completion: @escaping ([Note]) -> ()) {
+  func loadDataFromDatabase (completion: @escaping ([Note]) -> ()) {
     let request: NSFetchRequest<Note> = Note.fetchRequest()
     //    let sort = NSSortDescriptor(key: "name", ascending: false)
     //    request.sortDescriptors = [sort]
@@ -71,6 +66,22 @@ class DataServise {
     }catch {
       print("Error context fetch data")
     }
+  }
+  
+  
+  func deleteAllRecords() {
+     
+      let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+      let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+
+      do {
+        print("Delete all items from database")
+          try context.execute(deleteRequest)
+          try context.save()
+        
+      } catch {
+          print ("There was an error")
+      }
   }
 }
 

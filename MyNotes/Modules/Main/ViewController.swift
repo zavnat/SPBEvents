@@ -26,6 +26,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     print("view did load")
     configurator.configure(with: self)
+//    presenter?.load()
     presenter?.startFetchingPlaces()
   }
   
@@ -89,7 +90,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
 extension ViewController: PresenterToViewProtocol {
   func showPlaces(placesArray: [ViewModel]) {
-    self.places += placesArray
+    self.places = placesArray
     DispatchQueue.main.async {
       self.collectionView.reloadData()
     }

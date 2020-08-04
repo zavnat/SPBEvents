@@ -25,19 +25,26 @@ class MainPresenter: ViewToPresenterProtocol {
   
   func startFetchingPlaces() {
     print("start fetch from presenter")
-    interactor?.fetchData()
+    interactor?.getData()
   }
   
   func cellSelected(_ index : Int) {
     router?.created(with: index)
   }
   
+//  func load(){
+//    interactor?.load()
+//  }
   
+//  func fetchFromDatabaseSuccess(_ items: [Note] ){
+//    let items = items.map { ViewModel(database: $0) }
+//    view?.showPlaces(placesArray: items)
+//  }
 }
 
 
 extension MainPresenter: InteractorToPresenterProtocol{
-    func dataFetchedSuccess(with data: [Result]) {
+    func dataFetchedSuccess(with data: [Note]) {
       print("data fetch success")
       let items = data.map { ViewModel(item: $0) }
       view?.showPlaces(placesArray: items)
@@ -46,7 +53,7 @@ extension MainPresenter: InteractorToPresenterProtocol{
     func noticeFetchFailed() {
       view?.showError()
     }
-
+  
 }
 
 struct ViewModel {
@@ -55,10 +62,10 @@ struct ViewModel {
   let image: URL?
 }
 extension ViewModel {
-init(item: Result) {
-  self.id = item.id
-  self.title = item.title
-  self.image = URL(string: item.images[0].image)
+  init(item: Note) {
+    self.id = Int(item.id!)!
+    self.title = item.title!
+    self.image = URL(string: item.image!)
   }
 }
 

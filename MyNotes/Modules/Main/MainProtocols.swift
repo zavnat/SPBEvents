@@ -10,14 +10,16 @@ import Foundation
 import UIKit
 
 protocol InteractorToPresenterProtocol: class {
-  func dataFetchedSuccess(with data: [Result])
+  func dataFetchedSuccess(with data: [Note])
   func noticeFetchFailed()
+//  func fetchFromDatabaseSuccess(_ items: [Note])
 }
 
 protocol PresenterToInteractorProtocol: class {
   var presenter:InteractorToPresenterProtocol? {get set}
-  func fetchData()
+//  func fetchData()
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
+  func getData()
 }
 
 protocol PresenterToViewProtocol: class {
@@ -33,6 +35,7 @@ protocol ViewToPresenterProtocol: class {
   func startFetchingPlaces()
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func cellSelected(_ index: Int)
+//  func load()
 
 }
 
