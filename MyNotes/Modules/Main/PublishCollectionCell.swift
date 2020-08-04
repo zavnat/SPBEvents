@@ -18,6 +18,6 @@ class PublishCollectionCell: UICollectionViewCell {
   
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     print("Button  Clicked")
-    favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//    favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
   }
 }

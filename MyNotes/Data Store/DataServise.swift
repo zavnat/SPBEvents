@@ -23,6 +23,7 @@ class DataServise {
       note.title = item.title
       note.favorite = false
       note.image = item.images[0].image
+      note.favorite = false
 
       notesList.append(note)
     }

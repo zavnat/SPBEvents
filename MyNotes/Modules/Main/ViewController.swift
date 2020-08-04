@@ -26,7 +26,6 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     print("view did load")
     configurator.configure(with: self)
-//    presenter?.load()
     presenter?.startFetchingPlaces()
   }
   
@@ -38,31 +37,14 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PublishCollectionCell
     cell.label.text = places[indexPath.row].title
     cell.image.kf.setImage(with: places[indexPath.row].image)
-    
-//    cell.favorites.addTarget(self, action: #selector(editButtonTapped), for: UIControl.Event.touchUpInside)
-   
-//    cell.favorites.addTarget(self, action: #selector(editGroupAction(sender:)), for: .touchUpInside)
-    
+ 
     return cell
   }
-  
-//  @objc func editGroupAction(sender: UIButton) {
-//      print("Button  Clicked")
-//    sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//  }
+
 
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print(indexPath)
-//    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//    let navigationController = storyBoard.instantiateViewController(withIdentifier: "YourNavControllerIdentifier") as! UINavigationController
-//
-//    let viewController = storyBoard.instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
-//    navigationController.pushViewController(viewController, animated: true)
-//
-//    self.present(navigationController, animated: true, completion: nil)
-//   performSegue(withIdentifier: "goToDetail", sender: self)
-//    performSegue(withIdentifier: "goToDetail", sender: self)
     presenter?.cellSelected(places [indexPath.row].id)
     
   }
@@ -87,14 +69,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let frameHeight = scrollView.frame.height
     presenter?.didScroll(offsrtY: offsetY, contentHeight: contentHeight, frameHeight: frameHeight)
   }
-  
-//  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    print("You tapped cell number \(indexPath.row).")
-//    presenter?.cellSelected(places [indexPath.row].id)
-////    performSegue(withIdentifier: "goToDetail", sender: self)
-//  }
-  
-  
+
 }
 
 extension ViewController: PresenterToViewProtocol {
