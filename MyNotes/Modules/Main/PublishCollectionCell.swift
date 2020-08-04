@@ -14,4 +14,10 @@ class PublishCollectionCell: UICollectionViewCell {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var image: UIImageView!
   
+  
+  
+  @IBAction func favoritesButtonTapped(_ sender: UIButton) {
+    print("Button  Clicked")
+    favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+  }
 }

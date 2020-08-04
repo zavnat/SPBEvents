@@ -39,9 +39,18 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     cell.label.text = places[indexPath.row].title
     cell.image.kf.setImage(with: places[indexPath.row].image)
     
+//    cell.favorites.addTarget(self, action: #selector(editButtonTapped), for: UIControl.Event.touchUpInside)
+   
+//    cell.favorites.addTarget(self, action: #selector(editGroupAction(sender:)), for: .touchUpInside)
     
     return cell
   }
+  
+//  @objc func editGroupAction(sender: UIButton) {
+//      print("Button  Clicked")
+//    sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//  }
+
   
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     print(indexPath)

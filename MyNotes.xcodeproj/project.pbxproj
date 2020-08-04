@@ -16,6 +16,8 @@
 		843AC87224D9A7F7005F70EE /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87124D9A7F7005F70EE /* FavoritePresenter.swift */; };
 		843AC87424D9A80D005F70EE /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87324D9A80D005F70EE /* FavoriteInteractor.swift */; };
 		843AC87624D9A83C005F70EE /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87524D9A83C005F70EE /* FavoriteRouter.swift */; };
+		843AC87824D9A92E005F70EE /* FavoriteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87724D9A92E005F70EE /* FavoriteProtocols.swift */; };
+		843AC87A24D9A976005F70EE /* FavoriteConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87924D9A976005F70EE /* FavoriteConfigurator.swift */; };
 		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
 		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
 		843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64524AA1B210095ED53 /* DetailModel.swift */; };
@@ -50,6 +52,8 @@
 		843AC87124D9A7F7005F70EE /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		843AC87324D9A80D005F70EE /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		843AC87524D9A83C005F70EE /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		843AC87724D9A92E005F70EE /* FavoriteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProtocols.swift; sourceTree = "<group>"; };
+		843AC87924D9A976005F70EE /* FavoriteConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteConfigurator.swift; sourceTree = "<group>"; };
 		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		843CE64524AA1B210095ED53 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
@@ -108,10 +112,12 @@
 		843AC86E24D9A79B005F70EE /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				843AC87724D9A92E005F70EE /* FavoriteProtocols.swift */,
 				843AC86F24D9A7CF005F70EE /* FavoriteViewController.swift */,
 				843AC87124D9A7F7005F70EE /* FavoritePresenter.swift */,
 				843AC87324D9A80D005F70EE /* FavoriteInteractor.swift */,
 				843AC87524D9A83C005F70EE /* FavoriteRouter.swift */,
+				843AC87924D9A976005F70EE /* FavoriteConfigurator.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -354,11 +360,13 @@
 				843AC7E724C9C5C2005F70EE /* PublishCollectionCell.swift in Sources */,
 				843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */,
 				84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */,
+				843AC87A24D9A976005F70EE /* FavoriteConfigurator.swift in Sources */,
 				843CE64424A8C6380095ED53 /* DataModel.swift in Sources */,
 				84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */,
 				843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */,
 				84BFE09424A623FD0018F925 /* NoteViewController.swift in Sources */,
 				843AC87424D9A80D005F70EE /* FavoriteInteractor.swift in Sources */,
+				843AC87824D9A92E005F70EE /* FavoriteProtocols.swift in Sources */,
 				84BFE0A024A65C200018F925 /* MainPresenter.swift in Sources */,
 				843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */,
 				84BFE08724A61DA50018F925 /* MyNotes.xcdatamodeld in Sources */,
