@@ -11,12 +11,13 @@ import UIKit
 
 class MainRouter: PresenterToRouterProtocol {
  
-  var index = 0
-  weak var paging: PagingViewController?
+//  var index = 0
+//  weak var paging: PagingViewController?
   
   
   func created(with index: Int){
 //let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! NoteViewController
+//    self.index = index
     viewController.performSegue(withIdentifier: "goToDetail", sender: nil)
   }
   
@@ -26,11 +27,12 @@ class MainRouter: PresenterToRouterProtocol {
       self.viewController = viewController
   }
 
-  func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      guard segue.identifier == "showSecond" else { return }
-      guard let destination = segue.destination as? NoteViewController else { return }
-      destination.id = index
-
-  }
+//  func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    print("Prepare")
+//      guard segue.identifier == "showSecond" else { return }
+//      guard let destination = segue.destination as? NoteViewController else { return }
+////      destination.id = index
+//
+//  }
 }
 

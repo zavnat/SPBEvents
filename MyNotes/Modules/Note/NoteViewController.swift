@@ -11,12 +11,12 @@ import UIKit
 class NoteViewController: UIViewController {
   
   var id: Int?
-  var place: Result? = nil
   
-  @IBOutlet weak var textField: UITextView!
+  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var text: UITextView!
   override func viewDidLoad() {
     super.viewDidLoad()
-//    textField.text = place?.title
+    
   }
   
   

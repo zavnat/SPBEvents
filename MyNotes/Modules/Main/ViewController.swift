@@ -92,13 +92,24 @@ extension ViewController: PublishCellDelegate {
   func likePressed(cell: UICollectionViewCell) {
     guard let indexPath = collectionView.indexPath(for: cell) else {return}
     let item = places[indexPath.row]
-//    let hasFavorite = item.favorite
-//    places[indexPath.row].favorite = !hasFavorite
-//    collectionView.reloadItems(at: [indexPath])
-//    print(item.favorite)
-//    print(item.title)
+    let hasFavorite = item.favorite
+    places[indexPath.row].favorite = !hasFavorite
+    collectionView.reloadItems(at: [indexPath])
+    print(item.favorite)
+    print(item.title)
     
     presenter?.likedButtonTapped(with: item.id)
+  }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print("Prepare")
+      guard segue.identifier == "goToDetail" else { return }
+      guard let destination = segue.destination as? NoteViewController else { return }
+    
+    if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+      destination.id = places[indexPath.row].id
+       }
+     
+
   }
 }
 
