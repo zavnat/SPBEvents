@@ -60,12 +60,14 @@ struct ViewModel {
   let id: Int
   let title: String
   let image: URL?
+  var favorite: Bool
 }
 extension ViewModel {
   init(item: Note) {
     self.id = Int(item.id!)!
     self.title = item.title!
     self.image = URL(string: item.image!)
+    self.favorite = item.favorite
   }
 }
 

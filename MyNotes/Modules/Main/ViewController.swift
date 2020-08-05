@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 
-class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, PublishCellDelegate {
  
   var presenter: ViewToPresenterProtocol?
   var configurator: MainConfiguratorProtocol = MainConfigurator()
@@ -35,9 +35,16 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PublishCollectionCell
+    cell.cellDelegate = self
     cell.label.text = places[indexPath.row].title
     cell.image.kf.setImage(with: places[indexPath.row].image)
- 
+//    cell.inputAccessoryView?.tintColor = places[indexPath.row].favorite ? UIColor.red : .lightGray
+    if places[indexPath.row].favorite {
+      cell.favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    }else {
+      cell.favorites.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
+    
     return cell
   }
 
@@ -69,6 +76,17 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let frameHeight = scrollView.frame.height
     presenter?.didScroll(offsrtY: offsetY, contentHeight: contentHeight, frameHeight: frameHeight)
   }
+  
+  func likePressed(cell: UICollectionViewCell) {
+    let indexPath = collectionView.indexPath(for: cell)
+    let item = places[indexPath!.row]
+    
+    let hasFavorite = item.favorite
+    places[indexPath!.row].favorite = !hasFavorite
+    collectionView.reloadItems(at: [indexPath!])
+    print(item.favorite)
+    print(item.title)
+   }
 
 }
 

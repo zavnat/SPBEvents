@@ -12,12 +12,6 @@
 		843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */; };
 		843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86624D04AAF005F70EE /* WormTabStripButton.swift */; };
 		843AC86D24D839C0005F70EE /* DataServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86C24D839C0005F70EE /* DataServise.swift */; };
-		843AC87024D9A7CF005F70EE /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86F24D9A7CF005F70EE /* FavoriteViewController.swift */; };
-		843AC87224D9A7F7005F70EE /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87124D9A7F7005F70EE /* FavoritePresenter.swift */; };
-		843AC87424D9A80D005F70EE /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87324D9A80D005F70EE /* FavoriteInteractor.swift */; };
-		843AC87624D9A83C005F70EE /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87524D9A83C005F70EE /* FavoriteRouter.swift */; };
-		843AC87824D9A92E005F70EE /* FavoriteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87724D9A92E005F70EE /* FavoriteProtocols.swift */; };
-		843AC87A24D9A976005F70EE /* FavoriteConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC87924D9A976005F70EE /* FavoriteConfigurator.swift */; };
 		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
 		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
 		843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64524AA1B210095ED53 /* DetailModel.swift */; };
@@ -48,12 +42,6 @@
 		843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripDelegate.swift; sourceTree = "<group>"; };
 		843AC86624D04AAF005F70EE /* WormTabStripButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripButton.swift; sourceTree = "<group>"; };
 		843AC86C24D839C0005F70EE /* DataServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServise.swift; sourceTree = "<group>"; };
-		843AC86F24D9A7CF005F70EE /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		843AC87124D9A7F7005F70EE /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
-		843AC87324D9A80D005F70EE /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
-		843AC87524D9A83C005F70EE /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
-		843AC87724D9A92E005F70EE /* FavoriteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProtocols.swift; sourceTree = "<group>"; };
-		843AC87924D9A976005F70EE /* FavoriteConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteConfigurator.swift; sourceTree = "<group>"; };
 		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		843CE64524AA1B210095ED53 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
@@ -107,19 +95,6 @@
 				843AC86624D04AAF005F70EE /* WormTabStripButton.swift */,
 			);
 			path = Paging;
-			sourceTree = "<group>";
-		};
-		843AC86E24D9A79B005F70EE /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				843AC87724D9A92E005F70EE /* FavoriteProtocols.swift */,
-				843AC86F24D9A7CF005F70EE /* FavoriteViewController.swift */,
-				843AC87124D9A7F7005F70EE /* FavoritePresenter.swift */,
-				843AC87324D9A80D005F70EE /* FavoriteInteractor.swift */,
-				843AC87524D9A83C005F70EE /* FavoriteRouter.swift */,
-				843AC87924D9A976005F70EE /* FavoriteConfigurator.swift */,
-			);
-			path = Favorites;
 			sourceTree = "<group>";
 		};
 		84BFE07024A61DA50018F925 = {
@@ -182,7 +157,6 @@
 		84BFE09824A64EA60018F925 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				843AC86E24D9A79B005F70EE /* Favorites */,
 				843AC86124D049A9005F70EE /* Paging */,
 				84BFE09924A64ED30018F925 /* Main */,
 				84BFE09E24A65B400018F925 /* Note */,
@@ -350,7 +324,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				843AC87024D9A7CF005F70EE /* FavoriteViewController.swift in Sources */,
 				843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */,
 				84BFE0AC24A65D400018F925 /* NoteProtocols.swift in Sources */,
 				84BFE0A624A65CB00018F925 /* NotePresenter.swift in Sources */,
@@ -360,23 +333,18 @@
 				843AC7E724C9C5C2005F70EE /* PublishCollectionCell.swift in Sources */,
 				843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */,
 				84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */,
-				843AC87A24D9A976005F70EE /* FavoriteConfigurator.swift in Sources */,
 				843CE64424A8C6380095ED53 /* DataModel.swift in Sources */,
 				84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */,
 				843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */,
 				84BFE09424A623FD0018F925 /* NoteViewController.swift in Sources */,
-				843AC87424D9A80D005F70EE /* FavoriteInteractor.swift in Sources */,
-				843AC87824D9A92E005F70EE /* FavoriteProtocols.swift in Sources */,
 				84BFE0A024A65C200018F925 /* MainPresenter.swift in Sources */,
 				843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */,
 				84BFE08724A61DA50018F925 /* MyNotes.xcdatamodeld in Sources */,
 				84BFE0A224A65C3C0018F925 /* MainInteractor.swift in Sources */,
 				84BFE0A424A65C900018F925 /* MainRouter.swift in Sources */,
-				843AC87624D9A83C005F70EE /* FavoriteRouter.swift in Sources */,
 				84BFE0AA24A65D0D0018F925 /* NoteRouter.swift in Sources */,
 				84BFE0A824A65CC30018F925 /* NoteInteractor.swift in Sources */,
 				843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */,
-				843AC87224D9A7F7005F70EE /* FavoritePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

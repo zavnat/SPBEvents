@@ -8,7 +8,14 @@
 
 import UIKit
 
+
+protocol PublishCellDelegate {
+  func likePressed(cell: UICollectionViewCell)
+}
+
 class PublishCollectionCell: UICollectionViewCell {
+  
+  var cellDelegate: PublishCellDelegate?
  
   @IBOutlet weak var favorites: UIButton!
   @IBOutlet weak var label: UILabel!
@@ -18,6 +25,7 @@ class PublishCollectionCell: UICollectionViewCell {
   
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     print("Button  Clicked")
+    cellDelegate?.likePressed(cell: self)
 //    favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
   }
 }
