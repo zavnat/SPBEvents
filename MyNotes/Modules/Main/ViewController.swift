@@ -30,7 +30,6 @@ class ViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PublishCollectionCell
-    
     cell.cellDelegate = self
     cell.label.text = places[indexPath.row].title
     cell.image.kf.setImage(with: places[indexPath.row].image)
@@ -88,16 +87,18 @@ extension ViewController: PresenterToViewProtocol {
   }
 }
 
-//MARK: - CellDelegate Methods
+//MARK: - PublishCellDelegate Methods
 extension ViewController: PublishCellDelegate {
   func likePressed(cell: UICollectionViewCell) {
     guard let indexPath = collectionView.indexPath(for: cell) else {return}
     let item = places[indexPath.row]
-    let hasFavorite = item.favorite
-    places[indexPath.row].favorite = !hasFavorite
-    collectionView.reloadItems(at: [indexPath])
-    print(item.favorite)
-    print(item.title)
+//    let hasFavorite = item.favorite
+//    places[indexPath.row].favorite = !hasFavorite
+//    collectionView.reloadItems(at: [indexPath])
+//    print(item.favorite)
+//    print(item.title)
+    
+    presenter?.likedButtonTapped(with: item.id)
   }
 }
 

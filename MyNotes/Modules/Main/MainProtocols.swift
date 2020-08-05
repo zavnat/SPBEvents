@@ -20,6 +20,8 @@ protocol PresenterToInteractorProtocol: class {
 //  func fetchData()
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData()
+  
+  func likeButton(with stringId: String)
 }
 
 protocol PresenterToViewProtocol: class {
@@ -36,6 +38,7 @@ protocol ViewToPresenterProtocol: class {
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func cellSelected(_ index: Int)
 //  func load()
+  func likedButtonTapped(with id: Int)
 
 }
 

@@ -40,6 +40,10 @@ class MainPresenter: ViewToPresenterProtocol {
 //    let items = items.map { ViewModel(database: $0) }
 //    view?.showPlaces(placesArray: items)
 //  }
+  
+  func likedButtonTapped(with id: Int) {
+    interactor?.likeButton(with: String(id))
+  }
 }
 
 

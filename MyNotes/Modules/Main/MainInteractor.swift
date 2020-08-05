@@ -81,4 +81,8 @@ class MainInteractor: PresenterToInteractorProtocol {
   //      self.presenter?.fetchFromDatabaseSuccess(items)
   //    }
   //  }
+  
+  func likeButton(with stringId: String){
+    dataServise.updateData(id: stringId)
+  }
 }

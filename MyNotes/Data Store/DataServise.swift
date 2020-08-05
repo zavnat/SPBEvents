@@ -84,5 +84,44 @@ class DataServise {
           print ("There was an error")
       }
   }
+  
+  func updateData(id: String){
+    let request : NSFetchRequest<Note> = Note.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
+    do{
+      let data = try context.fetch(request)
+      
+      print("")
+      print("Success load data from database")
+      print(data[0].favorite)
+      
+      data[0].favorite = !data[0].favorite
+      
+      do{
+        try  context.save()
+        print("Success save data to database")
+//
+//
+//        let request : NSFetchRequest<Note> = Note.fetchRequest()
+//        request.predicate = NSPredicate(format: "id = %@", id)
+//        do{
+//          let data = try context.fetch(request)
+//
+//          print("")
+//          print("Success load data from database")
+//          print(data[0].title ?? "")
+//          print(data[0].favorite)
+//
+//        }catch{
+//          
+//        }
+        
+      }catch{
+        print("Error save data from context")
+      }
+    }catch {
+      print("Error context fetch data")
+    }
+  }
 }
 
