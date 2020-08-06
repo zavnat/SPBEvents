@@ -8,15 +8,20 @@
 
 import UIKit
 
-class NoteViewController: UIViewController {
+class NoteViewController: UIViewController, NotePresenterToViewProtocol {
   
   var id: Int?
   
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var text: UITextView!
+  
+  var presenter: NoteViewToPresenterProtocol?
+  var configurator: NoteConfiguratorProtocol = NoteConfigurator()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    configurator.configure(with: self)
+    presenter?.startFetchingPlaces()
   }
   
   

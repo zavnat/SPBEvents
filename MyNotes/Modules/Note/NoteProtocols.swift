@@ -7,39 +7,47 @@
 //
 
 import Foundation
+import UIKit
 
-protocol ViewToPresenterMovieProtocol:class{
-    
-//    var view: PresenterToViewMovieProtocol? {get set}
-//    var interactor: PresenterToInteractorMovieProtocol? {get set}
-//    var router: PresenterToRouterMovieProtocol? {get set}
-//    func startFetchingMovie()
+protocol NoteInteractorToPresenterProtocol: class {
+//  func dataFetchedSuccess(with data: [Note])
+//  func noticeFetchFailed()
+//  func fetchFromDatabaseSuccess(_ items: [Note])
+}
+
+protocol NotePresenterToInteractorProtocol: class {
+  var presenter: NoteInteractorToPresenterProtocol? {get set}
+////  func fetchData()
+//  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
+  func getData()
+//
+//  func likeButton(with stringId: String)
+}
+
+protocol NotePresenterToViewProtocol: class {
+//  func showPlaces(placesArray: [ViewModel])
+//  func showError()
+}
+
+protocol NoteViewToPresenterProtocol: class {
+  
+  var view: NotePresenterToViewProtocol? {get set}
+  var interactor: NotePresenterToInteractorProtocol? {get set}
+  var router: NotePresenterToRouterProtocol? {get set}
+  func startFetchingPlaces()
+//  func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
+//  func cellSelected(_ index: Int)
+////  func load()
+//  func likedButtonTapped(with id: Int)
 
 }
 
-protocol PresenterToViewMovieProtocol:class {
-    
-//    func onMovieResponseSuccess(movieModelArrayList:Array<MovieModel>)
-//    func onMovieResponseFailed(error:String)
-    
+protocol NotePresenterToRouterProtocol: class {
+////  func prepare(for segue: UIStoryboardSegue, data: Result)
+//  func created(with index: Int)
 }
 
-protocol PresenterToRouterMovieProtocol:class {
-    
-//    static func createMovieModule()->MovieViewController
-
+protocol NoteConfiguratorProtocol: class {
+    func configure(with viewController: NoteViewController)
 }
 
-protocol PresenterToInteractorMovieProtocol:class {
-    
-//    var presenter:InteractorToPresenterMovieProtocol? {get set}
-//    func fetchMovie()
-    
-}
-
-protocol InteractorToPresenterMovieProtocol:class {
-    
-//    func movieFetchSuccess(movieList:Array<MovieModel>)
-//    func movieFetchFailed()
-//    
-}

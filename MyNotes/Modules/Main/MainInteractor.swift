@@ -39,8 +39,7 @@ class MainInteractor: PresenterToInteractorProtocol {
     }
   }
   
-  func fetchData() {
-    
+  private func fetchData() {
     
     fetchingMore = true
     print("fetch data")

@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import UIKit
+
+class NotePresenter: NoteViewToPresenterProtocol, NoteInteractorToPresenterProtocol {
+  
+  var view: NotePresenterToViewProtocol?
+  
+  var interactor: NotePresenterToInteractorProtocol?
+  
+  var router: NotePresenterToRouterProtocol?
+  
+  
+  
+  func startFetchingPlaces() {
+    print("start fetch from presenter")
+    interactor?.getData()
+  }
+}
