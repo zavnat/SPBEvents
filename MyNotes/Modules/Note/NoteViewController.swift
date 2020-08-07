@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NoteViewController: UIViewController, NotePresenterToViewProtocol {
   
@@ -15,6 +16,8 @@ class NoteViewController: UIViewController, NotePresenterToViewProtocol {
   var id: Int?
   var dataToUI: DetailUIModel?
   
+
+  @IBOutlet weak var image: UIImageView!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var text: UITextView!
   
@@ -28,9 +31,14 @@ class NoteViewController: UIViewController, NotePresenterToViewProtocol {
   
   func showDetail(place: DetailUIModel) {
     dataToUI = place
+    print(dataToUI!)
+   
     DispatchQueue.main.async {
       self.label.text = self.dataToUI?.title
+      self.image.kf.setImage(with: self.dataToUI?.image!)
+//      self.label.text = self.dataToUI?.title
       self.text.text = self.dataToUI?.bodyText
+      
     }
   }
 }
