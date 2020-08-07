@@ -14,30 +14,23 @@ class NoteInteractor: NotePresenterToInteractorProtocol {
   var dataServise = DataServise()
   var presenter: NoteInteractorToPresenterProtocol?
   
-  func getData() {
-    fetchPlaceDetail()
+  func getData(_ id: String) {
+    fetchPlaceDetail(id)
   }
   
-  private func fetchPlaceDetail() {
-    print("fetch data")
-    let detailURL = "https://kudago.com/public-api/v2.0/places"
+  private func fetchPlaceDetail(_ id: String) {
+    print("fetch detail data")
+    let detailURL = "https://kudago.com/public-api/v2.0/places/\(id)"
     
-    let parameters : [String : String] = [
-      "id" : "\(12271)"
-    ]
-    
-    Alamofire.request(detailURL, method: .get, parameters: parameters).response { (response) in
+    Alamofire.request(detailURL, method: .get).response { (response) in
       guard let data = response.data else { return }
-      print(data.count)
       let decoder = JSONDecoder()
       do {
-        let item = try decoder.decode(PlaceDetail.self, from: data)
-        //        print(places.subway)
-        //     self.presenter?.dataFetchedSuccess(with: places.results)
+        let item = try decoder.decode(DetailModel.self, from: data)
+        self.presenter?.fetchSuccess(item)
       } catch {
         print(error.localizedDescription)
       }
     }
   }
-  
 }

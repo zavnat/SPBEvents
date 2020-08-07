@@ -8,8 +8,8 @@
 
 import Foundation
 
-// MARK: - Empty
-struct PlaceDetail: Codable {
+// MARK: - DetailModel
+struct DetailModel: Codable {
     let id: Int
     let title, slug, address, timetable: String
     let phone: String
@@ -59,14 +59,14 @@ struct Coords: Codable {
 // MARK: - Image
 struct ImageItem: Codable {
     let image: String
-    let source: Source
+//    let source: Source
 }
 
 // MARK: - Source
-struct Source: Codable {
-    let name: String
-    let link: String
-}
+//struct Source: Codable {
+//    let name: String
+//    let link: String
+//}
 
 // MARK: - Encode/decode helpers
 

@@ -12,20 +12,20 @@ import UIKit
 protocol NoteInteractorToPresenterProtocol: class {
 //  func dataFetchedSuccess(with data: [Note])
 //  func noticeFetchFailed()
-//  func fetchFromDatabaseSuccess(_ items: [Note])
+  func fetchSuccess(_ item: DetailModel)
 }
 
 protocol NotePresenterToInteractorProtocol: class {
   var presenter: NoteInteractorToPresenterProtocol? {get set}
 ////  func fetchData()
 //  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
-  func getData()
+  func getData(_ id: String)
 //
 //  func likeButton(with stringId: String)
 }
 
 protocol NotePresenterToViewProtocol: class {
-//  func showPlaces(placesArray: [ViewModel])
+  func showDetail(place: DetailUIModel)
 //  func showError()
 }
 
@@ -34,7 +34,7 @@ protocol NoteViewToPresenterProtocol: class {
   var view: NotePresenterToViewProtocol? {get set}
   var interactor: NotePresenterToInteractorProtocol? {get set}
   var router: NotePresenterToRouterProtocol? {get set}
-  func startFetchingPlaces()
+  func startFetchingPlaces(with id: Int)
 //  func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
 //  func cellSelected(_ index: Int)
 ////  func load()
