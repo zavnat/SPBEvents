@@ -27,7 +27,7 @@ struct DetailModel: Codable {
     let shortTitle: String
     let tags: [String]
     let location: String
-    let ageRestriction: Int
+//    let ageRestriction: String
     let disableComments, hasParkingLot: Bool
 
     enum CodingKeys: String, CodingKey {
@@ -45,7 +45,7 @@ struct DetailModel: Codable {
         case categories
         case shortTitle = "short_title"
         case tags, location
-        case ageRestriction = "age_restriction"
+//        case ageRestriction = "age_restriction"
         case disableComments = "disable_comments"
         case hasParkingLot = "has_parking_lot"
     }

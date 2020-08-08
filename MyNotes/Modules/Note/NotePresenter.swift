@@ -33,7 +33,7 @@ class NotePresenter: NoteViewToPresenterProtocol, NoteInteractorToPresenterProto
 struct DetailUIModel {
   let title: String
   let image: URL?
-  var favorite: Bool
+//  var favorite: Bool
   let bodyText: String
 }
 
@@ -41,7 +41,7 @@ extension DetailUIModel {
   init(from item: DetailModel) {
     title = item.title
     image = URL(string: item.images[0].image)
-    favorite = false
+//    favorite = false
     bodyText = item.bodyText
   }
 }
