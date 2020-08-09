@@ -137,12 +137,27 @@
                                                     <constraint firstAttribute="height" constant="360" id="PRk-iy-eli"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rc1-0e-sVM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rc1-0e-sVM">
                                                 <rect key="frame" x="10" y="390" width="394" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-nJ-ncC">
+                                                <rect key="frame" x="25" y="100" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="WKn-KP-b8N"/>
+                                                    <constraint firstAttribute="height" constant="30" id="g3k-fZ-qgT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="lessthan.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default" weight="semibold"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="backButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="SEM-AV-aKe"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -150,9 +165,11 @@
                                             <constraint firstAttribute="trailing" secondItem="Lit-Fr-gqh" secondAttribute="trailing" id="CWP-Og-UWz"/>
                                             <constraint firstAttribute="bottom" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="OTY-E8-U3N"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" id="ZJI-Dx-Tf5"/>
+                                            <constraint firstItem="tsf-nJ-ncC" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="top" constant="100" id="cOp-zd-j1Y"/>
                                             <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="30" id="eiW-k3-JQ1"/>
                                             <constraint firstItem="rc1-0e-sVM" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="bottom" constant="30" id="hCH-B7-G8g"/>
                                             <constraint firstItem="x4X-NM-0oo" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="jha-2K-25D"/>
+                                            <constraint firstItem="tsf-nJ-ncC" firstAttribute="leading" secondItem="Lit-Fr-gqh" secondAttribute="leading" constant="25" id="lcK-eo-n7w"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" id="oHY-AH-NhS"/>
                                             <constraint firstItem="rc1-0e-sVM" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="tly-NU-eHw"/>
                                             <constraint firstAttribute="trailing" secondItem="x4X-NM-0oo" secondAttribute="trailing" constant="10" id="yN7-og-ZiN"/>
@@ -250,5 +267,6 @@
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="images-3" width="91.5" height="137.5"/>
+        <image name="lessthan.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

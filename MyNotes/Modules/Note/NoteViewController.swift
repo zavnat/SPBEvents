@@ -15,6 +15,11 @@ class NoteViewController: UIViewController {
   var configurator: NoteConfiguratorProtocol = NoteConfigurator()
   var id: Int?
   
+  @IBAction func backButtonTapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  
   var dataToUI: DetailUIModel?
   
   @IBOutlet weak var spinner: UIActivityIndicatorView!
