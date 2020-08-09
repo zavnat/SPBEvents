@@ -10,29 +10,15 @@ import Foundation
 import UIKit
 
 class MainRouter: PresenterToRouterProtocol {
- 
-//  var index = 0
-//  weak var paging: PagingViewController?
-  
-  
-  func created(with index: Int){
-//let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! NoteViewController
-//    self.index = index
-    viewController.performSegue(withIdentifier: "goToDetail", sender: nil)
-  }
   
   weak var viewController: ViewController!
   
   init(viewController: ViewController) {
-      self.viewController = viewController
+    self.viewController = viewController
   }
-
-//  func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    print("Prepare")
-//      guard segue.identifier == "showSecond" else { return }
-//      guard let destination = segue.destination as? NoteViewController else { return }
-////      destination.id = index
-//
-//  }
+  
+  func created(with index: Int){
+    viewController.performSegue(withIdentifier: "goToDetail", sender: nil)
+  }
 }
 

@@ -10,18 +10,16 @@ import Foundation
 import UIKit
 
 class NoteConfigurator: NoteConfiguratorProtocol {
+  
+  func configure(with controller: NoteViewController) {
+    let presenter: NoteViewToPresenterProtocol & NoteInteractorToPresenterProtocol = NotePresenter()
+    let interactor: NotePresenterToInteractorProtocol = NoteInteractor()
+    let router: NotePresenterToRouterProtocol = NoteRouter()
     
-    func configure(with controller: NoteViewController) {
-      
-      let presenter: NoteViewToPresenterProtocol & NoteInteractorToPresenterProtocol = NotePresenter()
-      let interactor: NotePresenterToInteractorProtocol = NoteInteractor()
-      let router: NotePresenterToRouterProtocol = NoteRouter()
-
-
-      controller.presenter = presenter
-      presenter.view = controller
-      presenter.router = router
-      presenter.interactor = interactor
-      interactor.presenter = presenter
-    }
+    controller.presenter = presenter
+    presenter.view = controller
+    presenter.router = router
+    presenter.interactor = interactor
+    interactor.presenter = presenter
+  }
 }

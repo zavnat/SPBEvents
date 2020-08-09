@@ -23,6 +23,7 @@ struct Result: Codable {
   let images: [Image]
 }
 
+// MARK: - Image
 struct Image: Codable {
   let image: String
   

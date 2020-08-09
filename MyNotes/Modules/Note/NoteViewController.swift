@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class NoteViewController: UIViewController, NotePresenterToViewProtocol {
+class NoteViewController: UIViewController {
   
   var presenter: NoteViewToPresenterProtocol?
   var configurator: NoteConfiguratorProtocol = NoteConfigurator()
@@ -24,31 +24,32 @@ class NoteViewController: UIViewController, NotePresenterToViewProtocol {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(id ?? 0)
+  image.layer.cornerRadius = 30
+  image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     configurator.configure(with: self)
     if let placeID = id {
       presenter?.startFetchingPlaces(with: placeID)
       spinner.startAnimating()
     }
   }
-  
+}
+
+//MARK: - NotePresenterToViewProtocol Methods
+extension NoteViewController: NotePresenterToViewProtocol {
   func showDetail(place: DetailUIModel) {
     dataToUI = place
-    print(dataToUI!)
-   
     let string = self.dataToUI?.bodyText ?? ""
-
+    
     DispatchQueue.main.async {
       self.spinner.stopAnimating()
-      
       self.image.kf.setImage(with: self.dataToUI?.image!)
-      self.label.text = self.dataToUI?.title
+      self.label.text = self.dataToUI?.title.capitalized
       self.text.text = string.withoutHtmlTags
     }
   }
 }
 
-
+//MARK: - Extension String
 extension String {
     var withoutHtmlTags: String {
     return self.replacingOccurrences(of: "<[^>]+>", with: "", options:
@@ -56,3 +57,4 @@ extension String {
     "", options:.regularExpression, range: nil)
     }
 }
+

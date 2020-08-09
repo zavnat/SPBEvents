@@ -10,20 +10,18 @@ import Foundation
 import UIKit
 
 class MainConfigurator: MainConfiguratorProtocol {
+  
+  func configure(with controller: ViewController) {
+    let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = MainPresenter()
+    let interactor: PresenterToInteractorProtocol = MainInteractor()
+    let router: PresenterToRouterProtocol = MainRouter(viewController: controller)
     
-    func configure(with controller: ViewController) {
-      
-      let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = MainPresenter()
-      let interactor: PresenterToInteractorProtocol = MainInteractor()
-      let router: PresenterToRouterProtocol = MainRouter(viewController: controller)
-     
-     
-      controller.presenter = presenter
-      presenter.view = controller
-      presenter.router = router
-      presenter.interactor = interactor
-      interactor.presenter = presenter
-    }
+    controller.presenter = presenter
+    presenter.view = controller
+    presenter.router = router
+    presenter.interactor = interactor
+    interactor.presenter = presenter
+  }
 }
 
 
