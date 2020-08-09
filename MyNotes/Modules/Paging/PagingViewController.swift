@@ -37,13 +37,13 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
     viewPager.delegate = self
     viewPager.eyStyle.wormStyel = .BUBBLE
     viewPager.eyStyle.isWormEnable = true
-    viewPager.eyStyle.topScrollViewBackgroundColor = .white
-    viewPager.eyStyle.contentScrollViewBackgroundColor = .red
+    viewPager.eyStyle.topScrollViewBackgroundColor = UIColor.systemBackground
+//    viewPager.eyStyle.contentScrollViewBackgroundColor = .red
     viewPager.eyStyle.spacingBetweenTabs = 15
-    viewPager.eyStyle.WormColor = .red
-    viewPager.eyStyle.dividerBackgroundColor = .white
-    viewPager.eyStyle.tabItemSelectedColor = .white
-    viewPager.eyStyle.tabItemDefaultColor = .black
+    viewPager.eyStyle.WormColor = .systemOrange
+    viewPager.eyStyle.dividerBackgroundColor = UIColor.systemBackground
+    viewPager.eyStyle.tabItemSelectedColor = UIColor.systemBackground
+//    viewPager.eyStyle.tabItemDefaultColor = UIColor.systemBackground
     viewPager.buildUI()
   }
   

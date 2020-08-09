@@ -67,7 +67,7 @@ public struct WormTabStripStylePropertyies {
   // font size of tabs
   //let kFontSizeOfTabButton:CGFloat = 15
   var tabItemDefaultFont:UIFont = UIFont(name: "arial", size: 14)!
-  var tabItemSelectedFont:UIFont = UIFont(name: "arial", size: 16)!
+  var tabItemSelectedFont:UIFont = UIFont(name: "arial", size: 14)!
   
   /*****
    colors
@@ -79,6 +79,7 @@ public struct WormTabStripStylePropertyies {
   
   //color for worm
   var WormColor:UIColor = UIColor(netHex: 0x1EAAF1)
+//  var WormColor:UIColor = UIColor.white
   
   var topScrollViewBackgroundColor:UIColor = UIColor(netHex: 0x364756)
   

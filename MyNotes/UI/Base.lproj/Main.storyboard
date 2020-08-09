@@ -57,9 +57,8 @@
                                             </constraints>
                                             <blurEffect style="light"/>
                                         </visualEffectView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-aZ-X0a">
-                                            <rect key="frame" x="137" y="8" width="70" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-aZ-X0a">
+                                            <rect key="frame" x="161.5" y="18" width="20.5" height="22"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="heart" catalog="system"/>
                                             <connections>
@@ -67,17 +66,20 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.84313531090000005" green="0.67301382970000001" blue="0.00630413191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="ORx-WQ-Go7" secondAttribute="bottom" id="FnC-us-Ku1"/>
                                         <constraint firstItem="4yf-oZ-O5E" firstAttribute="leading" secondItem="PkS-3j-Azs" secondAttribute="leading" id="HJg-JD-etv"/>
                                         <constraint firstAttribute="trailing" secondItem="4yf-oZ-O5E" secondAttribute="trailing" id="OC1-0I-d0g"/>
+                                        <constraint firstAttribute="trailing" secondItem="NEG-aZ-X0a" secondAttribute="trailing" constant="18" id="PHl-aw-On1"/>
                                         <constraint firstItem="ORx-WQ-Go7" firstAttribute="leading" secondItem="PkS-3j-Azs" secondAttribute="leading" id="QYa-Oz-t1J"/>
+                                        <constraint firstItem="NEG-aZ-X0a" firstAttribute="top" secondItem="PkS-3j-Azs" secondAttribute="top" constant="18" id="X55-iT-P6H"/>
                                         <constraint firstItem="ORx-WQ-Go7" firstAttribute="top" secondItem="PkS-3j-Azs" secondAttribute="top" id="bjY-c9-RiM"/>
                                         <constraint firstAttribute="trailing" secondItem="ORx-WQ-Go7" secondAttribute="trailing" id="lpk-uJ-qZw"/>
                                         <constraint firstAttribute="bottom" secondItem="4yf-oZ-O5E" secondAttribute="bottom" id="rk9-z4-AhM"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <size key="customSize" width="200" height="224"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -127,6 +129,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-NM-0oo">
                                                 <rect key="frame" x="10" y="420" width="394" height="36.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -160,6 +163,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="rc1-0e-sVM" secondAttribute="trailing" constant="10" id="5U4-pX-vhd"/>
                                             <constraint firstAttribute="trailing" secondItem="Lit-Fr-gqh" secondAttribute="trailing" id="CWP-Og-UWz"/>
@@ -176,7 +180,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="aff-V4-V5l" firstAttribute="centerY" secondItem="nqU-yY-JDR" secondAttribute="centerY" id="5UI-dm-nsz"/>
                                     <constraint firstItem="qw6-Kl-MnY" firstAttribute="bottom" secondItem="Azu-Yl-S1Z" secondAttribute="bottom" id="CUj-fZ-xEv"/>
@@ -190,7 +194,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="kfz-tj-x89"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="nqU-yY-JDR" secondAttribute="bottom" id="DnW-t6-Ibq"/>
                             <constraint firstItem="nqU-yY-JDR" firstAttribute="leading" secondItem="j2R-qb-KPV" secondAttribute="leading" id="RmF-3n-wAl"/>
@@ -230,6 +234,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2uS-mq-w45">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bon-CR-HGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wcS-fF-2jh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cFx-xr-BOJ">
@@ -241,7 +246,6 @@
                         <segue destination="A3w-mZ-CsS" kind="relationship" relationship="rootViewController" id="iUt-MB-by0"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bon-CR-HGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5509" y="151"/>
         </scene>
