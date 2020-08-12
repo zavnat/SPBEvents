@@ -12,11 +12,14 @@ import CoreData
 
 class DataServise {
  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-  
-  func saveDataToDatabase(items: [Result]){
+  var selfID = 0
+  func saveDataToDatabase(items: [Result], page: Int){
+    
+    if page == 1 {
+      selfID = 0
+    }
     
     var notesList = [Note]()
-    var selfID = 0
     
     for item in items {
       let note = Note(context: self.context)
@@ -35,7 +38,6 @@ class DataServise {
     
     do{
       try  context.save()
-      selfID = 0
       print("Success save data to database")
     }catch{
       print("Error save data from context")

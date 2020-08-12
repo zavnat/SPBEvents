@@ -58,15 +58,17 @@ class MainInteractor: PresenterToInteractorProtocol {
       do {
         let places = try decoder.decode(Places.self, from: data)
         
-        if places.results.count > 0 {
+        if places.results.count > 0 && self.currentPage == 1 {
           self.dataServise.deleteAllRecords()
         }
         
-        self.currentPage += 1
         self.fetchingMore = false
-      
-        self.dataServise.saveDataToDatabase(items: places.results)
+                print(self.currentPage)
+        
+        self.dataServise.saveDataToDatabase(items: places.results, page: self.currentPage)
         self.loadData()
+        self.currentPage += 1
+        
         
       } catch {
         print(error.localizedDescription)
