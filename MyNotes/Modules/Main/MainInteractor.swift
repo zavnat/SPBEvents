@@ -58,7 +58,7 @@ class MainInteractor: PresenterToInteractorProtocol {
       do {
         let places = try decoder.decode(Places.self, from: data)
         
-        if places.results.count > 0 && self.currentPage == 1 {
+        if places.results.count > 0 {
           self.dataServise.deleteAllRecords()
         }
         

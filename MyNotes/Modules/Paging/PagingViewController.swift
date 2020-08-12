@@ -11,13 +11,13 @@ import UIKit
 
 class PagingViewController: UIViewController,WormTabStripDelegate {
   
-  
   var tabs:[UIViewController] = []
   let numberOfTabs = 2
   override func viewDidLoad() {
+    
+    
     super.viewDidLoad()
     navigationController?.isNavigationBarHidden = true
-    self.view.backgroundColor = UIColor(netHex: 0x364756)
     setUpTabs()
     setUpViewPager()
   }
@@ -42,8 +42,8 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
     viewPager.eyStyle.spacingBetweenTabs = 15
     viewPager.eyStyle.WormColor = .systemOrange
     viewPager.eyStyle.dividerBackgroundColor = UIColor.systemBackground
-    viewPager.eyStyle.tabItemSelectedColor = UIColor.systemBackground
-//    viewPager.eyStyle.tabItemDefaultColor = UIColor.systemBackground
+    viewPager.eyStyle.tabItemSelectedColor = .white
+    viewPager.eyStyle.tabItemDefaultColor = .black
     viewPager.buildUI()
   }
   

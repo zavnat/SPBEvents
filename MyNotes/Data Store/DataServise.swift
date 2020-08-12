@@ -16,14 +16,18 @@ class DataServise {
   func saveDataToDatabase(items: [Result]){
     
     var notesList = [Note]()
+    var selfID = 0
     
     for item in items {
       let note = Note(context: self.context)
       note.id = String(item.id)
+      print(item.id)
       note.title = item.title
       note.favorite = false
       note.image = item.images[0].image
       note.favorite = false
+      selfID += 1
+      note.selfID = Int16(selfID)
 
       notesList.append(note)
     }
@@ -31,6 +35,7 @@ class DataServise {
     
     do{
       try  context.save()
+      selfID = 0
       print("Success save data to database")
     }catch{
       print("Error save data from context")
@@ -57,8 +62,8 @@ class DataServise {
   
   func loadDataFromDatabase (completion: @escaping ([Note]) -> ()) {
     let request: NSFetchRequest<Note> = Note.fetchRequest()
-    //    let sort = NSSortDescriptor(key: "name", ascending: false)
-    //    request.sortDescriptors = [sort]
+        let sort = NSSortDescriptor(key: "selfID", ascending: true)
+        request.sortDescriptors = [sort]
     do{
       let data = try context.fetch(request)
       print("Success load data from database")
