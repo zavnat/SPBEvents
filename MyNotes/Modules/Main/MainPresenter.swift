@@ -11,12 +11,22 @@ import UIKit
 
 class MainPresenter: ViewToPresenterProtocol {
   
-  
   var view: PresenterToViewProtocol?
   
   var interactor: PresenterToInteractorProtocol?
 
   var router: PresenterToRouterProtocol?
+  
+  var myRefreshControl: UIRefreshControl {
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    return refreshControl
+  }
+  
+  @objc private func refresh(sender: UIRefreshControl){
+    interactor?.refresh()
+    sender.endRefreshing()
+  }
   
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
     print("didscroll in presenter")

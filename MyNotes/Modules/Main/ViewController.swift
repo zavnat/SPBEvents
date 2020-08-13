@@ -21,6 +21,7 @@ class ViewController: UICollectionViewController {
     collectionView.dataSource = self
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
+    collectionView.refreshControl = presenter?.myRefreshControl
   }
   
   //MARK: - CollectionViewDataSourse Methods

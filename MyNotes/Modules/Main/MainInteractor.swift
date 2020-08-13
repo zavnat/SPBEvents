@@ -21,10 +21,16 @@ class MainInteractor: PresenterToInteractorProtocol {
   
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
     if offsetY > contentHeight - frameHeight * 2 {
-      if !fetchingMore && currentPage < 5 {
+      if !fetchingMore && currentPage < 10 {
         self.fetchData()
       }
     }
+  }
+  
+  func refresh(){
+    print("refresh")
+    currentPage = 1
+    fetchData()
   }
   
   func getData(){
