@@ -103,14 +103,12 @@ extension ViewController: PublishCellDelegate {
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     print("Prepare")
-      guard segue.identifier == "goToDetail" else { return }
-      guard let destination = segue.destination as? NoteViewController else { return }
+    guard segue.identifier == "goToDetail" else { return }
+    guard let destination = segue.destination as? NoteViewController else { return }
     
     if let indexPath = collectionView.indexPathsForSelectedItems?.first {
       destination.id = places[indexPath.row].id
-       }
-     
-
+    }
   }
 }
 

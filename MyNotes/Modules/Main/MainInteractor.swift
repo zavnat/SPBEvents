@@ -15,7 +15,6 @@ class MainInteractor: PresenterToInteractorProtocol {
   var dataServise = DataServise()
   var presenter: InteractorToPresenterProtocol?
   var fetchingMore = false
-  
   let placesURL = "https://kudago.com/public-api/v2.0/places"
   var currentPage = 1
   
@@ -42,6 +41,10 @@ class MainInteractor: PresenterToInteractorProtocol {
     dataServise.loadDataFromDatabase { [weak self] items in
       guard let self = self else { return }
       self.presenter?.dataFetchedSuccess(with: items)
+      
+//      for i in 0...items.count - 1 {
+//        print("\(items[i].selfID) - \(items[i].title)" )
+//           }
     }
   }
   
@@ -81,13 +84,7 @@ class MainInteractor: PresenterToInteractorProtocol {
       }
     }
   }
-  
-  //  func load (){
-  //    dataServise.fetchData{ [weak self] items in
-  //    guard let self = self else { return }
-  //      self.presenter?.fetchFromDatabaseSuccess(items)
-  //    }
-  //  }
+
   
   func likeButton(with stringId: String){
     dataServise.updateData(id: stringId)

@@ -12,11 +12,8 @@ import UIKit
 class MainPresenter: ViewToPresenterProtocol {
   
   var view: PresenterToViewProtocol?
-  
   var interactor: PresenterToInteractorProtocol?
-
   var router: PresenterToRouterProtocol?
-  
   var myRefreshControl: UIRefreshControl {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -42,15 +39,6 @@ class MainPresenter: ViewToPresenterProtocol {
     router?.created(with: index)
   }
   
-//  func load(){
-//    interactor?.load()
-//  }
-  
-//  func fetchFromDatabaseSuccess(_ items: [Note] ){
-//    let items = items.map { ViewModel(database: $0) }
-//    view?.showPlaces(placesArray: items)
-//  }
-  
   func likedButtonTapped(with id: Int) {
     interactor?.likeButton(with: String(id))
   }
@@ -58,16 +46,15 @@ class MainPresenter: ViewToPresenterProtocol {
 
 
 extension MainPresenter: InteractorToPresenterProtocol{
-    func dataFetchedSuccess(with data: [Note]) {
-      print("data fetch success")
-      let items = data.map { ViewModel(item: $0) }
-      view?.showPlaces(placesArray: items)
-    }
-
-    func noticeFetchFailed() {
-      view?.showError()
-    }
+  func dataFetchedSuccess(with data: [Note]) {
+    print("data fetch success")
+    let items = data.map { ViewModel(item: $0) }
+    view?.showPlaces(placesArray: items)
+  }
   
+  func noticeFetchFailed() {
+    view?.showError()
+  }
 }
 
 struct ViewModel {
