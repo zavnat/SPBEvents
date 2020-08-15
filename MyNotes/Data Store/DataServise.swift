@@ -28,7 +28,7 @@ class DataServise {
       note.title = item.title
       note.favorite = false
       note.image = item.images[0].image
-      note.favorite = false
+      note.favorite = checkFavorite(item: item) ?? false
       selfID += 1
       note.selfID = Int16(selfID)
       
@@ -44,8 +44,22 @@ class DataServise {
     }
   }
   
-  func checkFavorite(){
+  func checkFavorite(item: Result) -> Bool?{
+    let id = String(item.id)
+    let request: NSFetchRequest<Liked> = Liked.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
     
+    do {
+        let objects = try context.fetch(request)
+      if objects.isEmpty {
+        return false
+      } else {
+        return true
+      }
+    } catch {
+       
+    }
+    return nil
   }
   //  func fetchFavoritesData () {
   //    let type = true
@@ -114,7 +128,14 @@ class DataServise {
       }catch{
         print("Error save data from context")
       }
-      addToFavorite(data: data[0])
+      
+      if data[0].favorite {
+        addToFavorite(data: data[0])
+      } else {
+        deleteFromFavorite(id)
+      }
+      
+      
     }catch {
       print("Error context fetch data")
     }
@@ -128,9 +149,9 @@ class DataServise {
     favorite.title = data.title
     do{
       try  context.save()
-      print("Success save data to database")
+      print("Success add to Favorite")
     }catch{
-      print("Error save data from context")
+      print("Error save data to Favorite")
     }
   }
   
@@ -144,6 +165,7 @@ class DataServise {
             context.delete(object)
         }
         try context.save()
+        print("Success delete to Favorite")
     } catch {
         print("Error delete object from Favorite")
     }

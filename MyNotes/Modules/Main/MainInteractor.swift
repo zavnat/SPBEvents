@@ -72,7 +72,7 @@ class MainInteractor: PresenterToInteractorProtocol {
         }
         
         self.fetchingMore = false
-                print(self.currentPage)
+//                print(self.currentPage)
         
         self.dataServise.saveDataToDatabase(items: places.results, page: self.currentPage)
         self.loadData()
