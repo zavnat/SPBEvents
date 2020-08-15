@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 class DataServise {
- let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   var selfID = 0
   func saveDataToDatabase(items: [Result], page: Int){
     
@@ -31,10 +31,10 @@ class DataServise {
       note.favorite = false
       selfID += 1
       note.selfID = Int16(selfID)
-
+      
       notesList.append(note)
     }
-
+    
     
     do{
       try  context.save()
@@ -44,33 +44,36 @@ class DataServise {
     }
   }
   
-//  func fetchFavoritesData () {
-//    let type = true
-//    let request: NSFetchRequest<Note> = Note.fetchRequest()
-//    request.predicate = NSPredicate(format: "favorite = %@", type)
-////          let sort = NSSortDescriptor(key: "name", ascending: false)
-//      //    request.sortDescriptors = [sort]
-//      do{
-//        let data = try context.fetch(request)
-//        print("Success load data from database")
-////              completion(data)
-//        
-//      }catch {
-//        print("Error context fetch data")
-//      }
-//    }
+  func checkFavorite(){
+    
+  }
+  //  func fetchFavoritesData () {
+  //    let type = true
+  //    let request: NSFetchRequest<Note> = Note.fetchRequest()
+  //    request.predicate = NSPredicate(format: "favorite = %@", type)
+  ////          let sort = NSSortDescriptor(key: "name", ascending: false)
+  //      //    request.sortDescriptors = [sort]
+  //      do{
+  //        let data = try context.fetch(request)
+  //        print("Success load data from database")
+  ////              completion(data)
+  //
+  //      }catch {
+  //        print("Error context fetch data")
+  //      }
+  //    }
   
   
   
   func loadDataFromDatabase (completion: @escaping ([Note]) -> ()) {
     let request: NSFetchRequest<Note> = Note.fetchRequest()
-        let sort = NSSortDescriptor(key: "selfID", ascending: true)
-        request.sortDescriptors = [sort]
+    let sort = NSSortDescriptor(key: "selfID", ascending: true)
+    request.sortDescriptors = [sort]
     do{
       let data = try context.fetch(request)
       
       print("Success load data from database")
-            completion(data)
+      completion(data)
       
     }catch {
       print("Error context fetch data")
@@ -79,18 +82,18 @@ class DataServise {
   
   
   func deleteAllRecords() {
-     
-      let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-      let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-
-      do {
-        print("Delete all items from database")
-          try context.execute(deleteRequest)
-          try context.save()
-        
-      } catch {
-          print ("There was an error")
-      }
+    
+    let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+    
+    do {
+      print("Delete all items from database")
+      try context.execute(deleteRequest)
+      try context.save()
+      
+    } catch {
+      print ("There was an error")
+    }
   }
   
   func updateData(id: String){
@@ -99,9 +102,9 @@ class DataServise {
     do{
       let data = try context.fetch(request)
       
-      print("")
-      print("Success load data from database")
-      print(data[0].favorite)
+      //      print("")
+      //      print("Success load data from database")
+      //      print(data[0].favorite)
       
       data[0].favorite = !data[0].favorite
       
@@ -111,9 +114,40 @@ class DataServise {
       }catch{
         print("Error save data from context")
       }
+      addToFavorite(data: data[0])
     }catch {
       print("Error context fetch data")
     }
+  }
+  
+  
+  func addToFavorite(data: Note){
+    let favorite = Liked(context: self.context)
+    favorite.id = data.id
+    favorite.image = data.image
+    favorite.title = data.title
+    do{
+      try  context.save()
+      print("Success save data to database")
+    }catch{
+      print("Error save data from context")
+    }
+  }
+  
+  func deleteFromFavorite(_ id: String){
+    let fetchRequest: NSFetchRequest<Liked> = Liked.fetchRequest()
+    fetchRequest.predicate = NSPredicate(format: "id = %@", id)
+
+    do {
+        let objects = try context.fetch(fetchRequest)
+        for object in objects {
+            context.delete(object)
+        }
+        try context.save()
+    } catch {
+        print("Error delete object from Favorite")
+    }
+    
   }
 }
 
