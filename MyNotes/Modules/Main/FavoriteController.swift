@@ -21,7 +21,18 @@ class FavoriteController: UICollectionViewController {
     collectionView.dataSource = self
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
+    NotificationCenter.default.addObserver(self, selector: #selector(reactToNotification(_:)), name: .QuickActionCamera, object: nil)
 //    collectionView.refreshControl = presenter?.myRefreshControl
+  }
+  
+  @objc func reactToNotification(_ sender: Notification) {
+    print("Notification")
+    presenter?.startFetchingPlaces()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("will appear")
   }
   
   //MARK: - CollectionViewDataSourse Methods
