@@ -7,83 +7,110 @@
 //
 
 import UIKit
-
-private let reuseIdentifier = "Cell"
+import Kingfisher
 
 class FavoriteController: UICollectionViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+  
+  var presenter: FavoriteViewToPresenterProtocol?
+  var configurator: FavoriteConfiguratorProtocol = FavoriteConfigurator()
+  var places = [FavoriteModel]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    configurator.configure(with: self)
+    presenter?.startFetchingPlaces()
+//    collectionView.refreshControl = presenter?.myRefreshControl
+  }
+  
+  //MARK: - CollectionViewDataSourse Methods
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return places.count
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteViewCell
+//    cell.cellDelegate = self
+    cell.label.text = places[indexPath.row].title.capitalized
+    cell.image.kf.setImage(with: places[indexPath.row].image)
+    if places[indexPath.row].favorite {
+      cell.favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    } else {
+      cell.favorites.setImage(UIImage(systemName: "heart"), for: .normal)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
-    }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
+    return cell
+  }
+  
+  
+  //MARK: - CollectionViewDelegate Methods
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    presenter?.cellSelected(places [indexPath.row].id)
+  }
+  
+//  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//    let offsetY = scrollView.contentOffset.y
+//    let contentHeight = scrollView.contentSize.height
+//    let frameHeight = scrollView.frame.height
+////    presenter?.didScroll(offsrtY: offsetY, contentHeight: contentHeight, frameHeight: frameHeight)
+//  }
 }
+
+//MARK: - CollectionViewDelegateFlowLayout Methods
+extension FavoriteController: UICollectionViewDelegateFlowLayout {
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let height = collectionView.frame.height / 3
+    let width  = collectionView.frame.width / 2 - 7
+    return CGSize(width: width, height: height)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 1.5
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 20.0
+  }
+}
+
+////MARK: - PresenterToViewProtocol Methods
+extension FavoriteController: FavoritePresenterToViewProtocol {
+  func showPlaces(placesArray: [FavoriteModel]) {
+    self.places = placesArray
+    DispatchQueue.main.async {
+      self.collectionView.reloadData()
+    }
+  }
+//
+//  func showError() {
+//    print("Error fetching places")
+//  }
+//}
+//
+////MARK: - PublishCellDelegate Methods
+//extension ViewController: PublishCellDelegate {
+//  func likePressed(cell: UICollectionViewCell) {
+//    guard let indexPath = collectionView.indexPath(for: cell) else {return}
+//    let item = places[indexPath.row]
+//    let hasFavorite = item.favorite
+//    places[indexPath.row].favorite = !hasFavorite
+//    collectionView.reloadItems(at: [indexPath])
+//    print(item.favorite)
+//    print(item.title)
+//
+//    presenter?.likedButtonTapped(with: item.id)
+//  }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    print("Prepare")
+//    guard segue.identifier == "goToDetail" else { return }
+//    guard let destination = segue.destination as? NoteViewController else { return }
+//
+//    if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+//      destination.id = places[indexPath.row].id
+//    }
+//  }
+}
+
+
+

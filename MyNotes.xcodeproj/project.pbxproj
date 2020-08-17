@@ -13,6 +13,7 @@
 		8413F4DF24EA8730005E2029 /* FavoriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413F4DE24EA8730005E2029 /* FavoriteInteractor.swift */; };
 		8413F4E124EA8740005E2029 /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413F4E024EA8740005E2029 /* FavoriteRouter.swift */; };
 		8413F4E324EA97A1005E2029 /* FavoriteConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413F4E224EA97A1005E2029 /* FavoriteConfigurator.swift */; };
+		8413F4E524EB0547005E2029 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413F4E424EB0547005E2029 /* FavoriteViewCell.swift */; };
 		843AC7E724C9C5C2005F70EE /* PublishCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC7E624C9C5C2005F70EE /* PublishCollectionCell.swift */; };
 		843AC86324D04A18005F70EE /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86224D04A18005F70EE /* PagingViewController.swift */; };
 		843AC86524D04A87005F70EE /* WormTabStripDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */; };
@@ -50,6 +51,7 @@
 		8413F4DE24EA8730005E2029 /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
 		8413F4E024EA8740005E2029 /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
 		8413F4E224EA97A1005E2029 /* FavoriteConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteConfigurator.swift; sourceTree = "<group>"; };
+		8413F4E424EB0547005E2029 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		843AC7E624C9C5C2005F70EE /* PublishCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCollectionCell.swift; sourceTree = "<group>"; };
 		843AC86224D04A18005F70EE /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		843AC86424D04A87005F70EE /* WormTabStripDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WormTabStripDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				8413F4DE24EA8730005E2029 /* FavoriteInteractor.swift */,
 				8413F4E024EA8740005E2029 /* FavoriteRouter.swift */,
 				8413F4E224EA97A1005E2029 /* FavoriteConfigurator.swift */,
+				8413F4E424EB0547005E2029 /* FavoriteViewCell.swift */,
 			);
 			name = Favorite;
 			path = Main;
@@ -378,6 +381,7 @@
 				84BFE0A224A65C3C0018F925 /* MainInteractor.swift in Sources */,
 				84BFE0A424A65C900018F925 /* MainRouter.swift in Sources */,
 				84BFE0AA24A65D0D0018F925 /* NoteRouter.swift in Sources */,
+				8413F4E524EB0547005E2029 /* FavoriteViewCell.swift in Sources */,
 				8413F4E124EA8740005E2029 /* FavoriteRouter.swift in Sources */,
 				84BFE0A824A65CC30018F925 /* NoteInteractor.swift in Sources */,
 				843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */,

@@ -23,11 +23,14 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
   }
   
   func setUpTabs(){
-    for _ in 1...numberOfTabs {
-      let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-
-      tabs.append(vc)
-    }
+//    for _ in 1...numberOfTabs {
+//      let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+//
+//      tabs.append(vc)
+//    }
+    let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+    let favoriteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FavoriteController") as! FavoriteController
+    tabs.append(contentsOf: [mainVC, favoriteVC])
   }
   
   func setUpViewPager(){

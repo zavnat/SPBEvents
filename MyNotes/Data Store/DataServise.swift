@@ -61,21 +61,21 @@ class DataServise {
     }
     return nil
   }
-  //  func fetchFavoritesData () {
-  //    let type = true
-  //    let request: NSFetchRequest<Note> = Note.fetchRequest()
-  //    request.predicate = NSPredicate(format: "favorite = %@", type)
-  ////          let sort = NSSortDescriptor(key: "name", ascending: false)
-  //      //    request.sortDescriptors = [sort]
-  //      do{
-  //        let data = try context.fetch(request)
-  //        print("Success load data from database")
-  ////              completion(data)
-  //
-  //      }catch {
-  //        print("Error context fetch data")
-  //      }
-  //    }
+  
+    func fetchFavoritesData (completion: @escaping ([Liked]) -> ()) {
+      let request: NSFetchRequest<Liked> = Liked.fetchRequest()
+//      request.predicate = NSPredicate(format: "favorite = %@", type)
+  //          let sort = NSSortDescriptor(key: "name", ascending: false)
+        //    request.sortDescriptors = [sort]
+        do{
+          let data = try context.fetch(request)
+          print("Success load data from database")
+                completion(data)
+  
+        }catch {
+          print("Error context fetch data")
+        }
+      }
   
   
   

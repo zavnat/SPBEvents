@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+class FavoriteRouter: FavoritePresenterToRouterProtocol {
+  
+  weak var viewController: FavoriteController!
+  
+  init(viewController: FavoriteController) {
+    self.viewController = viewController
+  }
+  
+  func created(with index: Int){
+    viewController.performSegue(withIdentifier: "favoriteDetail", sender: nil)
+  }
+}
