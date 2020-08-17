@@ -81,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension Notification.Name {
-  static let QuickActionCamera = Notification.Name(rawValue: "DidResetStatistics")
-  
+  static let FavoriteChanged = Notification.Name(rawValue: "FavoriteChanged")
 }
+
 
 

@@ -324,6 +324,17 @@
                                                 <action selector="favoritesButtonTapped:" destination="b2u-Hx-nN0" eventType="touchUpInside" id="GGL-PV-i77"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBM-co-7wQ">
+                                            <rect key="frame" x="33" y="14" width="19" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="pencil" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="noteButtonPressed:" destination="b2u-Hx-nN0" eventType="touchUpInside" id="2eg-iV-HOu"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -394,5 +405,6 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="images-3" width="91.5" height="137.5"/>
         <image name="lessthan.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
     </resources>
 </document>

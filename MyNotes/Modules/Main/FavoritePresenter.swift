@@ -39,9 +39,9 @@ class FavoritePresenter: FavoriteViewToPresenterProtocol {
 //    router?.created(with: index)
 //  }
 //
-//  func likedButtonTapped(with id: Int) {
-//    interactor?.likeButton(with: String(id))
-//  }
+  func likedButtonTapped(with id: Int) {
+    interactor?.likeButton(with: String(id))
+  }
 }
 
 

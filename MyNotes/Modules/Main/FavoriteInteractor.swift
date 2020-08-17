@@ -19,4 +19,8 @@ class FavoriteInteractor: FavoritePresenterToInteractorProtocol {
     self.presenter?.dataFetchedSuccess(with: items)
   }
   }
+  
+  func likeButton(with stringId: String){
+//    dataServise.updateData(id: stringId)
+  }
 }

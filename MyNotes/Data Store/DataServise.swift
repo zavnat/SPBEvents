@@ -135,7 +135,7 @@ class DataServise {
         deleteFromFavorite(id)
       }
       let nc = NotificationCenter.default
-      nc.post(name: .QuickActionCamera, object: nil)
+      nc.post(name: .FavoriteChanged, object: nil)
       
     }catch {
       print("Error context fetch data")

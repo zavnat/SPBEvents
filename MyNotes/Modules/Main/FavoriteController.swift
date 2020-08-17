@@ -21,7 +21,7 @@ class FavoriteController: UICollectionViewController {
     collectionView.dataSource = self
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
-    NotificationCenter.default.addObserver(self, selector: #selector(reactToNotification(_:)), name: .QuickActionCamera, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(reactToNotification(_:)), name: .FavoriteChanged, object: nil)
 //    collectionView.refreshControl = presenter?.myRefreshControl
   }
   
@@ -42,7 +42,7 @@ class FavoriteController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "favoriteCell", for: indexPath) as! FavoriteViewCell
-//    cell.cellDelegate = self
+    cell.cellDelegate = self
     cell.label.text = places[indexPath.row].title.capitalized
     cell.image.kf.setImage(with: places[indexPath.row].image)
     if places[indexPath.row].favorite {
@@ -93,25 +93,63 @@ extension FavoriteController: FavoritePresenterToViewProtocol {
       self.collectionView.reloadData()
     }
   }
+
+  func showError() {
+    print("Error fetching places")
+  }
+}
 //
-//  func showError() {
-//    print("Error fetching places")
-//  }
-//}
+//MARK: - PublishCellDelegate Methods
+extension FavoriteController: FavoriteCellDelegate {
+  
+  func likePressed(cell: UICollectionViewCell) {
+    print("like pressed")
+    guard let indexPath = collectionView.indexPath(for: cell) else {return}
+    let item = places[indexPath.row]
+    let hasFavorite = item.favorite
+    places[indexPath.row].favorite = !hasFavorite
+    collectionView.reloadItems(at: [indexPath])
+    print(item.favorite)
+    print(item.title)
 //
-////MARK: - PublishCellDelegate Methods
-//extension ViewController: PublishCellDelegate {
-//  func likePressed(cell: UICollectionViewCell) {
-//    guard let indexPath = collectionView.indexPath(for: cell) else {return}
-//    let item = places[indexPath.row]
-//    let hasFavorite = item.favorite
-//    places[indexPath.row].favorite = !hasFavorite
-//    collectionView.reloadItems(at: [indexPath])
-//    print(item.favorite)
-//    print(item.title)
-//
-//    presenter?.likedButtonTapped(with: item.id)
-//  }
+    presenter?.likedButtonTapped(with: item.id)
+  }
+  
+  func notePressed(cell: UICollectionViewCell) {
+    var textField = UITextField()
+          
+          let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
+          
+          let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+              
+              // What will happen when the user click the Add Item button on our UIAlert
+              do{
+    //              if let currentCategory = self.selectedCategory {
+    //                  try self.realm.write {
+    //                      let newItem = Item()
+    //                      newItem.title = textField.text!
+    //                      newItem.dateCreated = Date()
+    //                      currentCategory.items.append(newItem)
+    //                  }
+    //              }
+                  
+              }catch {
+                  print("Error  saving new item \(error)")
+              }
+              
+    //          self.tableView.reloadData()
+              
+          }
+          
+          
+          alert.addTextField { (alertTextField) in
+              alertTextField.placeholder = "Create new item"
+              textField = alertTextField
+          }
+          
+          alert.addAction(action)
+          present(alert, animated: true, completion: nil)
+  }
 //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //    print("Prepare")
 //    guard segue.identifier == "goToDetail" else { return }

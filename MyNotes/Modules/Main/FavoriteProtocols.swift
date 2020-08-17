@@ -12,7 +12,7 @@ protocol FavoritePresenterToInteractorProtocol: class {
   var presenter:FavoriteInteractorToPresenterProtocol? {get set}
 //  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData()
-//  func likeButton(with stringId: String)
+  func likeButton(with stringId: String)
 //  func refresh()
 }
 
@@ -28,7 +28,7 @@ protocol FavoriteViewToPresenterProtocol: class {
   func startFetchingPlaces()
 //  func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
 //  func cellSelected(_ index: Int)
-//  func likedButtonTapped(with id: Int)
+  func likedButtonTapped(with id: Int)
 //  var myRefreshControl: UIRefreshControl {get }
 }
 
