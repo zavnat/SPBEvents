@@ -15,12 +15,12 @@ class FavoriteInteractor: FavoritePresenterToInteractorProtocol {
   
   func getData(){
     dataServise.fetchFavoritesData { [weak self] items in
-    guard let self = self else { return }
-    self.presenter?.dataFetchedSuccess(with: items)
-  }
+      guard let self = self else { return }
+      self.presenter?.dataFetchedSuccess(with: items)
+    }
   }
   
   func likeButton(with stringId: String){
-//    dataServise.updateData(id: stringId)
+    dataServise.updateDataFromFavorites(id: stringId)
   }
 }

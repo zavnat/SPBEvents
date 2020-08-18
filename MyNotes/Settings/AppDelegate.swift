@@ -82,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension Notification.Name {
   static let FavoriteChanged = Notification.Name(rawValue: "FavoriteChanged")
+  static let MainChanged = Notification.Name(rawValue: "MainChanged")
 }
 
 

@@ -13,6 +13,7 @@ import CoreData
 class DataServise {
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   var selfID = 0
+  var favoriteID = 0
   func saveDataToDatabase(items: [Result], page: Int){
     
     if page == 1 {
@@ -65,8 +66,8 @@ class DataServise {
     func fetchFavoritesData (completion: @escaping ([Liked]) -> ()) {
       let request: NSFetchRequest<Liked> = Liked.fetchRequest()
 //      request.predicate = NSPredicate(format: "favorite = %@", type)
-  //          let sort = NSSortDescriptor(key: "name", ascending: false)
-        //    request.sortDescriptors = [sort]
+            let sort = NSSortDescriptor(key: "selfID", ascending: true)
+            request.sortDescriptors = [sort]
         do{
           let data = try context.fetch(request)
           print("Success load data from database")
@@ -116,10 +117,6 @@ class DataServise {
     do{
       let data = try context.fetch(request)
       
-      //      print("")
-      //      print("Success load data from database")
-      //      print(data[0].favorite)
-      
       data[0].favorite = !data[0].favorite
       
       do{
@@ -142,12 +139,44 @@ class DataServise {
     }
   }
   
+  func updateDataFromFavorites(id: String){
+    deleteFromFavorite(id)
+    
+    let request : NSFetchRequest<Note> = Note.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
+    do{
+      let data = try context.fetch(request)
+      
+      data[0].favorite = !data[0].favorite
+      
+      do{
+        try  context.save()
+        print("Success save data to database")
+      }catch{
+        print("Error save data from context")
+      }
+      let nc = NotificationCenter.default
+      nc.post(name: .MainChanged, object: nil)
+      
+      //      let nc = NotificationCenter.default
+      //      nc.post(name: .FavoriteChanged, object: nil)
+      //
+    }catch {
+      print("Error context fetch data")
+    }
+  }
+  
+  
+  
   
   func addToFavorite(data: Note){
+    
     let favorite = Liked(context: self.context)
     favorite.id = data.id
     favorite.image = data.image
     favorite.title = data.title
+    favoriteID += 1
+    favorite.selfID = Int16(favoriteID)
     do{
       try  context.save()
       print("Success add to Favorite")

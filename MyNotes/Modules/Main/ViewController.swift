@@ -22,6 +22,13 @@ class ViewController: UICollectionViewController {
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
     collectionView.refreshControl = presenter?.myRefreshControl
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(didSendNotification(_:)), name: .MainChanged, object: nil)
+  }
+  
+  @objc func didSendNotification(_ sender: Notification) {
+    print("Notification")
+//    presenter?.startFetchingPlaces()
   }
   
   //MARK: - CollectionViewDataSourse Methods
