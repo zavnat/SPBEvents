@@ -42,6 +42,10 @@ class MainPresenter: ViewToPresenterProtocol {
   func likedButtonTapped(with id: Int) {
     interactor?.likeButton(with: String(id))
   }
+  
+  func notificationReceived(){
+    interactor?.get()
+  }
 }
 
 

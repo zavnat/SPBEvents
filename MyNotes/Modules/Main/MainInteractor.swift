@@ -26,6 +26,10 @@ class MainInteractor: PresenterToInteractorProtocol {
     }
   }
   
+  func get(){
+    loadData()
+  }
+  
   func refresh(){
     print("refresh")
     currentPage = 1
@@ -33,8 +37,13 @@ class MainInteractor: PresenterToInteractorProtocol {
   }
   
   func getData(){
-    loadData()
-    fetchData()
+    if currentPage == 1 {
+//      loadData()
+      fetchData()
+    } else {
+      fetchData()
+    }
+    
   }
   
   func loadData(){

@@ -20,6 +20,7 @@ protocol PresenterToInteractorProtocol: class {
   func getData()
   func likeButton(with stringId: String)
   func refresh()
+  func get()
 }
 
 protocol PresenterToViewProtocol: class {
@@ -36,6 +37,7 @@ protocol ViewToPresenterProtocol: class {
   func cellSelected(_ index: Int)
   func likedButtonTapped(with id: Int)
   var myRefreshControl: UIRefreshControl {get }
+  func notificationReceived()
 }
 
 protocol PresenterToRouterProtocol: class {
