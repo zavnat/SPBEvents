@@ -22,7 +22,6 @@ class ViewController: UICollectionViewController {
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
     collectionView.refreshControl = presenter?.myRefreshControl
-    
     NotificationCenter.default.addObserver(self, selector: #selector(reactToNotification(_:)), name: .MainChanged, object: nil)
   }
   

@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-
 class MainInteractor: PresenterToInteractorProtocol {
   
   var dataServise = DataServise()
@@ -31,71 +30,53 @@ class MainInteractor: PresenterToInteractorProtocol {
   }
   
   func refresh(){
-    print("refresh")
     currentPage = 1
     fetchData()
   }
   
   func getData(){
     if currentPage == 1 {
-//      loadData()
+      loadData()
       fetchData()
     } else {
       fetchData()
     }
-    
   }
   
   func loadData(){
     dataServise.loadDataFromDatabase { [weak self] items in
       guard let self = self else { return }
       self.presenter?.dataFetchedSuccess(with: items)
-      
-//      for i in 0...items.count - 1 {
-//        print("\(items[i].selfID) - \(items[i].title)" )
-//           }
     }
   }
   
   private func fetchData() {
-    
     fetchingMore = true
-    print("fetch data")
-    
     let parameters : [String : String] = [
       "location" : "spb",
       "page" : "\(currentPage)",
       "fields" : "id,slug,images,title"
     ]
-    
-    
     Alamofire.request(placesURL, method: .get, parameters: parameters).response { (response) in
       guard let data = response.data else { return }
       print(data.count)
       let decoder = JSONDecoder()
       do {
         let places = try decoder.decode(Places.self, from: data)
-        
         if places.results.count > 0 && self.currentPage == 1 {
           self.dataServise.deleteAllRecords()
         }
-        
         self.fetchingMore = false
-//                print(self.currentPage)
-        
         self.dataServise.saveDataToDatabase(items: places.results, page: self.currentPage)
         self.loadData()
         self.currentPage += 1
-        
-        
       } catch {
         print(error.localizedDescription)
       }
     }
   }
-
   
-  func likeButton(with stringId: String){
+  func didGetLike(with stringId: String){
     dataServise.updateData(id: stringId)
   }
 }

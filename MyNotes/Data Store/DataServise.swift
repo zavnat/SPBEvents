@@ -63,6 +63,11 @@ class DataServise {
     return nil
   }
   
+  
+  func addNoteToData(_ note: String){
+    print("add note \(note)")
+  }
+  
     func fetchFavoritesData (completion: @escaping ([Liked]) -> ()) {
       let request: NSFetchRequest<Liked> = Liked.fetchRequest()
 //      request.predicate = NSPredicate(format: "favorite = %@", type)

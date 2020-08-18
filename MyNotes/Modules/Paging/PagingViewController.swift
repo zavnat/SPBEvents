@@ -14,8 +14,6 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
   var tabs:[UIViewController] = []
   let numberOfTabs = 2
   override func viewDidLoad() {
-    
-    
     super.viewDidLoad()
     navigationController?.isNavigationBarHidden = true
     setUpTabs()
@@ -23,11 +21,6 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
   }
   
   func setUpTabs(){
-//    for _ in 1...numberOfTabs {
-//      let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//
-//      tabs.append(vc)
-//    }
     let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
     let favoriteVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FavoriteController") as! FavoriteController
     tabs.append(contentsOf: [mainVC, favoriteVC])
@@ -41,7 +34,7 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
     viewPager.eyStyle.wormStyel = .BUBBLE
     viewPager.eyStyle.isWormEnable = true
     viewPager.eyStyle.topScrollViewBackgroundColor = UIColor.systemBackground
-//    viewPager.eyStyle.contentScrollViewBackgroundColor = .red
+    //    viewPager.eyStyle.contentScrollViewBackgroundColor = .red
     viewPager.eyStyle.spacingBetweenTabs = 15
     viewPager.eyStyle.WormColor = .systemOrange
     viewPager.eyStyle.dividerBackgroundColor = UIColor.systemBackground

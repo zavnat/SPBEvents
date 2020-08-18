@@ -116,19 +116,8 @@ extension FavoriteController: FavoriteCellDelegate {
     var textField = UITextField()
     let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
     let action = UIAlertAction(title: "Add", style: .default) { (action) in
-      do{
-        //              if let currentCategory = self.selectedCategory {
-        //                  try self.realm.write {
-        //                      let newItem = Item()
-        //                      newItem.title = textField.text!
-        //                      newItem.dateCreated = Date()
-        //                      currentCategory.items.append(newItem)
-        //                  }
-        //              }
-      }catch {
-        print("Error  saving new item \(error)")
-      }
-      //          self.tableView.reloadData()
+      guard let text = textField.text else {return}
+      self.presenter?.noteButtonPressed(text)
     }
     alert.addTextField { (alertTextField) in
       alertTextField.placeholder = "Create new item"

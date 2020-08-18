@@ -14,17 +14,13 @@ protocol PublishCellDelegate {
 }
 
 class PublishCollectionCell: UICollectionViewCell {
-  
   var cellDelegate: PublishCellDelegate?
  
   @IBOutlet weak var favorites: UIButton!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var image: UIImageView!
   
-  
-  
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
-    print("Button  Clicked")
     cellDelegate?.likePressed(cell: self)
   }
 }

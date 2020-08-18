@@ -55,6 +55,11 @@ extension FavoritePresenter: FavoriteInteractorToPresenterProtocol{
   func noticeFetchFailed() {
 //    view?.showError()
   }
+  
+  func noteButtonPressed(_ text: String) {
+    interactor?.didGetNote(text)
+   }
+   
 }
 
 struct FavoriteModel {

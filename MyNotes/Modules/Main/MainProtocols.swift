@@ -18,7 +18,7 @@ protocol PresenterToInteractorProtocol: class {
   var presenter:InteractorToPresenterProtocol? {get set}
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData()
-  func likeButton(with stringId: String)
+  func didGetLike(with stringId: String)
   func refresh()
   func get()
 }

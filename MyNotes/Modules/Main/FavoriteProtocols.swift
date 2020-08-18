@@ -13,6 +13,8 @@ protocol FavoritePresenterToInteractorProtocol: class {
 //  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData()
   func likeButton(with stringId: String)
+  func didGetNote(_ text: String)
+  
 //  func refresh()
 }
 
@@ -30,6 +32,7 @@ protocol FavoriteViewToPresenterProtocol: class {
 //  func cellSelected(_ index: Int)
   func likedButtonTapped(with id: Int)
 //  var myRefreshControl: UIRefreshControl {get }
+  func noteButtonPressed(_ text: String)
 }
 
 protocol FavoritePresenterToRouterProtocol: class {
