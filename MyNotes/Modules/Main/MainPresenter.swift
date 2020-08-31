@@ -67,6 +67,7 @@ struct ViewModel {
   let title: String
   let image: URL?
   var favorite: Bool
+  let note: String?
 }
 
 extension ViewModel {
@@ -75,6 +76,7 @@ extension ViewModel {
     self.title = item.title!
     self.image = URL(string: item.image!)
     self.favorite = item.favorite
+    self.note = item.noteText
   }
 }
 

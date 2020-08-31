@@ -14,6 +14,7 @@ class DataServise {
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
   var selfID = 0
   var favoriteID = 0
+  
   func saveDataToDatabase(items: [Result], page: Int){
     
     if page == 1 {
@@ -32,10 +33,13 @@ class DataServise {
       note.favorite = checkFavorite(item: item) ?? false
       selfID += 1
       note.selfID = Int16(selfID)
+      note.noteText = checkNoteText(item: item)
       
       notesList.append(note)
     }
-    
+    if page == 1 {
+      deleteAllRecords()
+    }
     
     do{
       try  context.save()
@@ -63,10 +67,47 @@ class DataServise {
     return nil
   }
   
-  
-  func addNoteToData(_ note: String){
-    print("add note \(note)")
+  func checkNoteText(item: Result) -> String?{
+    let id = String(item.id)
+    let request: NSFetchRequest<Note> = Note.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
+    do {
+        let objects = try context.fetch(request)
+      print(objects[0])
+      return objects[0].noteText
+    } catch {
+    }
+    return nil
   }
+  
+  
+  
+  func addNoteToData(_ note: String, _ id: String){
+    let request: NSFetchRequest<Note> = Note.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
+    let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()
+    requestLiked.predicate = NSPredicate(format: "id = %@", id)
+    
+    do{
+      let data = try context.fetch(request)
+      data[0].noteText = note
+      let likeData = try context.fetch(requestLiked)
+      if likeData.count > 0 {
+        likeData[0].noteText = note
+        
+      }
+      do{
+        try  context.save()
+        print("Success save note to database")
+      }catch{
+        print("Error save note from context")
+      }
+      let nc = NotificationCenter.default
+      nc.post(name: .MainChanged, object: nil)
+    }catch {
+    }
+  }
+  
   
     func fetchFavoritesData (completion: @escaping ([Liked]) -> ()) {
       let request: NSFetchRequest<Liked> = Liked.fetchRequest()
@@ -182,6 +223,7 @@ class DataServise {
     favorite.title = data.title
     favoriteID += 1
     favorite.selfID = Int16(favoriteID)
+    favorite.noteText = data.noteText
     do{
       try  context.save()
       print("Success add to Favorite")

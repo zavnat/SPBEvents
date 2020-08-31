@@ -67,6 +67,7 @@ struct FavoriteModel {
   let title: String
   let image: URL?
   var favorite: Bool
+  let note: String?
 }
 extension FavoriteModel {
   init(item: Liked) {
@@ -74,5 +75,6 @@ extension FavoriteModel {
     self.title = item.title!
     self.image = URL(string: item.image!)
     self.favorite = true
+    self.note = item.noteText
   }
 }

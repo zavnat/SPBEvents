@@ -114,6 +114,7 @@ extension ViewController: PublishCellDelegate {
     
     if let indexPath = collectionView.indexPathsForSelectedItems?.first {
       destination.id = places[indexPath.row].id
+      destination.noteText = places[indexPath.row].note
     }
   }
 }

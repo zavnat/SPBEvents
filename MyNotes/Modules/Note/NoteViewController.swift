@@ -14,6 +14,7 @@ class NoteViewController: UIViewController {
   var presenter: NoteViewToPresenterProtocol?
   var configurator: NoteConfiguratorProtocol = NoteConfigurator()
   var id: Int?
+  var noteText: String?
   
   @IBAction func backButtonTapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
@@ -26,7 +27,8 @@ class NoteViewController: UIViewController {
       let action = UIAlertAction(title: "Add", style: .default) { (action) in
         guard let text = textField.text else {return}
         self.note.text = text
-        self.presenter?.noteButtonPressed(text)
+        guard let noteId = self.id else {return}
+        self.presenter?.noteButtonPressed(text, noteId)
       }
       alert.addTextField { (alertTextField) in
         alertTextField.placeholder = "Create new item"
@@ -68,6 +70,7 @@ extension NoteViewController: NotePresenterToViewProtocol {
       self.image.kf.setImage(with: self.dataToUI?.image!)
       self.label.text = self.dataToUI?.title.capitalized
       self.text.text = string.withoutHtmlTags
+      self.note.text = self.noteText
     }
   }
 }

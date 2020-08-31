@@ -112,15 +112,17 @@ extension FavoriteController: FavoriteCellDelegate {
 //    present(alert, animated: true, completion: nil)
 //  }
   
-  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-  //    print("Prepare")
-  //    guard segue.identifier == "goToDetail" else { return }
-  //    guard let destination = segue.destination as? NoteViewController else { return }
-  //
-  //    if let indexPath = collectionView.indexPathsForSelectedItems?.first {
-  //      destination.id = places[indexPath.row].id
-  //    }
-  //  }
+  
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    print("Prepare")
+    guard segue.identifier == "favoriteDetail" else { return }
+    guard let destination = segue.destination as? NoteViewController else { return }
+    
+    if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+      destination.id = favoritePlaces[indexPath.row].id
+      destination.noteText = favoritePlaces[indexPath.row].note
+    }
+  }
 }
 
 

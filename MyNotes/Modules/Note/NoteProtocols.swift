@@ -20,7 +20,7 @@ protocol NotePresenterToInteractorProtocol: class {
 ////  func fetchData()
 //  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData(_ id: String)
-  func didGetNote(_ text: String)
+  func didGetNote(_ text: String, _ id: String)
 //
 //  func likeButton(with stringId: String)
 }
@@ -36,7 +36,7 @@ protocol NoteViewToPresenterProtocol: class {
   var interactor: NotePresenterToInteractorProtocol? {get set}
   var router: NotePresenterToRouterProtocol? {get set}
   func startFetchingPlaces(with id: Int)
-  func noteButtonPressed(_ text: String)
+  func noteButtonPressed(_ text: String, _ id: Int)
 //  func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
 //  func cellSelected(_ index: Int)
 ////  func load()

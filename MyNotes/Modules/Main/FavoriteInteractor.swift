@@ -23,8 +23,4 @@ class FavoriteInteractor: FavoritePresenterToInteractorProtocol {
   func likeButton(with stringId: String){
     dataServise.updateDataFromFavorites(id: stringId)
   }
-  
-//  func didGetNote(_ text: String) {
-//    dataServise.addNoteToData(text)
-//  }
 }

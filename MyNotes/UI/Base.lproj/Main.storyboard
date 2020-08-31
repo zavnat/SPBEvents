@@ -161,8 +161,14 @@
                                                     <action selector="backButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="SEM-AV-aKe"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-u1-yNw">
+                                                <rect key="frame" x="10" y="410" width="394" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
-                                                <rect key="frame" x="309" y="339" width="24" height="25"/>
+                                                <rect key="frame" x="325" y="368" width="24" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" red="0.93333333330000001" green="0.36470588240000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="pencil" catalog="system">
@@ -172,12 +178,6 @@
                                                     <action selector="editButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="LG0-M1-eRI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-u1-yNw">
-                                                <rect key="frame" x="10" y="410" width="394" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -227,7 +227,7 @@
                     <connections>
                         <outlet property="image" destination="Lit-Fr-gqh" id="Q5E-e0-PXo"/>
                         <outlet property="label" destination="rc1-0e-sVM" id="2Y7-lv-zAt"/>
-                        <outlet property="note" destination="kJq-u1-yNw" id="4si-gl-nYa"/>
+                        <outlet property="note" destination="kJq-u1-yNw" id="Q45-kG-vcm"/>
                         <outlet property="spinner" destination="aff-V4-V5l" id="YC7-JA-buh"/>
                         <outlet property="text" destination="x4X-NM-0oo" id="xEt-PG-VWY"/>
                     </connections>

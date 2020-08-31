@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Liked" representedClassName="Liked" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String"/>
         <attribute name="image" attributeType="String"/>
+        <attribute name="noteText" optional="YES" attributeType="String"/>
         <attribute name="selfID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
     </entity>
@@ -10,11 +11,12 @@
         <attribute name="favorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="image" attributeType="String"/>
+        <attribute name="noteText" optional="YES" attributeType="String"/>
         <attribute name="selfID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Liked" positionX="-54" positionY="18" width="128" height="103"/>
-        <element name="Note" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Liked" positionX="-54" positionY="18" width="128" height="118"/>
+        <element name="Note" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>
