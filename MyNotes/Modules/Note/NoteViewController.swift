@@ -25,6 +25,7 @@ class NoteViewController: UIViewController {
       let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
       let action = UIAlertAction(title: "Add", style: .default) { (action) in
         guard let text = textField.text else {return}
+        self.note.text = text
         self.presenter?.noteButtonPressed(text)
       }
       alert.addTextField { (alertTextField) in
@@ -42,6 +43,7 @@ class NoteViewController: UIViewController {
   @IBOutlet weak var image: UIImageView!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var text: UITextView!
+  @IBOutlet weak var note: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
