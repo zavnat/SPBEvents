@@ -10,17 +10,13 @@ protocol FavoriteInteractorToPresenterProtocol: class {
 
 protocol FavoritePresenterToInteractorProtocol: class {
   var presenter:FavoriteInteractorToPresenterProtocol? {get set}
-//  func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData()
   func likeButton(with stringId: String)
-  func didGetNote(_ text: String)
-  
-//  func refresh()
+//  func didGetNote(_ text: String)
 }
 
 protocol FavoritePresenterToViewProtocol: class {
   func showPlaces(placesArray: [FavoriteModel])
-//  func showError()
 }
 
 protocol FavoriteViewToPresenterProtocol: class {
@@ -28,11 +24,9 @@ protocol FavoriteViewToPresenterProtocol: class {
   var interactor: FavoritePresenterToInteractorProtocol? {get set}
   var router: FavoritePresenterToRouterProtocol? {get set}
   func startFetchingPlaces()
-//  func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
-//  func cellSelected(_ index: Int)
+  //  func cellSelected(_ index: Int)
   func likedButtonTapped(with id: Int)
-//  var myRefreshControl: UIRefreshControl {get }
-  func noteButtonPressed(_ text: String)
+//  func noteButtonPressed(_ text: String)
 }
 
 protocol FavoritePresenterToRouterProtocol: class {

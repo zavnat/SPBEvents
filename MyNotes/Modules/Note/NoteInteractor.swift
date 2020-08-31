@@ -18,6 +18,10 @@ class NoteInteractor: NotePresenterToInteractorProtocol {
     fetchPlaceDetail(id)
   }
   
+  func didGetNote(_ text: String) {
+    dataServise.addNoteToData(text)
+  }
+  
   private func fetchPlaceDetail(_ id: String) {
     print("fetch detail data")
     let detailURL = "https://kudago.com/public-api/v2.0/places/\(id)"

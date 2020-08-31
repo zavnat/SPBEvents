@@ -27,6 +27,10 @@ class NotePresenter: NoteViewToPresenterProtocol, NoteInteractorToPresenterProto
     print("start fetch from presenter")
     interactor?.getData(String(id))
   }
+  
+  func noteButtonPressed(_ text: String){
+    interactor?.didGetNote(text)
+  }
 }
 
 

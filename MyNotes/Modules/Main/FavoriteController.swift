@@ -29,7 +29,6 @@ class FavoriteController: UICollectionViewController {
     presenter?.startFetchingPlaces()
   }
   
-  
   //MARK: - CollectionViewDataSourse Methods
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return favoritePlaces.count
@@ -48,18 +47,10 @@ class FavoriteController: UICollectionViewController {
     return cell
   }
   
-  
   //MARK: - CollectionViewDelegate Methods
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     //    presenter?.cellSelected(places [indexPath.row].id)
   }
-  
-  //  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-  //    let offsetY = scrollView.contentOffset.y
-  //    let contentHeight = scrollView.contentSize.height
-  //    let frameHeight = scrollView.frame.height
-  ////    presenter?.didScroll(offsrtY: offsetY, contentHeight: contentHeight, frameHeight: frameHeight)
-  //  }
 }
 
 //MARK: - CollectionViewDelegateFlowLayout Methods
@@ -101,31 +92,25 @@ extension FavoriteController: FavoriteCellDelegate {
     print("like pressed")
     guard let indexPath = collectionView.indexPath(for: cell) else {return}
     let item = favoritePlaces[indexPath.row]
-//    let hasFavorite = item.favorite
-//    favoritePlaces[indexPath.row].favorite = !hasFavorite
     favoritePlaces.remove(at: indexPath.row)
-//    collectionView.reloadItems(at: [indexPath])
     collectionView.reloadData()
-    print(item.favorite)
-    print(item.title)
-    
     presenter?.likedButtonTapped(with: item.id)
   }
   
-  func notePressed(cell: UICollectionViewCell) {
-    var textField = UITextField()
-    let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
-    let action = UIAlertAction(title: "Add", style: .default) { (action) in
-      guard let text = textField.text else {return}
-      self.presenter?.noteButtonPressed(text)
-    }
-    alert.addTextField { (alertTextField) in
-      alertTextField.placeholder = "Create new item"
-      textField = alertTextField
-    }
-    alert.addAction(action)
-    present(alert, animated: true, completion: nil)
-  }
+//  func notePressed(cell: UICollectionViewCell) {
+//    var textField = UITextField()
+//    let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
+//    let action = UIAlertAction(title: "Add", style: .default) { (action) in
+//      guard let text = textField.text else {return}
+//      self.presenter?.noteButtonPressed(text)
+//    }
+//    alert.addTextField { (alertTextField) in
+//      alertTextField.placeholder = "Create new item"
+//      textField = alertTextField
+//    }
+//    alert.addAction(action)
+//    present(alert, animated: true, completion: nil)
+//  }
   
   //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
   //    print("Prepare")

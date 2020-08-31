@@ -10,7 +10,7 @@ import UIKit
 
 protocol FavoriteCellDelegate {
   func likePressed(cell: UICollectionViewCell)
-  func notePressed(cell: UICollectionViewCell)
+//  func notePressed(cell: UICollectionViewCell)
 }
 
 class FavoriteViewCell: UICollectionViewCell {
@@ -24,7 +24,7 @@ class FavoriteViewCell: UICollectionViewCell {
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     cellDelegate?.likePressed(cell: self)
   }
-  @IBAction func noteButtonPressed(_ sender: UIButton) {
-    cellDelegate?.notePressed(cell: self)
-  }
+//  @IBAction func noteButtonPressed(_ sender: UIButton) {
+//    cellDelegate?.notePressed(cell: self)
+//  }
 }

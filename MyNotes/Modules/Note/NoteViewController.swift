@@ -19,6 +19,22 @@ class NoteViewController: UIViewController {
     self.dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func editButtonTapped(_ sender: UIButton) {
+    
+      var textField = UITextField()
+      let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
+      let action = UIAlertAction(title: "Add", style: .default) { (action) in
+        guard let text = textField.text else {return}
+        self.presenter?.noteButtonPressed(text)
+      }
+      alert.addTextField { (alertTextField) in
+        alertTextField.placeholder = "Create new item"
+        textField = alertTextField
+      }
+      alert.addAction(action)
+      present(alert, animated: true, completion: nil)
+    
+  }
   
   var dataToUI: DetailUIModel?
   

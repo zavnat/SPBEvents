@@ -32,11 +32,11 @@ protocol ViewToPresenterProtocol: class {
   var view: PresenterToViewProtocol? {get set}
   var interactor: PresenterToInteractorProtocol? {get set}
   var router: PresenterToRouterProtocol? {get set}
+  var myRefreshControl: UIRefreshControl {get }
   func startFetchingPlaces()
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func cellSelected(_ index: Int)
   func likedButtonTapped(with id: Int)
-  var myRefreshControl: UIRefreshControl {get }
   func notificationReceived()
 }
 

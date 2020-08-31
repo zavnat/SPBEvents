@@ -56,9 +56,9 @@ extension FavoritePresenter: FavoriteInteractorToPresenterProtocol{
 //    view?.showError()
   }
   
-  func noteButtonPressed(_ text: String) {
-    interactor?.didGetNote(text)
-   }
+//  func noteButtonPressed(_ text: String) {
+//    interactor?.didGetNote(text)
+//   }
    
 }
 

@@ -124,10 +124,10 @@
                                         <rect key="frame" x="197" y="438" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw6-Kl-MnY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="456.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="461.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-NM-0oo">
-                                                <rect key="frame" x="10" y="420" width="394" height="36.5"/>
+                                                <rect key="frame" x="10" y="425" width="394" height="36.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -161,6 +161,17 @@
                                                     <action selector="backButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="SEM-AV-aKe"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
+                                                <rect key="frame" x="309" y="368" width="24" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.93333333330000001" green="0.36470588240000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="pencil" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="LG0-M1-eRI"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,7 +181,7 @@
                                             <constraint firstAttribute="bottom" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="OTY-E8-U3N"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" id="ZJI-Dx-Tf5"/>
                                             <constraint firstItem="tsf-nJ-ncC" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="top" constant="100" id="cOp-zd-j1Y"/>
-                                            <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="30" id="eiW-k3-JQ1"/>
+                                            <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="35" id="eiW-k3-JQ1"/>
                                             <constraint firstItem="rc1-0e-sVM" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="bottom" constant="30" id="hCH-B7-G8g"/>
                                             <constraint firstItem="x4X-NM-0oo" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="jha-2K-25D"/>
                                             <constraint firstItem="tsf-nJ-ncC" firstAttribute="leading" secondItem="Lit-Fr-gqh" secondAttribute="leading" constant="25" id="lcK-eo-n7w"/>
@@ -322,17 +333,6 @@
                                             <state key="normal" image="heart" catalog="system"/>
                                             <connections>
                                                 <action selector="favoritesButtonTapped:" destination="b2u-Hx-nN0" eventType="touchUpInside" id="GGL-PV-i77"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBM-co-7wQ">
-                                            <rect key="frame" x="33" y="14" width="19" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" image="pencil" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="noteButtonPressed:" destination="b2u-Hx-nN0" eventType="touchUpInside" id="2eg-iV-HOu"/>
                                             </connections>
                                         </button>
                                     </subviews>
