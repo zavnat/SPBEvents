@@ -124,10 +124,10 @@
                                         <rect key="frame" x="197" y="438" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw6-Kl-MnY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="489.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="464.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-NM-0oo">
-                                                <rect key="frame" x="10" y="453" width="394" height="36.5"/>
+                                                <rect key="frame" x="10" y="428" width="394" height="36.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,13 +184,13 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="kJq-u1-yNw" secondAttribute="bottom" constant="18" id="16X-au-Wdo"/>
                                             <constraint firstAttribute="trailing" secondItem="rc1-0e-sVM" secondAttribute="trailing" constant="10" id="5U4-pX-vhd"/>
                                             <constraint firstItem="x1x-Ao-vSW" firstAttribute="leading" secondItem="kJq-u1-yNw" secondAttribute="trailing" constant="20" id="AZU-hn-bgX"/>
                                             <constraint firstItem="kJq-u1-yNw" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="CHM-7q-Icy"/>
                                             <constraint firstAttribute="trailing" secondItem="x1x-Ao-vSW" secondAttribute="trailing" constant="20" id="CRZ-2F-vQt"/>
                                             <constraint firstAttribute="trailing" secondItem="Lit-Fr-gqh" secondAttribute="trailing" id="CWP-Og-UWz"/>
                                             <constraint firstItem="kJq-u1-yNw" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="Hvz-bF-GUN"/>
-                                            <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="x1x-Ao-vSW" secondAttribute="bottom" constant="18" id="IxQ-yf-b5E"/>
                                             <constraint firstItem="x1x-Ao-vSW" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="Knx-xG-OpE"/>
                                             <constraint firstAttribute="bottom" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="OTY-E8-U3N"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" id="ZJI-Dx-Tf5"/>
