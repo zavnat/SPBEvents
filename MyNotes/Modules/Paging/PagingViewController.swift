@@ -39,7 +39,7 @@ class PagingViewController: UIViewController,WormTabStripDelegate {
     viewPager.eyStyle.WormColor = .systemOrange
     viewPager.eyStyle.dividerBackgroundColor = UIColor.systemBackground
     viewPager.eyStyle.tabItemSelectedColor = .white
-    viewPager.eyStyle.tabItemDefaultColor = .black
+    viewPager.eyStyle.tabItemDefaultColor = .label
     viewPager.buildUI()
   }
   

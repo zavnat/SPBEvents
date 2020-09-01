@@ -124,12 +124,11 @@
                                         <rect key="frame" x="197" y="438" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw6-Kl-MnY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="464.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="489.5"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-NM-0oo">
-                                                <rect key="frame" x="10" y="428" width="394" height="36.5"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-NM-0oo">
+                                                <rect key="frame" x="10" y="453" width="394" height="36.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -154,23 +153,26 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="lessthan.circle.fill" catalog="system">
+                                                <state key="normal" image="chevron.down.circle.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default" weight="semibold"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="backButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="SEM-AV-aKe"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-u1-yNw">
-                                                <rect key="frame" x="10" y="410" width="394" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-u1-yNw">
+                                                <rect key="frame" x="10" y="410" width="339" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
-                                                <rect key="frame" x="325" y="368" width="24" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.93333333330000001" green="0.36470588240000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
+                                                <rect key="frame" x="369" y="410" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="3b5-1H-6So"/>
+                                                    <constraint firstAttribute="height" constant="25" id="I8g-1Y-KA7"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <state key="normal" image="pencil" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                 </state>
@@ -183,19 +185,21 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="rc1-0e-sVM" secondAttribute="trailing" constant="10" id="5U4-pX-vhd"/>
+                                            <constraint firstItem="x1x-Ao-vSW" firstAttribute="leading" secondItem="kJq-u1-yNw" secondAttribute="trailing" constant="20" id="AZU-hn-bgX"/>
                                             <constraint firstItem="kJq-u1-yNw" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="CHM-7q-Icy"/>
+                                            <constraint firstAttribute="trailing" secondItem="x1x-Ao-vSW" secondAttribute="trailing" constant="20" id="CRZ-2F-vQt"/>
                                             <constraint firstAttribute="trailing" secondItem="Lit-Fr-gqh" secondAttribute="trailing" id="CWP-Og-UWz"/>
                                             <constraint firstItem="kJq-u1-yNw" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="Hvz-bF-GUN"/>
+                                            <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="x1x-Ao-vSW" secondAttribute="bottom" constant="18" id="IxQ-yf-b5E"/>
+                                            <constraint firstItem="x1x-Ao-vSW" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="Knx-xG-OpE"/>
                                             <constraint firstAttribute="bottom" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="OTY-E8-U3N"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" id="ZJI-Dx-Tf5"/>
                                             <constraint firstItem="tsf-nJ-ncC" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="top" constant="100" id="cOp-zd-j1Y"/>
                                             <constraint firstItem="rc1-0e-sVM" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="bottom" constant="30" id="hCH-B7-G8g"/>
                                             <constraint firstItem="x4X-NM-0oo" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="jha-2K-25D"/>
-                                            <constraint firstAttribute="trailing" secondItem="kJq-u1-yNw" secondAttribute="trailing" constant="10" id="jsc-Ac-oOo"/>
                                             <constraint firstItem="tsf-nJ-ncC" firstAttribute="leading" secondItem="Lit-Fr-gqh" secondAttribute="leading" constant="25" id="lcK-eo-n7w"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" id="oHY-AH-NhS"/>
                                             <constraint firstItem="rc1-0e-sVM" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="tly-NU-eHw"/>
-                                            <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="kJq-u1-yNw" secondAttribute="bottom" constant="18" id="uIk-6S-aCO"/>
                                             <constraint firstAttribute="trailing" secondItem="x4X-NM-0oo" secondAttribute="trailing" constant="10" id="yN7-og-ZiN"/>
                                         </constraints>
                                     </view>
@@ -412,9 +416,9 @@
         <segue reference="ZpQ-1b-g8q"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="images-3" width="91.5" height="137.5"/>
-        <image name="lessthan.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
     </resources>
 </document>
