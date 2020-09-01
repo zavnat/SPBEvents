@@ -8,8 +8,6 @@
 
 import Foundation
 
-class NoteRouter {
-  static func createNoteModule(with place: Result, destination: NoteViewController) {
-    destination.place = place
-  }
+class NoteRouter: NotePresenterToRouterProtocol {
+  
 }

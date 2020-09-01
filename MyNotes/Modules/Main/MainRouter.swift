@@ -10,30 +10,15 @@ import Foundation
 import UIKit
 
 class MainRouter: PresenterToRouterProtocol {
- 
-  
   
   weak var viewController: ViewController!
   
   init(viewController: ViewController) {
-      self.viewController = viewController
+    self.viewController = viewController
   }
   
-  func prepare(for segue: UIStoryboardSegue, data: Result){
-    let destinationVC = segue.destination as! NoteViewController
-    NoteRouter.createNoteModule(with: data, destination: destinationVC)
+  func created(with index: Int) {
+    viewController.performSegue(withIdentifier: "goToDetail", sender: nil)
   }
-  
-
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      let destinationVC = segue.destination as! DetailViewController
-//      
-//      if let indexPath = tableView.indexPathForSelectedRow {
-//        destinationVC.item = dataToUI[indexPath.row]
-//      }
-//
-//
-//}
 }
 

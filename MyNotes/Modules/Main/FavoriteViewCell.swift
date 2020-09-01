@@ -1,25 +1,24 @@
 //
-//  Cell.swift
+//  FavoriteViewCell.swift
 //  MyNotes
 //
-//  Created by admin on 23.07.2020.
+//  Created by admin on 17.08.2020.
 //  Copyright © 2020 Natali. All rights reserved.
 //
 
 import UIKit
 
-
-protocol PublishCellDelegate: class {
+protocol FavoriteCellDelegate: class {
   func likePressed(cell: UICollectionViewCell)
 }
 
-class PublishCollectionCell: UICollectionViewCell {
+class FavoriteViewCell: UICollectionViewCell {
   
-  weak var cellDelegate: PublishCellDelegate?
- 
-  @IBOutlet weak var favorites: UIButton!
+  weak var cellDelegate: FavoriteCellDelegate?
+    
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var image: UIImageView!
+  @IBOutlet weak var favorites: UIButton!
   
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     cellDelegate?.likePressed(cell: self)

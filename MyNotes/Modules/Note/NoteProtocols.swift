@@ -7,39 +7,34 @@
 //
 
 import Foundation
+import UIKit
 
-protocol ViewToPresenterMovieProtocol:class{
-    
-//    var view: PresenterToViewMovieProtocol? {get set}
-//    var interactor: PresenterToInteractorMovieProtocol? {get set}
-//    var router: PresenterToRouterMovieProtocol? {get set}
-//    func startFetchingMovie()
-
+protocol NoteInteractorToPresenterProtocol: class {
+  func fetchSuccess(_ item: DetailModel)
 }
 
-protocol PresenterToViewMovieProtocol:class {
-    
-//    func onMovieResponseSuccess(movieModelArrayList:Array<MovieModel>)
-//    func onMovieResponseFailed(error:String)
-    
+protocol NotePresenterToInteractorProtocol: class {
+  var presenter: NoteInteractorToPresenterProtocol? {get set}
+  func getData(_ id: String)
+  func didGetNote(_ text: String, _ id: String)
 }
 
-protocol PresenterToRouterMovieProtocol:class {
-    
-//    static func createMovieModule()->MovieViewController
-
+protocol NotePresenterToViewProtocol: class {
+  func showDetail(place: DetailUIModel)
 }
 
-protocol PresenterToInteractorMovieProtocol:class {
-    
-//    var presenter:InteractorToPresenterMovieProtocol? {get set}
-//    func fetchMovie()
-    
+protocol NoteViewToPresenterProtocol: class {
+  var view: NotePresenterToViewProtocol? {get set}
+  var interactor: NotePresenterToInteractorProtocol? {get set}
+  var router: NotePresenterToRouterProtocol? {get set}
+  func startFetchingPlaces(with id: Int)
+  func noteButtonPressed(_ text: String, _ id: Int)
 }
 
-protocol InteractorToPresenterMovieProtocol:class {
-    
-//    func movieFetchSuccess(movieList:Array<MovieModel>)
-//    func movieFetchFailed()
-//    
+protocol NotePresenterToRouterProtocol: class {
 }
+
+protocol NoteConfiguratorProtocol: class {
+  func configure(with viewController: NoteViewController)
+}
+

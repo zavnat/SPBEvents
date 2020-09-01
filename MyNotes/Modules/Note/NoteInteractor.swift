@@ -9,31 +9,32 @@
 import Foundation
 import Alamofire
 
-class NoteInteractor {
- 
-//  let placeURL = "https://kudago.com/public-api/v1.4/places"
-//
-//  @objc func fetchPlaceDetail() {
-//    print("fetch data")
-//
-//    let parameters : [String : String] = [
-//    "id" : "\(12271)"
-//  ]
-//
-//
-//    Alamofire.request(placeURL, method: .get, parameters: parameters).response { (response) in
-//      //print(response)
-//      guard let data = response.data else { return }
-//      print(data.count)
-//      let decoder = JSONDecoder()
-//      do {
-//        let places = try decoder.decode(PlaceDetail.self, from: data)
-////        print(places.subway)
-////     self.presenter?.dataFetchedSuccess(with: places.results)
-//      } catch {
-//        print(error.localizedDescription)
-//      }
-//    }
-//  }
-
+class NoteInteractor: NotePresenterToInteractorProtocol {
+  
+  var dataServise = DataServise()
+  var presenter: NoteInteractorToPresenterProtocol?
+  
+  func getData(_ id: String) {
+    fetchPlaceDetail(id)
+  }
+  
+  func didGetNote(_ text: String, _ id: String) {
+    dataServise.addNoteToData(text, id)
+  }
+  
+  private func fetchPlaceDetail(_ id: String) {
+    print("fetch detail data")
+    let detailURL = "https://kudago.com/public-api/v2.0/places/\(id)"
+    
+    Alamofire.request(detailURL, method: .get).response { (response) in
+      guard let data = response.data else { return }
+      let decoder = JSONDecoder()
+      do {
+        let item = try decoder.decode(DetailModel.self, from: data)
+        self.presenter?.fetchSuccess(item)
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+  }
 }

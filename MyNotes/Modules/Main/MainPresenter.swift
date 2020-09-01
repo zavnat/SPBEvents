@@ -11,48 +11,54 @@ import UIKit
 
 class MainPresenter: ViewToPresenterProtocol {
   
-  
   var view: PresenterToViewProtocol?
-  
   var interactor: PresenterToInteractorProtocol?
-
   var router: PresenterToRouterProtocol?
   
+  var myRefreshControl: UIRefreshControl {
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    return refreshControl
+  }
+  
+  @objc private func refresh(sender: UIRefreshControl) {
+    interactor?.refreshData()
+    sender.endRefreshing()
+  }
+  
+  // MARK: - ViewToPresenterProtocol Methods
+  func startFetchingPlaces() {
+    interactor?.getData()
+  }
+  
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
-    print("didscroll in presenter")
     interactor?.dataToNextPage(offsetY: offsrtY, contentHeight: contentHeight, frameHeight: frameHeight)
   }
   
-  func startFetchingPlaces() {
-    print("start fetch from presenter")
-    interactor?.fetchData()
+  func cellSelected(_ index: Int) {
+    router?.created(with: index)
+  }
+  
+  func likedButtonTapped(with id: Int) {
+    interactor?.didGetLike(with: String(id))
+  }
+  
+  func notificationReceived() {
+    interactor?.get()
   }
 }
 
 
+// MARK: - InteractorToPresenterProtocol Methods
 extension MainPresenter: InteractorToPresenterProtocol{
-    func dataFetchedSuccess(with data: [Result]) {
-      print("data fetch success")
-      let items = data.map { ViewModel(item: $0) }
-      view?.showPlaces(placesArray: items)
-    }
-
-    func noticeFetchFailed() {
-      view?.showError()
-    }
-
-}
-
-struct ViewModel {
-  let id: Int
-  let title: String
-  let image: URL?
-}
-extension ViewModel {
-init(item: Result) {
-  self.id = item.id
-  self.title = item.title
-  self.image = URL(string: item.images[0].image)
+  func dataFetchedSuccess(with data: [Note]) {
+    let items = data.map { ViewModel(item: $0) }
+    view?.showPlaces(placesArray: items)
+  }
+  
+  func noticeFetchFailed() {
+    view?.showError()
   }
 }
+
 
