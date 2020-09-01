@@ -17,7 +17,7 @@ class MainRouter: PresenterToRouterProtocol {
     self.viewController = viewController
   }
   
-  func created(with index: Int){
+  func created(with index: Int) {
     viewController.performSegue(withIdentifier: "goToDetail", sender: nil)
   }
 }

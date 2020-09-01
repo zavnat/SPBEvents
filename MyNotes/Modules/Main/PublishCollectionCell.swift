@@ -9,12 +9,13 @@
 import UIKit
 
 
-protocol PublishCellDelegate {
+protocol PublishCellDelegate: class {
   func likePressed(cell: UICollectionViewCell)
 }
 
 class PublishCollectionCell: UICollectionViewCell {
-  var cellDelegate: PublishCellDelegate?
+  
+  weak var cellDelegate: PublishCellDelegate?
  
   @IBOutlet weak var favorites: UIButton!
   @IBOutlet weak var label: UILabel!

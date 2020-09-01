@@ -20,42 +20,46 @@ class MainInteractor: PresenterToInteractorProtocol {
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
     if offsetY > contentHeight - frameHeight * 2 {
       if !fetchingMore && currentPage < 10 {
-        self.fetchData()
+        self.fetchNetworkData()
       }
     }
   }
   
-  func get(){
-    loadData()
-  }
-  
-  func refresh(){
+  func refreshData() {
     currentPage = 1
-    fetchData()
+    fetchNetworkData()
   }
   
-  func getData(){
+  func getData() {
     if currentPage == 1 {
-      loadData()
-      fetchData()
+      loadDataFromDatabase()
+      fetchNetworkData()
     } else {
-      fetchData()
+      fetchNetworkData()
     }
   }
   
-  func loadData(){
-    dataServise.loadDataFromDatabase { [weak self] items in
+  func didGetLike(with stringId: String){
+    dataServise.updateData(id: stringId)
+  }
+  
+  func get() {
+    loadDataFromDatabase()
+  }
+  
+  private func loadDataFromDatabase() {
+    dataServise.fetchData { [weak self] items in
       guard let self = self else { return }
       self.presenter?.dataFetchedSuccess(with: items)
     }
   }
   
-  private func fetchData() {
+  private func fetchNetworkData() {
     fetchingMore = true
-    let parameters : [String : String] = [
-      "location" : "spb",
-      "page" : "\(currentPage)",
-      "fields" : "id,slug,images,title"
+    let parameters: [String: String] = [
+      "location": "spb",
+      "page": "\(currentPage)",
+      "fields": "id,slug,images,title"
     ]
     Alamofire.request(placesURL, method: .get, parameters: parameters).response { (response) in
       guard let data = response.data else { return }
@@ -63,12 +67,9 @@ class MainInteractor: PresenterToInteractorProtocol {
       let decoder = JSONDecoder()
       do {
         let places = try decoder.decode(Places.self, from: data)
-        if places.results.count > 0 && self.currentPage == 1 {
-//          self.dataServise.deleteAllRecords()
-        }
         self.fetchingMore = false
         self.dataServise.saveDataToDatabase(items: places.results, page: self.currentPage)
-        self.loadData()
+        self.loadDataFromDatabase()
         self.currentPage += 1
       } catch {
         print(error.localizedDescription)
@@ -76,7 +77,4 @@ class MainInteractor: PresenterToInteractorProtocol {
     }
   }
   
-  func didGetLike(with stringId: String){
-    dataServise.updateData(id: stringId)
-  }
 }

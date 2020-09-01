@@ -14,29 +14,28 @@ class MainPresenter: ViewToPresenterProtocol {
   var view: PresenterToViewProtocol?
   var interactor: PresenterToInteractorProtocol?
   var router: PresenterToRouterProtocol?
+  
   var myRefreshControl: UIRefreshControl {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     return refreshControl
   }
   
-  //MARK: - ViewToPresenterProtocol Methods
+  @objc private func refresh(sender: UIRefreshControl) {
+    interactor?.refreshData()
+    sender.endRefreshing()
+  }
   
+  // MARK: - ViewToPresenterProtocol Methods
   func startFetchingPlaces() {
     interactor?.getData()
   }
   
-  @objc private func refresh(sender: UIRefreshControl){
-    interactor?.refresh()
-    sender.endRefreshing()
-  }
-  
   func didScroll(offsrtY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
-    print("didscroll in presenter")
     interactor?.dataToNextPage(offsetY: offsrtY, contentHeight: contentHeight, frameHeight: frameHeight)
   }
   
-  func cellSelected(_ index : Int) {
+  func cellSelected(_ index: Int) {
     router?.created(with: index)
   }
   
@@ -44,12 +43,13 @@ class MainPresenter: ViewToPresenterProtocol {
     interactor?.didGetLike(with: String(id))
   }
   
-  func notificationReceived(){
+  func notificationReceived() {
     interactor?.get()
   }
 }
 
-//MARK: - InteractorToPresenterProtocol Methods
+
+// MARK: - InteractorToPresenterProtocol Methods
 extension MainPresenter: InteractorToPresenterProtocol{
   func dataFetchedSuccess(with data: [Note]) {
     let items = data.map { ViewModel(item: $0) }
@@ -61,22 +61,4 @@ extension MainPresenter: InteractorToPresenterProtocol{
   }
 }
 
-//MARK: - UIModel
-struct ViewModel {
-  let id: Int
-  let title: String
-  let image: URL?
-  var favorite: Bool
-  let note: String?
-}
-
-extension ViewModel {
-  init(item: Note) {
-    self.id = Int(item.id!)!
-    self.title = item.title!
-    self.image = URL(string: item.image!)
-    self.favorite = item.favorite
-    self.note = item.noteText
-  }
-}
 

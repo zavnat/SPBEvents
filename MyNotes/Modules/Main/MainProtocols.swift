@@ -15,11 +15,11 @@ protocol InteractorToPresenterProtocol: class {
 }
 
 protocol PresenterToInteractorProtocol: class {
-  var presenter:InteractorToPresenterProtocol? {get set}
+  var presenter: InteractorToPresenterProtocol? {get set}
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat)
   func getData()
   func didGetLike(with stringId: String)
-  func refresh()
+  func refreshData()
   func get()
 }
 

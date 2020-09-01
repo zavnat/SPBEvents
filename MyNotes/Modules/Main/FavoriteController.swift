@@ -21,13 +21,18 @@ class FavoriteController: UICollectionViewController {
     collectionView.dataSource = self
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
-    NotificationCenter.default.addObserver(self, selector: #selector(reactToNotification(_:)), name: .FavoriteChanged, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(reactToNotification(_:)),
+      name: .FavoriteChanged,
+      object: nil)
   }
   
   @objc func reactToNotification(_ sender: Notification) {
     print("Notification")
     presenter?.startFetchingPlaces()
   }
+  
   
   //MARK: - CollectionViewDataSourse Methods
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,13 +52,15 @@ class FavoriteController: UICollectionViewController {
     return cell
   }
   
-  //MARK: - CollectionViewDelegate Methods
+  
+  // MARK: - CollectionViewDelegate Methods
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     //    presenter?.cellSelected(places [indexPath.row].id)
   }
 }
 
-//MARK: - CollectionViewDelegateFlowLayout Methods
+
+// MARK: - CollectionViewDelegateFlowLayout Methods
 extension FavoriteController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -71,6 +78,7 @@ extension FavoriteController: UICollectionViewDelegateFlowLayout {
   }
 }
 
+
 //MARK: - FavoritePresenterToViewProtocol Methods
 extension FavoriteController: FavoritePresenterToViewProtocol {
   func showPlaces(placesArray: [FavoriteModel]) {
@@ -85,36 +93,20 @@ extension FavoriteController: FavoritePresenterToViewProtocol {
   }
 }
 
+
 //MARK: - FavoriteCellDelegate Methods
 extension FavoriteController: FavoriteCellDelegate {
   
   func likePressed(cell: UICollectionViewCell) {
-    print("like pressed")
     guard let indexPath = collectionView.indexPath(for: cell) else {return}
     let item = favoritePlaces[indexPath.row]
     favoritePlaces.remove(at: indexPath.row)
     collectionView.reloadData()
+    
     presenter?.likedButtonTapped(with: item.id)
   }
   
-//  func notePressed(cell: UICollectionViewCell) {
-//    var textField = UITextField()
-//    let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
-//    let action = UIAlertAction(title: "Add", style: .default) { (action) in
-//      guard let text = textField.text else {return}
-//      self.presenter?.noteButtonPressed(text)
-//    }
-//    alert.addTextField { (alertTextField) in
-//      alertTextField.placeholder = "Create new item"
-//      textField = alertTextField
-//    }
-//    alert.addAction(action)
-//    present(alert, animated: true, completion: nil)
-//  }
-  
-  
-      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    print("Prepare")
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard segue.identifier == "favoriteDetail" else { return }
     guard let destination = segue.destination as? NoteViewController else { return }
     

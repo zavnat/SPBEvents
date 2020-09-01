@@ -15,22 +15,27 @@ class ViewController: UICollectionViewController {
   var configurator: MainConfiguratorProtocol = MainConfigurator()
   var places = [ViewModel]()
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView.delegate = self
     collectionView.dataSource = self
+    collectionView.refreshControl = presenter?.myRefreshControl
     configurator.configure(with: self)
     presenter?.startFetchingPlaces()
-    collectionView.refreshControl = presenter?.myRefreshControl
-    NotificationCenter.default.addObserver(self, selector: #selector(reactToNotification(_:)), name: .MainChanged, object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(reactToNotification(_:)),
+      name: .MainChanged,
+      object: nil)
   }
   
   @objc func reactToNotification(_ sender: Notification) {
-    print("Notification")
     presenter?.notificationReceived()
   }
   
-  //MARK: - CollectionViewDataSourse Methods
+  
+  // MARK: - CollectionViewDataSourse Methods
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return places.count
   }
@@ -40,6 +45,7 @@ class ViewController: UICollectionViewController {
     cell.cellDelegate = self
     cell.label.text = places[indexPath.row].title.capitalized
     cell.image.kf.setImage(with: places[indexPath.row].image)
+    
     if places[indexPath.row].favorite {
       cell.favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     } else {
@@ -102,13 +108,11 @@ extension ViewController: PublishCellDelegate {
     let hasFavorite = item.favorite
     places[indexPath.row].favorite = !hasFavorite
     collectionView.reloadItems(at: [indexPath])
-    print(item.favorite)
-    print(item.title)
     
     presenter?.likedButtonTapped(with: item.id)
   }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    print("Prepare")
     guard segue.identifier == "goToDetail" else { return }
     guard let destination = segue.destination as? NoteViewController else { return }
     

@@ -15,30 +15,6 @@ class NoteViewController: UIViewController {
   var configurator: NoteConfiguratorProtocol = NoteConfigurator()
   var id: Int?
   var noteText: String?
-  
-  @IBAction func backButtonTapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-  }
-  
-  @IBAction func editButtonTapped(_ sender: UIButton) {
-    
-      var textField = UITextField()
-      let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
-      let action = UIAlertAction(title: "Add", style: .default) { (action) in
-        guard let text = textField.text else {return}
-        self.note.text = text
-        guard let noteId = self.id else {return}
-        self.presenter?.noteButtonPressed(text, noteId)
-      }
-      alert.addTextField { (alertTextField) in
-        alertTextField.placeholder = "Create new item"
-        textField = alertTextField
-      }
-      alert.addAction(action)
-      present(alert, animated: true, completion: nil)
-    
-  }
-  
   var dataToUI: DetailUIModel?
   
   @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -47,54 +23,77 @@ class NoteViewController: UIViewController {
   @IBOutlet weak var text: UITextView!
   @IBOutlet weak var note: UILabel!
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-  image.layer.cornerRadius = 30
-  image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    image.layer.cornerRadius = 30
+    image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     configurator.configure(with: self)
+    spinner.startAnimating()
     if let placeID = id {
       presenter?.startFetchingPlaces(with: placeID)
-      spinner.startAnimating()
     }
   }
+  
+  @IBAction func backButtonTapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func editButtonTapped(_ sender: UIButton) {
+    var textField = UITextField()
+    let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
+    let action = UIAlertAction(title: "Add", style: .default) { (action) in
+      guard let text = textField.text else {return}
+      self.note.text = text
+      guard let noteId = self.id else {return}
+      self.presenter?.noteButtonPressed(text, noteId)
+    }
+    alert.addTextField { (alertTextField) in
+      alertTextField.placeholder = "Create new item"
+      textField = alertTextField
+    }
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
+  }
+  
 }
 
-//MARK: - NotePresenterToViewProtocol Methods
+// MARK: - NotePresenterToViewProtocol Methods
 extension NoteViewController: NotePresenterToViewProtocol {
   func showDetail(place: DetailUIModel) {
     dataToUI = place
-    let string = self.dataToUI?.bodyText ?? ""
+    guard let data = dataToUI else {return}
     
     DispatchQueue.main.async {
       self.spinner.stopAnimating()
-      self.image.kf.setImage(with: self.dataToUI?.image!)
-      self.label.text = self.dataToUI?.title.capitalized
-//      self.text.text = string.withoutHtmlTags
-      self.text.attributedText = string.htmlToAttributedString
+      self.image.kf.setImage(with: data.image)
+      self.label.text = data.title.capitalized
+      //      self.text.text = string.withoutHtmlTags
+      self.text.attributedText = data.bodyText.htmlToAttributedString
       self.text.font = self.text.font?.withSize(19)
       self.note.text = self.noteText
     }
   }
 }
 
-//MARK: - Extension String
+// MARK: - Extension String
 extension String {
-    var withoutHtmlTags: String {
+  var withoutHtmlTags: String {
     return self.replacingOccurrences(of: "<[^>]+>", with: "", options:
-    .regularExpression, range: nil).replacingOccurrences(of: "&[^;]+;", with:
-    "", options:.regularExpression, range: nil)
-    }
+      .regularExpression, range: nil).replacingOccurrences(of: "&[^;]+;", with:
+        "", options:.regularExpression, range: nil)
+  }
 }
 extension String {
-    var htmlToAttributedString: NSAttributedString? {
-        guard let data = data(using: .utf8) else { return nil }
-        do {
-            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
-        } catch {
-            return nil
-        }
+  var htmlToAttributedString: NSAttributedString? {
+    guard let data = data(using: .utf8) else { return nil }
+    do {
+      return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+    } catch {
+      return nil
     }
-    var htmlToString: String {
-        return htmlToAttributedString?.string ?? ""
-    }
+  }
+  var htmlToString: String {
+    return htmlToAttributedString?.string ?? ""
+  }
 }

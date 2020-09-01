@@ -5,14 +5,12 @@ import UIKit
 
 protocol FavoriteInteractorToPresenterProtocol: class {
   func dataFetchedSuccess(with data: [Liked])
-  func noticeFetchFailed()
 }
 
 protocol FavoritePresenterToInteractorProtocol: class {
-  var presenter:FavoriteInteractorToPresenterProtocol? {get set}
+  var presenter: FavoriteInteractorToPresenterProtocol? {get set}
   func getData()
   func likeButton(with stringId: String)
-//  func didGetNote(_ text: String)
 }
 
 protocol FavoritePresenterToViewProtocol: class {
@@ -26,7 +24,6 @@ protocol FavoriteViewToPresenterProtocol: class {
   func startFetchingPlaces()
   //  func cellSelected(_ index: Int)
   func likedButtonTapped(with id: Int)
-//  func noteButtonPressed(_ text: String)
 }
 
 protocol FavoritePresenterToRouterProtocol: class {

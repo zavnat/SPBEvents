@@ -76,7 +76,7 @@ extension KingfisherWrapper where Base: NSButton {
             options.onDataReceived = (options.onDataReceived ?? []) + [ImageLoadingProgressSideEffect(block)]
         }
         
-        if let provider = ImageProgressiveProvider(options, refresh: { name in
+        if let provider = ImageProgressiveProvider(options, refreshData: { name in
             self.base.name = name
         }) {
             options.onDataReceived = (options.onDataReceived ?? []) + [provider]
@@ -197,7 +197,7 @@ extension KingfisherWrapper where Base: NSButton {
             options.onDataReceived = (options.onDataReceived ?? []) + [ImageLoadingProgressSideEffect(block)]
         }
         
-        if let provider = ImageProgressiveProvider(options, refresh: { name in
+        if let provider = ImageProgressiveProvider(options, refreshData: { name in
             self.base.alternateImage = name
         }) {
             options.onDataReceived = (options.onDataReceived ?? []) + [provider]

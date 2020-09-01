@@ -23,6 +23,7 @@
 		843CE64224A7915A0095ED53 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64124A7915A0095ED53 /* MainConfigurator.swift */; };
 		843CE64424A8C6380095ED53 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64324A8C6380095ED53 /* DataModel.swift */; };
 		843CE64624AA1B210095ED53 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CE64524AA1B210095ED53 /* DetailModel.swift */; };
+		84A28B6824FE953700500EFA /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A28B6724FE953700500EFA /* FavoriteModel.swift */; };
 		84BFE07D24A61DA50018F925 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE07C24A61DA50018F925 /* AppDelegate.swift */; };
 		84BFE07F24A61DA50018F925 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE07E24A61DA50018F925 /* SceneDelegate.swift */; };
 		84BFE08124A61DA50018F925 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE08024A61DA50018F925 /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 		843CE64124A7915A0095ED53 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		843CE64324A8C6380095ED53 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		843CE64524AA1B210095ED53 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		84A28B6724FE953700500EFA /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		84BFE07924A61DA50018F925 /* MyNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BFE07C24A61DA50018F925 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BFE07E24A61DA50018F925 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				8413F4DE24EA8730005E2029 /* FavoriteInteractor.swift */,
 				8413F4E024EA8740005E2029 /* FavoriteRouter.swift */,
 				8413F4E224EA97A1005E2029 /* FavoriteConfigurator.swift */,
+				84A28B6724FE953700500EFA /* FavoriteModel.swift */,
 				8413F4E424EB0547005E2029 /* FavoriteViewCell.swift */,
 			);
 			name = Favorite;
@@ -249,7 +252,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84BFE09024A61DA80018F925 /* Build configuration list for PBXNativeTarget "MyNotes" */;
 			buildPhases = (
-				843F1C6924FE762700437F32 /* ShellScript */,
 				CB6F0F9C1082C8D931A7F01F /* [CP] Check Pods Manifest.lock */,
 				84BFE07524A61DA50018F925 /* Sources */,
 				84BFE07624A61DA50018F925 /* Frameworks */,
@@ -312,23 +314,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		843F1C6924FE762700437F32 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
 		8BDD76393C2701446FEB8137 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,6 +381,7 @@
 				84BFE0A024A65C200018F925 /* MainPresenter.swift in Sources */,
 				843AC86724D04AAF005F70EE /* WormTabStripButton.swift in Sources */,
 				84BFE08724A61DA50018F925 /* MyNotes.xcdatamodeld in Sources */,
+				84A28B6824FE953700500EFA /* FavoriteModel.swift in Sources */,
 				84BFE0A224A65C3C0018F925 /* MainInteractor.swift in Sources */,
 				84BFE0A424A65C900018F925 /* MainRouter.swift in Sources */,
 				84BFE0AA24A65D0D0018F925 /* NoteRouter.swift in Sources */,
