@@ -69,7 +69,9 @@ extension NoteViewController: NotePresenterToViewProtocol {
       self.spinner.stopAnimating()
       self.image.kf.setImage(with: self.dataToUI?.image!)
       self.label.text = self.dataToUI?.title.capitalized
-      self.text.text = string.withoutHtmlTags
+//      self.text.text = string.withoutHtmlTags
+      self.text.attributedText = string.htmlToAttributedString
+      self.text.font = self.text.font?.withSize(19)
       self.note.text = self.noteText
     }
   }
@@ -83,4 +85,16 @@ extension String {
     "", options:.regularExpression, range: nil)
     }
 }
-
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return nil
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}
