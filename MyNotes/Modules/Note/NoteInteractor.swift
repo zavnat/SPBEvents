@@ -24,7 +24,7 @@ class NoteInteractor: NotePresenterToInteractorProtocol {
   
   private func fetchPlaceDetail(_ id: String) {
     print("fetch detail data")
-    let detailURL = "https://kudago.com/public-api/v2.0/places/\(id)"
+    let detailURL = "https://kudago.com/public-api/v2.0/events/\(id)"
     
     Alamofire.request(detailURL, method: .get).response { (response) in
       guard let data = response.data else { return }

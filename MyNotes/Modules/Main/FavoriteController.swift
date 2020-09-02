@@ -52,11 +52,6 @@ class FavoriteController: UICollectionViewController {
     return cell
   }
   
-  
-  // MARK: - CollectionViewDelegate Methods
-  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //    presenter?.cellSelected(places [indexPath.row].id)
-  }
 }
 
 

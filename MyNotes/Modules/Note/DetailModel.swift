@@ -10,54 +10,50 @@ import Foundation
 
 // MARK: - DetailModel
 struct DetailModel: Codable {
-  let id: Int
-  let title, slug, address, timetable: String
-  let phone: String
-  let isStub: Bool
-  let bodyText, purpleDescription: String
-  let siteURL: String
-  let foreignURL: String
-  let coords: Coords
-  let subway: String
-  let favoritesCount: Int
-  let images: [ImageItem]
-  let commentsCount: Int
-  let isClosed: Bool
+  let id, publicationDate: Int
+  let dates: [DatesArray]
+  let title, slug: String
+  let purpleDescription, bodyText: String
   let categories: [String]
+  let tagline: String
+  let price: String
+  let isFree: Bool
+  let images: [ImageItem]
+  let favoritesCount, commentsCount: Int
+  let siteURL: String
   let shortTitle: String
   let tags: [String]
-  let location: String
-  let disableComments, hasParkingLot: Bool
+  let disableComments: Bool
   
   enum CodingKeys: String, CodingKey {
-    case id, title, slug, address, timetable, phone
-    case isStub = "is_stub"
-    case bodyText = "body_text"
+    case id
+    case publicationDate = "publication_date"
+    case dates, title, slug
     case purpleDescription = "description"
-    case siteURL = "site_url"
-    case foreignURL = "foreign_url"
-    case coords, subway
-    case favoritesCount = "favorites_count"
+    case bodyText = "body_text"
+    case categories, tagline
+    case price
+    case isFree = "is_free"
     case images
+    case favoritesCount = "favorites_count"
     case commentsCount = "comments_count"
-    case isClosed = "is_closed"
-    case categories
+    case siteURL = "site_url"
     case shortTitle = "short_title"
-    case tags, location
+    case tags
     case disableComments = "disable_comments"
-    case hasParkingLot = "has_parking_lot"
   }
-}
-
-// MARK: - Coords
-struct Coords: Codable {
-  let lat, lon: Double
 }
 
 // MARK: - Image
 struct ImageItem: Codable {
   let image: String
 }
+
+// MARK: - DateElement
+struct DatesArray: Codable {
+  let start, end: Int
+}
+
 
 // MARK: - DetailUIModel
 struct DetailUIModel {

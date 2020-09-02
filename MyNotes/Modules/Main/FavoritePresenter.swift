@@ -24,7 +24,6 @@ class FavoritePresenter: FavoriteViewToPresenterProtocol {
   }
 }
 
-
 extension FavoritePresenter: FavoriteInteractorToPresenterProtocol{
   func dataFetchedSuccess(with data: [Liked]) {
     print("data fetch success")

@@ -14,7 +14,7 @@ class MainInteractor: PresenterToInteractorProtocol {
   var dataServise = DataServise()
   var presenter: InteractorToPresenterProtocol?
   var fetchingMore = false
-  let placesURL = "https://kudago.com/public-api/v2.0/places"
+  let placesURL = "https://kudago.com/public-api/v2.0/events"
   var currentPage = 1
   
   func dataToNextPage(offsetY: CGFloat, contentHeight: CGFloat, frameHeight: CGFloat){
