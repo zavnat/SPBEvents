@@ -25,4 +25,5 @@ class PublishCollectionCell: UICollectionViewCell {
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     cellDelegate?.likePressed(cell: self)
   }
+  
 }
