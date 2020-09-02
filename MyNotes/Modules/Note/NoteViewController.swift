@@ -14,9 +14,11 @@ class NoteViewController: UIViewController {
   var presenter: NoteViewToPresenterProtocol?
   var configurator: NoteConfiguratorProtocol = NoteConfigurator()
   var id: Int?
+  var favorite: Bool?
   var noteText: String?
   var dataToUI: DetailUIModel?
   
+  @IBOutlet weak var likeButton: UIButton!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
   @IBOutlet weak var image: UIImageView!
   @IBOutlet weak var label: UILabel!
@@ -30,6 +32,7 @@ class NoteViewController: UIViewController {
     image.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     configurator.configure(with: self)
     spinner.startAnimating()
+    likeButtonSettings()
     if let placeID = id {
       presenter?.startFetchingPlaces(with: placeID)
     }
@@ -41,6 +44,9 @@ class NoteViewController: UIViewController {
   
   @IBAction func likeButtonTapped(_ sender: UIButton) {
     guard let itemID = id else {return}
+    guard let liked = favorite else {return}
+    favorite = !liked
+    likeButtonSettings()
     presenter?.likedButton(with: itemID)
   }
   
@@ -59,6 +65,14 @@ class NoteViewController: UIViewController {
     }
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
+  }
+  
+  func likeButtonSettings() {
+    if favorite! {
+      likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+    } else {
+      likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
   }
   
 }

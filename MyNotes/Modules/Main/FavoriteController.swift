@@ -108,6 +108,7 @@ extension FavoriteController: FavoriteCellDelegate {
     if let indexPath = collectionView.indexPathsForSelectedItems?.first {
       destination.id = favoritePlaces[indexPath.row].id
       destination.noteText = favoritePlaces[indexPath.row].note
+      destination.favorite = favoritePlaces[indexPath.row].favorite
     }
   }
 }

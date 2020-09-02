@@ -239,6 +239,7 @@
                     <connections>
                         <outlet property="image" destination="Lit-Fr-gqh" id="Q5E-e0-PXo"/>
                         <outlet property="label" destination="rc1-0e-sVM" id="2Y7-lv-zAt"/>
+                        <outlet property="likeButton" destination="2Mh-uC-31M" id="cwj-Xk-44U"/>
                         <outlet property="note" destination="kJq-u1-yNw" id="Q45-kG-vcm"/>
                         <outlet property="spinner" destination="aff-V4-V5l" id="YC7-JA-buh"/>
                         <outlet property="text" destination="x4X-NM-0oo" id="xEt-PG-VWY"/>
