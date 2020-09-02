@@ -22,6 +22,10 @@ class NoteInteractor: NotePresenterToInteractorProtocol {
     dataServise.addNoteToData(text, id)
   }
   
+  func didGetLike(with id: String) {
+    dataServise.updateDataFromDetail(id: id)
+  }
+  
   private func fetchPlaceDetail(_ id: String) {
     print("fetch detail data")
     let detailURL = "https://kudago.com/public-api/v2.0/events/\(id)"

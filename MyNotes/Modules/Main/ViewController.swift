@@ -20,8 +20,8 @@ class ViewController: UICollectionViewController {
     super.viewDidLoad()
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.refreshControl = presenter?.myRefreshControl
     configurator.configure(with: self)
+    collectionView.refreshControl = presenter?.myRefreshControl
     presenter?.startFetchingPlaces()
     NotificationCenter.default.addObserver(
       self,

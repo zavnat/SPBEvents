@@ -83,7 +83,6 @@ class DataServise {
     return nil
   }
   
-  
   private func haveNoteText(for item: Result) -> String? {
     let id = String(item.id)
     let request: NSFetchRequest<Note> = Note.fetchRequest()
@@ -119,6 +118,11 @@ class DataServise {
     }
   }
   
+  func updateDataFromDetail(id: String) {
+    updateData(id: id)
+    let nc = NotificationCenter.default
+    nc.post(name: .MainChanged, object: nil)
+  }
   
   func updateData(id: String) {
     let request : NSFetchRequest<Note> = Note.fetchRequest()
@@ -139,7 +143,6 @@ class DataServise {
       print("Error update data")
     }
   }
-  
   
   func updateDataFromFavorites(id: String) {
     deleteFromFavorites(id)
@@ -170,7 +173,6 @@ class DataServise {
       print("Error fetch Liked")
     }
   }
-  
   
   func fetchData (completion: @escaping ([Note]) -> ()) {
     let request: NSFetchRequest<Note> = Note.fetchRequest()

@@ -39,6 +39,11 @@ class NoteViewController: UIViewController {
     self.dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func likeButtonTapped(_ sender: UIButton) {
+    guard let itemID = id else {return}
+    presenter?.likedButton(with: itemID)
+  }
+  
   @IBAction func editButtonTapped(_ sender: UIButton) {
     var textField = UITextField()
     let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)

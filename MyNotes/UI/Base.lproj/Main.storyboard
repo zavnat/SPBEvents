@@ -179,6 +179,15 @@
                                                     <action selector="editButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="LG0-M1-eRI"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mh-uC-31M">
+                                                <rect key="frame" x="360" y="104" width="20.5" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="heart" catalog="system"/>
+                                                <connections>
+                                                    <action selector="likeButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="qf8-uQ-Ri3"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -412,7 +421,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZpQ-1b-g8q"/>
+        <segue reference="NlL-5M-Jrt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
