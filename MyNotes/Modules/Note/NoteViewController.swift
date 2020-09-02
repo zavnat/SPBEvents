@@ -62,10 +62,14 @@ class NoteViewController: UIViewController {
       guard let noteId = self.id else {return}
       self.presenter?.noteButtonPressed(text, noteId)
     }
+    let cancellAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+      return
+    }
     alert.addTextField { (alertTextField) in
       alertTextField.placeholder = "Create new item"
       textField = alertTextField
     }
+    alert.addAction(cancellAction)
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
   }
