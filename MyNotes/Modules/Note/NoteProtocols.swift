@@ -16,7 +16,7 @@ protocol NoteInteractorToPresenterProtocol: class {
 protocol NotePresenterToInteractorProtocol: class {
   var presenter: NoteInteractorToPresenterProtocol? {get set}
   func getData(_ id: String)
-  func didGetNote(_ text: String, _ id: String)
+  func didGetNote(_ text: String?, _ id: String)
   func didGetLike(with id: String)
 }
 
@@ -29,7 +29,7 @@ protocol NoteViewToPresenterProtocol: class {
   var interactor: NotePresenterToInteractorProtocol? {get set}
   var router: NotePresenterToRouterProtocol? {get set}
   func startFetchingPlaces(with id: Int)
-  func noteButtonPressed(_ text: String, _ id: Int)
+  func noteButtonPressed(_ text: String?, _ id: Int)
   func likedButton(with id: Int)
 }
 

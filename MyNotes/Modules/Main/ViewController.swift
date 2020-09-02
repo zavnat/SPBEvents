@@ -28,6 +28,7 @@ class ViewController: UICollectionViewController {
       selector: #selector(reactToNotification(_:)),
       name: .MainChanged,
       object: nil)
+    print(places)
   }
   
   @objc func reactToNotification(_ sender: Notification) {
@@ -50,6 +51,12 @@ class ViewController: UICollectionViewController {
       cell.favorites.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     } else {
       cell.favorites.setImage(UIImage(systemName: "heart"), for: .normal)
+    }
+    
+    if places[indexPath.row].note != nil {
+      cell.edit.isHidden = false
+    } else {
+      cell.edit.isHidden = true
     }
     return cell
   }

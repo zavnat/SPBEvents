@@ -18,7 +18,7 @@ class NoteInteractor: NotePresenterToInteractorProtocol {
     fetchPlaceDetail(id)
   }
   
-  func didGetNote(_ text: String, _ id: String) {
+  func didGetNote(_ text: String?, _ id: String) {
     dataServise.addNoteToData(text, id)
   }
   

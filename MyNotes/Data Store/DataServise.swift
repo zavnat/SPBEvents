@@ -97,7 +97,7 @@ class DataServise {
   
   
   // MARK: - Change Methods
-  func addNoteToData(_ note: String, _ id: String){
+  func addNoteToData(_ note: String?, _ id: String){
     let request: NSFetchRequest<Note> = Note.fetchRequest()
     request.predicate = NSPredicate(format: "id = %@", id)
     let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()

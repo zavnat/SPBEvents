@@ -24,7 +24,7 @@ class NotePresenter: NoteViewToPresenterProtocol, NoteInteractorToPresenterProto
     interactor?.getData(String(id))
   }
   
-  func noteButtonPressed(_ text: String, _ id: Int){
+  func noteButtonPressed(_ text: String?, _ id: Int){
     interactor?.didGetNote(text, String(id))
   }
   

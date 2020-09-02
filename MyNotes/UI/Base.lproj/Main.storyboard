@@ -65,6 +65,12 @@
                                                 <action selector="favoritesButtonTapped:" destination="rOI-fe-etz" eventType="touchUpInside" id="hKB-M0-zlW"/>
                                             </connections>
                                         </button>
+                                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-Px-kNK">
+                                            <rect key="frame" x="135" y="18" width="18" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="0.93333333330000001" green="0.36470588240000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="pencil" catalog="system"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -88,6 +94,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="edit" destination="hs2-Px-kNK" id="8nZ-6u-XsS"/>
                                     <outlet property="favorites" destination="NEG-aZ-X0a" id="eim-fA-mRz"/>
                                     <outlet property="image" destination="ORx-WQ-Go7" id="aSX-BB-DeJ"/>
                                     <outlet property="label" destination="EBd-mK-i5C" id="n7Q-vJ-vyq"/>
@@ -358,6 +365,12 @@
                                                 <action selector="favoritesButtonTapped:" destination="b2u-Hx-nN0" eventType="touchUpInside" id="GGL-PV-i77"/>
                                             </connections>
                                         </button>
+                                        <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isA-R9-U0u">
+                                            <rect key="frame" x="135" y="18" width="18" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="0.93333333330000001" green="0.36470588240000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="pencil" catalog="system"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -381,6 +394,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="edit" destination="isA-R9-U0u" id="PUe-Xb-W0K"/>
                                     <outlet property="favorites" destination="Kl3-iC-qZk" id="7fd-PT-x92"/>
                                     <outlet property="image" destination="ucn-O5-e6I" id="n9H-2K-eNo"/>
                                     <outlet property="label" destination="dyi-d7-j4J" id="ma7-j8-46W"/>
@@ -422,7 +436,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NlL-5M-Jrt"/>
+        <segue reference="ZpQ-1b-g8q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>

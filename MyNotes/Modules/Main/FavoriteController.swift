@@ -49,6 +49,11 @@ class FavoriteController: UICollectionViewController {
     } else {
       cell.favorites.setImage(UIImage(systemName: "heart"), for: .normal)
     }
+    if favoritePlaces[indexPath.row].note != nil {
+      cell.edit.isHidden = false
+    } else {
+      cell.edit.isHidden = true
+    }
     return cell
   }
   

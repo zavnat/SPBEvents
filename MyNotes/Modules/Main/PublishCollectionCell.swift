@@ -20,6 +20,7 @@ class PublishCollectionCell: UICollectionViewCell {
   @IBOutlet weak var favorites: UIButton!
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var image: UIImageView!
+  @IBOutlet weak var edit: UIButton!
   
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     cellDelegate?.likePressed(cell: self)
