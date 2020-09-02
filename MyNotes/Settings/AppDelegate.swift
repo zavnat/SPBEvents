@@ -59,5 +59,14 @@ extension Notification.Name {
   static let MainChanged = Notification.Name(rawValue: "MainChanged")
 }
 
-
-
+extension UIView {
+  func fadeView() {
+    let gradient = CAGradientLayer()
+    gradient.frame = bounds
+    gradient.colors = [UIColor.black.withAlphaComponent(1.0).cgColor,
+                       UIColor.black.withAlphaComponent(0.0).cgColor]
+    gradient.locations = [0.0, 1.0]
+    layer.insertSublayer(gradient, at: 0)
+  }
+  
+}

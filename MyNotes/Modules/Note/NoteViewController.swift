@@ -25,6 +25,8 @@ class NoteViewController: UIViewController {
   @IBOutlet weak var text: UITextView!
   @IBOutlet weak var note: UILabel!
   
+  @IBOutlet weak var gradient: UIView!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +35,7 @@ class NoteViewController: UIViewController {
     configurator.configure(with: self)
     spinner.startAnimating()
     likeButtonSettings()
+    gradient.fadeView()
     if let placeID = id {
       presenter?.startFetchingPlaces(with: placeID)
     }

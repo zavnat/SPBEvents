@@ -146,6 +146,10 @@
                                                     <constraint firstAttribute="height" constant="360" id="PRk-iy-eli"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cSH-Hv-yJ2">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="251"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rc1-0e-sVM">
                                                 <rect key="frame" x="10" y="390" width="394" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
@@ -244,6 +248,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0kp-1x-gN3"/>
                     <connections>
+                        <outlet property="gradient" destination="cSH-Hv-yJ2" id="tbV-lO-7yo"/>
                         <outlet property="image" destination="Lit-Fr-gqh" id="Q5E-e0-PXo"/>
                         <outlet property="label" destination="rc1-0e-sVM" id="2Y7-lv-zAt"/>
                         <outlet property="likeButton" destination="2Mh-uC-31M" id="cwj-Xk-44U"/>
