@@ -58,7 +58,7 @@ class NoteViewController: UIViewController {
     let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
     let action = UIAlertAction(title: "Add", style: .default) { (action) in
       var text = textField.text
-      if text == "" {
+      if text == " " {
         text = nil
       }
       self.note.text = text
@@ -97,7 +97,7 @@ extension NoteViewController: NotePresenterToViewProtocol {
       self.spinner.stopAnimating()
       self.image.kf.setImage(with: data.image)
       self.label.text = data.title.capitalized
-      //      self.text.text = string.withoutHtmlTags
+//            self.text.text = data.bodyText.withoutHtmlTags
       self.text.attributedText = data.bodyText.htmlToAttributedString
       self.text.font = self.text.font?.withSize(19)
       self.note.text = self.noteText

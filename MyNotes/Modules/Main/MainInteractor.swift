@@ -59,7 +59,8 @@ class MainInteractor: PresenterToInteractorProtocol {
     let parameters: [String: String] = [
       "location": "spb",
       "page": "\(currentPage)",
-      "fields": "id,slug,images,title"
+      "fields": "id,slug,images,title",
+      "order_by": "-publication_date"
     ]
     Alamofire.request(placesURL, method: .get, parameters: parameters).response { (response) in
       guard let data = response.data else { return }

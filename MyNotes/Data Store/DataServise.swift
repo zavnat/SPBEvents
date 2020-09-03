@@ -89,7 +89,11 @@ class DataServise {
     request.predicate = NSPredicate(format: "id = %@", id)
     do {
       let objects = try context.fetch(request)
-      return objects[0].noteText
+      if !objects.isEmpty {
+        return objects[0].noteText
+      } else {
+        return nil
+      }
     } catch {
     }
     return nil
@@ -104,10 +108,14 @@ class DataServise {
     requestLiked.predicate = NSPredicate(format: "id = %@", id)
     do {
       let data = try context.fetch(request)
-      data[0].noteText = note
+      if data.count > 0 {
+        let dataNote = data[0]
+        dataNote.noteText = note
+      }
       let likeData = try context.fetch(requestLiked)
       if likeData.count > 0 {
-        likeData[0].noteText = note
+        let like = likeData[0]
+        like.noteText = note
       }
       try context.save()
       let nc = NotificationCenter.default
