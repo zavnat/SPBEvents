@@ -33,6 +33,12 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images-3" translatesAutoresizingMaskIntoConstraints="NO" id="ORx-WQ-Go7">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="224"/>
                                         </imageView>
+                                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uho-4p-Jy2">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="66"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="66" id="y9K-Vg-CuY"/>
+                                            </constraints>
+                                        </view>
                                         <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yf-oZ-O5E">
                                             <rect key="frame" x="0.0" y="164" width="200" height="60"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GDd-6h-VBx">
@@ -81,9 +87,12 @@
                                         <constraint firstItem="ORx-WQ-Go7" firstAttribute="leading" secondItem="PkS-3j-Azs" secondAttribute="leading" id="QYa-Oz-t1J"/>
                                         <constraint firstItem="NEG-aZ-X0a" firstAttribute="top" secondItem="PkS-3j-Azs" secondAttribute="top" constant="18" id="X55-iT-P6H"/>
                                         <constraint firstItem="ORx-WQ-Go7" firstAttribute="top" secondItem="PkS-3j-Azs" secondAttribute="top" id="bjY-c9-RiM"/>
+                                        <constraint firstAttribute="trailing" secondItem="uho-4p-Jy2" secondAttribute="trailing" id="cCa-Hj-V4f"/>
+                                        <constraint firstItem="uho-4p-Jy2" firstAttribute="top" secondItem="PkS-3j-Azs" secondAttribute="top" id="gQp-eW-0eD"/>
                                         <constraint firstAttribute="trailing" secondItem="ORx-WQ-Go7" secondAttribute="trailing" id="lpk-uJ-qZw"/>
                                         <constraint firstAttribute="bottom" secondItem="4yf-oZ-O5E" secondAttribute="bottom" id="rk9-z4-AhM"/>
                                         <constraint firstItem="hs2-Px-kNK" firstAttribute="top" secondItem="PkS-3j-Azs" secondAttribute="top" constant="18" id="v2l-nU-xxx"/>
+                                        <constraint firstItem="uho-4p-Jy2" firstAttribute="leading" secondItem="PkS-3j-Azs" secondAttribute="leading" id="xos-p2-9Fi"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -97,6 +106,7 @@
                                 <connections>
                                     <outlet property="edit" destination="hs2-Px-kNK" id="8nZ-6u-XsS"/>
                                     <outlet property="favorites" destination="NEG-aZ-X0a" id="eim-fA-mRz"/>
+                                    <outlet property="gradientView" destination="uho-4p-Jy2" id="Lcg-ii-uxy"/>
                                     <outlet property="image" destination="ORx-WQ-Go7" id="aSX-BB-DeJ"/>
                                     <outlet property="label" destination="EBd-mK-i5C" id="n7Q-vJ-vyq"/>
                                 </connections>
@@ -176,7 +186,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
                                                 <rect key="frame" x="369" y="410" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="3b5-1H-6So"/>
@@ -259,6 +269,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0kp-1x-gN3"/>
                     <connections>
+                        <outlet property="editButton" destination="x1x-Ao-vSW" id="RAS-F0-cct"/>
                         <outlet property="gradient" destination="cSH-Hv-yJ2" id="tbV-lO-7yo"/>
                         <outlet property="image" destination="Lit-Fr-gqh" id="Q5E-e0-PXo"/>
                         <outlet property="label" destination="rc1-0e-sVM" id="2Y7-lv-zAt"/>
@@ -386,9 +397,16 @@
                                             <color key="tintColor" red="0.93333333330000001" green="0.36470588240000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="pencil" catalog="system"/>
                                         </button>
+                                        <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xy7-66-W7S">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="66"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="66" id="3Kr-Db-7pk"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstItem="Xy7-66-W7S" firstAttribute="leading" secondItem="W0z-CW-Kf3" secondAttribute="leading" id="0Sr-2q-kP3"/>
                                         <constraint firstAttribute="bottom" secondItem="ucn-O5-e6I" secondAttribute="bottom" id="318-9A-uQ8"/>
                                         <constraint firstItem="ucn-O5-e6I" firstAttribute="leading" secondItem="W0z-CW-Kf3" secondAttribute="leading" id="52M-6c-lTv"/>
                                         <constraint firstAttribute="bottom" secondItem="aqb-WV-uZe" secondAttribute="bottom" id="6VO-Y0-cED"/>
@@ -399,7 +417,9 @@
                                         <constraint firstItem="ucn-O5-e6I" firstAttribute="top" secondItem="W0z-CW-Kf3" secondAttribute="top" id="boj-gY-uG1"/>
                                         <constraint firstItem="Kl3-iC-qZk" firstAttribute="top" secondItem="W0z-CW-Kf3" secondAttribute="top" constant="18" id="cMN-wq-TML"/>
                                         <constraint firstItem="Kl3-iC-qZk" firstAttribute="leading" secondItem="isA-R9-U0u" secondAttribute="trailing" constant="10" id="e8I-Bm-YDg"/>
+                                        <constraint firstItem="Xy7-66-W7S" firstAttribute="top" secondItem="W0z-CW-Kf3" secondAttribute="top" id="lKV-iO-lcH"/>
                                         <constraint firstAttribute="trailing" secondItem="aqb-WV-uZe" secondAttribute="trailing" id="sa7-Xu-ac0"/>
+                                        <constraint firstAttribute="trailing" secondItem="Xy7-66-W7S" secondAttribute="trailing" id="vmz-mK-XZW"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -413,6 +433,7 @@
                                 <connections>
                                     <outlet property="edit" destination="isA-R9-U0u" id="PUe-Xb-W0K"/>
                                     <outlet property="favorites" destination="Kl3-iC-qZk" id="7fd-PT-x92"/>
+                                    <outlet property="gradientView" destination="Xy7-66-W7S" id="T2x-I2-h6c"/>
                                     <outlet property="image" destination="ucn-O5-e6I" id="n9H-2K-eNo"/>
                                     <outlet property="label" destination="dyi-d7-j4J" id="ma7-j8-46W"/>
                                     <segue destination="7c0-WP-bM3" kind="show" identifier="favoriteDetail" id="ZpQ-1b-g8q"/>

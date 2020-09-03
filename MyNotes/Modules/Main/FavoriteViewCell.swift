@@ -20,6 +20,15 @@ class FavoriteViewCell: UICollectionViewCell {
   @IBOutlet weak var image: UIImageView!
   @IBOutlet weak var favorites: UIButton!
   @IBOutlet weak var edit: UIButton!
+  @IBOutlet weak var gradientView: UIView!
+  var isGradient = false
+  
+  func configureCell(content: FavoriteModel) {
+    if !isGradient {
+      gradientView.fadeView()
+      self.isGradient = true
+    }
+  }
   
   @IBAction func favoritesButtonTapped(_ sender: UIButton) {
     cellDelegate?.likePressed(cell: self)

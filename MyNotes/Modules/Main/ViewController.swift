@@ -43,6 +43,7 @@ class ViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PublishCollectionCell
+    cell.configureCell(content: places[indexPath.row])
     cell.cellDelegate = self
     cell.label.text = places[indexPath.row].title.capitalized
     cell.image.kf.setImage(with: places[indexPath.row].image)

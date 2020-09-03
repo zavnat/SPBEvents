@@ -24,8 +24,8 @@ class NoteViewController: UIViewController {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var text: UITextView!
   @IBOutlet weak var note: UILabel!
-  
   @IBOutlet weak var gradient: UIView!
+  @IBOutlet weak var editButton: UIButton!
   
   
   override func viewDidLoad() {
@@ -35,7 +35,6 @@ class NoteViewController: UIViewController {
     configurator.configure(with: self)
     spinner.startAnimating()
     likeButtonSettings()
-    gradient.fadeView()
     if let placeID = id {
       presenter?.startFetchingPlaces(with: placeID)
     }
@@ -97,10 +96,12 @@ extension NoteViewController: NotePresenterToViewProtocol {
       self.spinner.stopAnimating()
       self.image.kf.setImage(with: data.image)
       self.label.text = data.title.capitalized
-//            self.text.text = data.bodyText.withoutHtmlTags
-      self.text.attributedText = data.bodyText.htmlToAttributedString
-      self.text.font = self.text.font?.withSize(19)
+            self.text.text = data.bodyText.withoutHtmlTags
+//      self.text.attributedText = data.bodyText.htmlToAttributedString
+//      self.text.font = self.text.font?.withSize(19)
       self.note.text = self.noteText
+      self.editButton.isHidden = false
+      self.gradient.fadeView()
     }
   }
 }
