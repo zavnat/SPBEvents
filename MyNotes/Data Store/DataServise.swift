@@ -26,14 +26,14 @@ class DataServise {
     for item in items {
       let note = Note(context: self.context)
       note.id = String(item.id)
-      print(item.id)
+//      print(item.id)
       note.title = item.title
-      note.favorite = false
       note.image = item.images[0].image
       note.favorite = checkFavorite(item: item) ?? false
       selfID += 1
       note.selfID = Int16(selfID)
-      note.noteText = haveNoteText(for: item)
+      note.noteText = haveNoteText(for: item) ?? nil
+      print(note.noteText)
       
       notesList.append(note)
     }
@@ -90,11 +90,16 @@ class DataServise {
     do {
       let objects = try context.fetch(request)
       if !objects.isEmpty {
-        return objects[0].noteText
+        if objects[0].noteText != nil {
+          return objects[0].noteText
+        } else {
+          return nil
+        }
       } else {
         return nil
       }
     } catch {
+      print("Error haveNoteText")
     }
     return nil
   }
@@ -106,21 +111,22 @@ class DataServise {
     request.predicate = NSPredicate(format: "id = %@", id)
     let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()
     requestLiked.predicate = NSPredicate(format: "id = %@", id)
+    let nc = NotificationCenter.default
     do {
       let data = try context.fetch(request)
       if data.count > 0 {
         let dataNote = data[0]
         dataNote.noteText = note
+        try context.save()
+        nc.post(name: .MainChanged, object: nil)
       }
       let likeData = try context.fetch(requestLiked)
       if likeData.count > 0 {
         let like = likeData[0]
         like.noteText = note
+        try context.save()
+         nc.post(name: .FavoriteChanged, object: nil)
       }
-      try context.save()
-      let nc = NotificationCenter.default
-      nc.post(name: .MainChanged, object: nil)
-      nc.post(name: .FavoriteChanged, object: nil)
     } catch {
       print("Error save note")
     }

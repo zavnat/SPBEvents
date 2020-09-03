@@ -57,7 +57,7 @@ class NoteViewController: UIViewController {
     let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
     let action = UIAlertAction(title: "Add", style: .default) { (action) in
       var text = textField.text
-      if text == " " {
+      if text == "" {
         text = nil
       }
       self.note.text = text
