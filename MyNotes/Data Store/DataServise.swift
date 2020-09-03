@@ -43,6 +43,37 @@ class DataServise {
     saveContext()
   }
   
+  func addNote(_ text: String?, _ id: String) {
+    let nc = NotificationCenter.default
+    
+    let request: NSFetchRequest<Note> = Note.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
+    
+    let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()
+    requestLiked.predicate = NSPredicate(format: "id = %@", id)
+    
+    do {
+      let data = try context.fetch(request)
+      if !data.isEmpty {
+        data[0].noteText = text
+        try context.save()
+        nc.post(name: .MainChanged, object: nil)
+      }
+      
+      let likeData = try context.fetch(requestLiked)
+      if !likeData.isEmpty {
+        likeData[0].noteText = text
+        try context.save()
+      }
+      else {
+        addToFavorite(data: data[0])
+      }
+      nc.post(name: .FavoriteChanged, object: nil)
+    } catch {
+      print("Error fetch data in addNote")
+    }
+  }
+  
   
   private func addToFavorite(data: Note){
     let favorite = Liked(context: self.context)
@@ -52,6 +83,7 @@ class DataServise {
     favoriteID += 1
     favorite.selfID = Int16(favoriteID)
     favorite.noteText = data.noteText
+    favorite.favorite = data.favorite
     saveContext()
   }
   
@@ -76,7 +108,8 @@ class DataServise {
       if objects.isEmpty {
         return false
       } else {
-        return true
+        let favorite = objects[0].favorite ? true : false
+        return favorite
       }
     } catch {
     }
@@ -85,16 +118,17 @@ class DataServise {
   
   private func haveNoteText(for item: Result) -> String? {
     let id = String(item.id)
-    let request: NSFetchRequest<Note> = Note.fetchRequest()
+    let request: NSFetchRequest<Liked> = Liked.fetchRequest()
     request.predicate = NSPredicate(format: "id = %@", id)
     do {
       let objects = try context.fetch(request)
       if !objects.isEmpty {
-        if objects[0].noteText != nil {
-          return objects[0].noteText
-        } else {
-          return nil
-        }
+        return objects[0].noteText ?? nil
+//        if objects[0].noteText != nil {
+//          return objects[0].noteText
+//        } else {
+//          return nil
+//        }
       } else {
         return nil
       }
@@ -106,31 +140,31 @@ class DataServise {
   
   
   // MARK: - Change Methods
-  func addNoteToData(_ note: String?, _ id: String){
-    let request: NSFetchRequest<Note> = Note.fetchRequest()
-    request.predicate = NSPredicate(format: "id = %@", id)
-    let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()
-    requestLiked.predicate = NSPredicate(format: "id = %@", id)
-    let nc = NotificationCenter.default
-    do {
-      let data = try context.fetch(request)
-      if data.count > 0 {
-        let dataNote = data[0]
-        dataNote.noteText = note
-        try context.save()
-        nc.post(name: .MainChanged, object: nil)
-      }
-      let likeData = try context.fetch(requestLiked)
-      if likeData.count > 0 {
-        let like = likeData[0]
-        like.noteText = note
-        try context.save()
-         nc.post(name: .FavoriteChanged, object: nil)
-      }
-    } catch {
-      print("Error save note")
-    }
-  }
+//  func addNoteToData(_ note: String?, _ id: String){
+//    let request: NSFetchRequest<Note> = Note.fetchRequest()
+//    request.predicate = NSPredicate(format: "id = %@", id)
+//    let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()
+//    requestLiked.predicate = NSPredicate(format: "id = %@", id)
+//    let nc = NotificationCenter.default
+//    do {
+//      let data = try context.fetch(request)
+//      if data.count > 0 {
+//        let dataNote = data[0]
+//        dataNote.noteText = note
+//        try context.save()
+//        nc.post(name: .MainChanged, object: nil)
+//      }
+//      let likeData = try context.fetch(requestLiked)
+//      if likeData.count > 0 {
+//        let like = likeData[0]
+//        like.noteText = note
+//        try context.save()
+//         nc.post(name: .FavoriteChanged, object: nil)
+//      }
+//    } catch {
+//      print("Error save note")
+//    }
+//  }
   
   func updateDataFromDetail(id: String) {
     updateData(id: id)

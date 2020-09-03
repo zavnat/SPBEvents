@@ -22,7 +22,7 @@ extension FavoriteModel {
     self.id = Int(item.id!)!
     self.title = item.title!
     self.image = URL(string: item.image!)
-    self.favorite = true
+    self.favorite = item.favorite
     self.note = item.noteText
   }
 }
