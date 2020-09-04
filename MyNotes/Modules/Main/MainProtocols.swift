@@ -13,6 +13,7 @@ protocol InteractorToPresenterProtocol: class {
   func dataFetchedSuccess(with data: [Note])
   func noticeFetchFailed()
 }
+//
 
 protocol PresenterToInteractorProtocol: class {
   var presenter: InteractorToPresenterProtocol? {get set}
