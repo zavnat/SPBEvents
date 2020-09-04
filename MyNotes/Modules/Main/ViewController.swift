@@ -15,7 +15,6 @@ class ViewController: UICollectionViewController {
   var configurator: MainConfiguratorProtocol = MainConfigurator()
   var places = [ViewModel]()
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView.delegate = self
@@ -28,12 +27,22 @@ class ViewController: UICollectionViewController {
       selector: #selector(reactToNotification(_:)),
       name: .MainChanged,
       object: nil)
+    addSourse()
   }
   
   @objc func reactToNotification(_ sender: Notification) {
     presenter?.notificationReceived()
   }
   
+  func addSourse() {
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+    label.center = CGPoint(x: view.frame.width - (view.frame.width - 70), y: view.frame.height - 110)
+    label.textAlignment = .center
+    label.text = "kudago.com"
+    label.textColor = .lightGray
+    label.font = label.font.withSize(12)
+    self.view.addSubview(label)
+  }
   
   // MARK: - CollectionViewDataSourse Methods
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
