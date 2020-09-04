@@ -181,15 +181,15 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-u1-yNw">
-                                                <rect key="frame" x="10" y="410" width="339" height="0.0"/>
+                                                <rect key="frame" x="10" y="410" width="324" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-Ao-vSW">
-                                                <rect key="frame" x="369" y="410" width="25" height="25"/>
+                                                <rect key="frame" x="354" y="410" width="40" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="3b5-1H-6So"/>
+                                                    <constraint firstAttribute="width" constant="40" id="3b5-1H-6So"/>
                                                     <constraint firstAttribute="height" constant="25" id="I8g-1Y-KA7"/>
                                                 </constraints>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
