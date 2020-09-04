@@ -100,8 +100,21 @@ extension FavoriteController: FavoriteCellDelegate {
   func likePressed(cell: UICollectionViewCell) {
     guard let indexPath = collectionView.indexPath(for: cell) else {return}
     let item = favoritePlaces[indexPath.row]
-    favoritePlaces.remove(at: indexPath.row)
-    collectionView.reloadData()
+//    favoritePlaces.remove(at: indexPath.row)
+//    collectionView.reloadData()
+    
+//    let hasFavorite = item.favorite
+//    favoritePlaces[indexPath.row].favorite = !hasFavorite
+//    collectionView.reloadItems(at: [indexPath])
+    
+    if item.note != nil {
+      let hasFavorite = item.favorite
+      favoritePlaces[indexPath.row].favorite = !hasFavorite
+      collectionView.reloadItems(at: [indexPath])
+    } else {
+      favoritePlaces.remove(at: indexPath.row)
+      collectionView.reloadData()
+    }
     
     presenter?.likedButtonTapped(with: item.id)
   }

@@ -43,6 +43,7 @@ class DataServise {
     saveContext()
   }
   
+  
   func addNote(_ text: String?, _ id: String) {
     let nc = NotificationCenter.default
     
@@ -64,16 +65,35 @@ class DataServise {
       if !likeData.isEmpty {
         likeData[0].noteText = text
         try context.save()
-      }
-      else {
+        let check = checkNoteAndFavorite(id)
+        if !check {
+          deleteFromFavorites(id)
+        }
+      }  else {
         addToFavorite(data: data[0])
       }
+
       nc.post(name: .FavoriteChanged, object: nil)
     } catch {
       print("Error fetch data in addNote")
     }
   }
   
+  func checkNoteAndFavorite(_ id: String) -> Bool {
+    let requestLiked: NSFetchRequest<Liked> = Liked.fetchRequest()
+    requestLiked.predicate = NSPredicate(format: "id = %@", id)
+    do {
+      let data = try context.fetch(requestLiked)
+      if !data.isEmpty {
+        if data[0].favorite || data[0].noteText != nil {
+          return true
+        }
+      }
+    } catch {
+      print("Error checkNoteAndFavorite")
+    }
+    return false
+  }
   
   private func addToFavorite(data: Note){
     let favorite = Liked(context: self.context)
@@ -192,8 +212,24 @@ class DataServise {
     }
   }
   
-  func updateDataFromFavorites(id: String) {
-    deleteFromFavorites(id)
+//  func updateDataFromFavorites(id: String) {
+//    deleteFromFavorites(id)
+//    
+//    let request : NSFetchRequest<Note> = Note.fetchRequest()
+//    request.predicate = NSPredicate(format: "id = %@", id)
+//    do {
+//      let data = try context.fetch(request)
+//      data[0].favorite = !data[0].favorite
+//      try context.save()
+//      let nc = NotificationCenter.default
+//      nc.post(name: .MainChanged, object: nil)
+//    }catch {
+//      print("Error update data")
+//    }
+//  }
+  
+  func updateMain(id: String) {
+//    deleteFromFavorites(id)
     
     let request : NSFetchRequest<Note> = Note.fetchRequest()
     request.predicate = NSPredicate(format: "id = %@", id)
@@ -206,6 +242,26 @@ class DataServise {
     }catch {
       print("Error update data")
     }
+  }
+  
+  func updateLikeFromFavorites(id: String) {
+    let request : NSFetchRequest<Liked> = Liked.fetchRequest()
+    request.predicate = NSPredicate(format: "id = %@", id)
+    do {
+      let data = try context.fetch(request)
+      if data[0].noteText != nil {
+        data[0].favorite = !data[0].favorite
+        try context.save()
+      } else {
+        deleteFromFavorites(id)
+      }
+      let nc = NotificationCenter.default
+      nc.post(name: .MainChanged, object: nil)
+      updateMain(id: id)
+    } catch {
+      print("Error update data")
+    }
+    
   }
   
   
