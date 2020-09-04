@@ -26,14 +26,12 @@ class DataServise {
     for item in items {
       let note = Note(context: self.context)
       note.id = String(item.id)
-//      print(item.id)
       note.title = item.title
       note.image = item.images[0].image
       note.favorite = checkFavorite(item: item) ?? false
       selfID += 1
       note.selfID = Int16(selfID)
       note.noteText = haveNoteText(for: item) ?? nil
-      print(note.noteText)
       
       notesList.append(note)
     }
