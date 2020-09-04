@@ -54,8 +54,8 @@ class NoteViewController: UIViewController {
   
   @IBAction func editButtonTapped(_ sender: UIButton) {
     var textField = UITextField()
-    let alert = UIAlertController(title: "Add New Comment", message: "", preferredStyle: .alert)
-    let action = UIAlertAction(title: "Add", style: .default) { (action) in
+    let alert = UIAlertController(title: "Добавить новый комментарий", message: "", preferredStyle: .alert)
+    let action = UIAlertAction(title: "Добавить", style: .default) { (action) in
       var text = textField.text
       if text == "" {
         text = nil
@@ -64,11 +64,11 @@ class NoteViewController: UIViewController {
       guard let noteId = self.id else {return}
       self.presenter?.noteButtonPressed(text, noteId)
     }
-    let cancellAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+    let cancellAction = UIAlertAction(title: "Отмена", style: .default) { (action) in
       return
     }
     alert.addTextField { (alertTextField) in
-      alertTextField.placeholder = "Create new item"
+      alertTextField.placeholder = "Добавьте комментарий"
       textField = alertTextField
     }
     alert.addAction(cancellAction)
