@@ -181,7 +181,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-u1-yNw">
-                                                <rect key="frame" x="10" y="410" width="324" height="0.0"/>
+                                                <rect key="frame" x="15" y="410" width="319" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -227,7 +227,7 @@
                                             <constraint firstAttribute="trailing" secondItem="x1x-Ao-vSW" secondAttribute="trailing" constant="20" id="CRZ-2F-vQt"/>
                                             <constraint firstAttribute="trailing" secondItem="Lit-Fr-gqh" secondAttribute="trailing" id="CWP-Og-UWz"/>
                                             <constraint firstAttribute="trailing" secondItem="cSH-Hv-yJ2" secondAttribute="trailing" id="DI1-di-FuS"/>
-                                            <constraint firstItem="kJq-u1-yNw" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="10" id="Hvz-bF-GUN"/>
+                                            <constraint firstItem="kJq-u1-yNw" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="15" id="Hvz-bF-GUN"/>
                                             <constraint firstItem="x1x-Ao-vSW" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="Knx-xG-OpE"/>
                                             <constraint firstAttribute="bottom" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="OTY-E8-U3N"/>
                                             <constraint firstItem="2Mh-uC-31M" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" constant="100" id="PS7-WY-lTV"/>

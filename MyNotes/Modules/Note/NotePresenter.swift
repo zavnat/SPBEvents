@@ -16,7 +16,18 @@ class NotePresenter: NoteViewToPresenterProtocol, NoteInteractorToPresenterProto
   var router: NotePresenterToRouterProtocol?
   
   func fetchSuccess(_ item: DetailModel) {
-    let place = DetailUIModel(from: item)
+    let milisecondStart = item.dates[0].start
+    let milisecondEnd = item.dates[0].end
+    let dateStart = Date(milliseconds: Int64(milisecondStart))
+    let dateEnd = Date(milliseconds: Int64(milisecondEnd))
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "d MMMM"
+    
+    let place = DetailUIModel(
+      from: item,
+      startDate: dateFormatter.string(from: dateStart),
+      endDate: dateFormatter.string(from: dateEnd)
+    )
     view?.showDetail(place: place)
   }
   
