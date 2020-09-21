@@ -119,7 +119,6 @@ class NoteViewController: UIViewController {
         let label = UILabel()
         label.myLabel()
         label.text = string
-//        label.font = label.font.withSize(15)
         self.stackView.addArrangedSubview(label)
         
       } else if !start.sameDay(date: end) && start.sameTime(date: end){
@@ -130,7 +129,6 @@ class NoteViewController: UIViewController {
         let string = "\(dateStr4) - \(dateStr5)"
         let label = UILabel()
         label.myLabel()
-//        label.font = label.font.withSize(15)
         label.text = string
         self.stackView.addArrangedSubview(label)
         
@@ -142,7 +140,6 @@ class NoteViewController: UIViewController {
         let string = "\(dateStr4) - \(dateStr5)"
         let label = UILabel()
         label.myLabel()
-//        label.font = label.font.withSize(15)
         label.text = string
         self.stackView.addArrangedSubview(label)
       }
@@ -179,19 +176,6 @@ extension String {
         "", options:.regularExpression, range: nil)
   }
 }
-extension String {
-  var htmlToAttributedString: NSAttributedString? {
-    guard let data = data(using: .utf8) else { return nil }
-    do {
-      return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding:String.Encoding.utf8.rawValue], documentAttributes: nil)
-    } catch {
-      return nil
-    }
-  }
-  var htmlToString: String {
-    return htmlToAttributedString?.string ?? ""
-  }
-}
 
 
 extension Date {
@@ -219,8 +203,6 @@ extension Date {
 extension UILabel {
     func myLabel() {
         textAlignment = .center
-//        textColor = .white
-//        backgroundColor = .lightGray
         font = UIFont.systemFont(ofSize: 15)
         numberOfLines = 0
         lineBreakMode = .byCharWrapping

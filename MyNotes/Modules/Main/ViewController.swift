@@ -106,9 +106,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: PresenterToViewProtocol {
   func showPlaces(placesArray: [ViewModel]) {
     self.places = placesArray
-//    for place in places {
-//      print(place.note)
-//    }
+
     DispatchQueue.main.async {
       self.collectionView.reloadData()
     }

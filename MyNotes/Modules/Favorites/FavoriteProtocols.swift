@@ -22,7 +22,6 @@ protocol FavoriteViewToPresenterProtocol: class {
   var interactor: FavoritePresenterToInteractorProtocol? {get set}
   var router: FavoritePresenterToRouterProtocol? {get set}
   func startFetchingPlaces()
-  //  func cellSelected(_ index: Int)
   func likedButtonTapped(with id: Int)
 }
 

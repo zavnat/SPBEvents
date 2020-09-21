@@ -105,7 +105,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		8413F4D724EA8641005E2029 /* Favorite */ = {
+		843A085C2518ED7800A531A9 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
 				8413F4DA24EA8703005E2029 /* FavoriteProtocols.swift */,
@@ -117,8 +117,7 @@
 				84A28B6724FE953700500EFA /* FavoriteModel.swift */,
 				8413F4E424EB0547005E2029 /* FavoriteViewCell.swift */,
 			);
-			name = Favorite;
-			path = Main;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		843AC86124D049A9005F70EE /* Paging */ = {
@@ -193,7 +192,7 @@
 			children = (
 				843AC86124D049A9005F70EE /* Paging */,
 				84BFE09924A64ED30018F925 /* Main */,
-				8413F4D724EA8641005E2029 /* Favorite */,
+				843A085C2518ED7800A531A9 /* Favorites */,
 				84BFE09E24A65B400018F925 /* Note */,
 			);
 			path = Modules;
