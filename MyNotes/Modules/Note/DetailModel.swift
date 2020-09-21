@@ -61,16 +61,16 @@ struct DetailUIModel {
   let image: URL?
   //  var favorite: Bool
   let bodyText: String
-  let startDate: String
-  let endDate: String
+  let dates: [DatesArray]
+  
 }
 
 extension DetailUIModel {
-  init(from item: DetailModel, startDate: String, endDate: String) {
+  init(from item: DetailModel) {
     title = item.title
     image = URL(string: item.images[0].image)
-    self.startDate = startDate
-    self.endDate = endDate
+    self.dates = item.dates
+    print(item.id)
     //    favorite = false
     bodyText = item.bodyText
   }

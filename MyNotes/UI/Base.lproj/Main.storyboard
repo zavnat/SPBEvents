@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcS-fF-2jh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcS-fF-2jh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -142,7 +142,7 @@
                                         <rect key="frame" x="197" y="438" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw6-Kl-MnY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="469.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="669.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-NM-0oo">
                                                 <rect key="frame" x="10" y="433" width="394" height="36.5"/>
@@ -162,7 +162,7 @@
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rc1-0e-sVM">
                                                 <rect key="frame" x="10" y="390" width="394" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -214,24 +214,51 @@
                                                     <action selector="likeButtonTapped:" destination="7c0-WP-bM3" eventType="touchUpInside" id="qf8-uQ-Ri3"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-BY-th9">
+                                                <rect key="frame" x="13" y="469.5" width="388" height="200"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-yJ-L9s">
+                                                        <rect key="frame" x="0.0" y="30.5" width="388" height="79.5"/>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Когда:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQO-Oh-ikK">
+                                                        <rect key="frame" x="0.0" y="5" width="388" height="23"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="PQO-Oh-ikK" firstAttribute="leading" secondItem="fTh-BY-th9" secondAttribute="leading" id="43Q-P6-CkK"/>
+                                                    <constraint firstItem="nJ8-yJ-L9s" firstAttribute="leading" secondItem="fTh-BY-th9" secondAttribute="leading" id="CBQ-a1-FUm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PQO-Oh-ikK" secondAttribute="trailing" id="WVj-Fh-2MK"/>
+                                                    <constraint firstAttribute="height" constant="200" id="eH4-Wa-jI6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nJ8-yJ-L9s" secondAttribute="trailing" id="eta-fY-kKN"/>
+                                                    <constraint firstItem="PQO-Oh-ikK" firstAttribute="top" secondItem="fTh-BY-th9" secondAttribute="top" constant="5" id="vq4-ZA-uhl"/>
+                                                    <constraint firstItem="nJ8-yJ-L9s" firstAttribute="top" secondItem="PQO-Oh-ikK" secondAttribute="bottom" constant="5" id="yCy-X8-M75"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="2Mh-uC-31M" secondAttribute="trailing" constant="25" id="0Ld-Wl-2v0"/>
+                                            <constraint firstItem="fTh-BY-th9" firstAttribute="top" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="0zO-C1-IKI"/>
                                             <constraint firstItem="x4X-NM-0oo" firstAttribute="top" secondItem="kJq-u1-yNw" secondAttribute="bottom" constant="23" id="16X-au-Wdo"/>
                                             <constraint firstAttribute="trailing" secondItem="rc1-0e-sVM" secondAttribute="trailing" constant="10" id="5U4-pX-vhd"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="bottom" secondItem="cSH-Hv-yJ2" secondAttribute="bottom" constant="200" id="7Xu-UL-PwF"/>
+                                            <constraint firstAttribute="bottom" secondItem="fTh-BY-th9" secondAttribute="bottom" id="8V3-2x-lQH"/>
                                             <constraint firstItem="x1x-Ao-vSW" firstAttribute="leading" secondItem="kJq-u1-yNw" secondAttribute="trailing" constant="20" id="AZU-hn-bgX"/>
                                             <constraint firstItem="kJq-u1-yNw" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="CHM-7q-Icy"/>
                                             <constraint firstAttribute="trailing" secondItem="x1x-Ao-vSW" secondAttribute="trailing" constant="20" id="CRZ-2F-vQt"/>
                                             <constraint firstAttribute="trailing" secondItem="Lit-Fr-gqh" secondAttribute="trailing" id="CWP-Og-UWz"/>
                                             <constraint firstAttribute="trailing" secondItem="cSH-Hv-yJ2" secondAttribute="trailing" id="DI1-di-FuS"/>
                                             <constraint firstItem="kJq-u1-yNw" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="15" id="Hvz-bF-GUN"/>
+                                            <constraint firstAttribute="trailing" secondItem="fTh-BY-th9" secondAttribute="trailing" constant="13" id="KDg-Kg-shI"/>
                                             <constraint firstItem="x1x-Ao-vSW" firstAttribute="top" secondItem="rc1-0e-sVM" secondAttribute="bottom" constant="20" id="Knx-xG-OpE"/>
-                                            <constraint firstAttribute="bottom" secondItem="x4X-NM-0oo" secondAttribute="bottom" id="OTY-E8-U3N"/>
                                             <constraint firstItem="2Mh-uC-31M" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" constant="100" id="PS7-WY-lTV"/>
                                             <constraint firstItem="cSH-Hv-yJ2" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" id="RLA-bB-Y0m"/>
+                                            <constraint firstItem="fTh-BY-th9" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" constant="13" id="XgV-gM-b3W"/>
                                             <constraint firstItem="Lit-Fr-gqh" firstAttribute="top" secondItem="qw6-Kl-MnY" secondAttribute="top" id="ZJI-Dx-Tf5"/>
                                             <constraint firstItem="tsf-nJ-ncC" firstAttribute="top" secondItem="Lit-Fr-gqh" secondAttribute="top" constant="100" id="cOp-zd-j1Y"/>
                                             <constraint firstItem="cSH-Hv-yJ2" firstAttribute="leading" secondItem="qw6-Kl-MnY" secondAttribute="leading" id="dZy-dZ-fkb"/>
@@ -276,6 +303,7 @@
                         <outlet property="likeButton" destination="2Mh-uC-31M" id="cwj-Xk-44U"/>
                         <outlet property="note" destination="kJq-u1-yNw" id="Q45-kG-vcm"/>
                         <outlet property="spinner" destination="aff-V4-V5l" id="YC7-JA-buh"/>
+                        <outlet property="stackView" destination="nJ8-yJ-L9s" id="S7j-cO-XXo"/>
                         <outlet property="text" destination="x4X-NM-0oo" id="xEt-PG-VWY"/>
                     </connections>
                 </viewController>

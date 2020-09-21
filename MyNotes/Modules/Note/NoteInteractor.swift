@@ -19,7 +19,6 @@ class NoteInteractor: NotePresenterToInteractorProtocol {
   }
   
   func didGetNote(_ text: String?, _ id: String) {
-//    dataServise.addNoteToData(text, id)
     dataServise.addNote(text, id)
   }
   

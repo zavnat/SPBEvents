@@ -18,6 +18,8 @@ class NoteViewController: UIViewController {
   var noteText: String?
   var dataToUI: DetailUIModel?
   
+  @IBOutlet weak var stackView: UIStackView!
+  @IBOutlet weak var viewForLabel: UIView!
   @IBOutlet weak var likeButton: UIButton!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
   @IBOutlet weak var image: UIImageView!
@@ -84,6 +86,70 @@ class NoteViewController: UIViewController {
     }
   }
   
+  func dates () {
+    guard let data = dataToUI else {
+      return
+    }
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ru_RU")
+    let formatter2 = DateFormatter()
+    formatter2.locale = Locale(identifier: "ru_RU")
+    if data.dates.count > 0 {
+    for item in 0 ... data.dates.count - 1 {
+      let dateStart = data.dates[item].start
+      let dateEnd = data.dates[item].end
+      let start = Date(milliseconds: Int64(dateStart))
+      let end = Date(milliseconds: Int64(dateEnd))
+      
+      if start.fullSame(date: end) {
+        formatter.dateFormat = "d MMMM   HH:mm"
+        let dateStr = formatter.string(from: start)
+        print(dateStr)
+        let label = UILabel()
+        label.myLabel()
+        label.text = dateStr
+        self.stackView.addArrangedSubview(label)
+        
+      } else if start.sameDay(date: end) {
+        formatter.dateFormat = "d MMMM   HH:mm"
+        let dateStr2 = formatter.string(from: start)
+        formatter2.dateFormat = "HH:mm"
+        let dateStr3 = formatter2.string(from: end)
+        let string = "\(dateStr2) - \(dateStr3)"
+        let label = UILabel()
+        label.myLabel()
+        label.text = string
+//        label.font = label.font.withSize(15)
+        self.stackView.addArrangedSubview(label)
+        
+      } else if !start.sameDay(date: end) && start.sameTime(date: end){
+        formatter.dateFormat = "d MMMM"
+        let dateStr4 = formatter.string(from: start)
+        formatter2.dateFormat = "d MMMM   HH:mm"
+        let dateStr5 = formatter2.string(from: end)
+        let string = "\(dateStr4) - \(dateStr5)"
+        let label = UILabel()
+        label.myLabel()
+//        label.font = label.font.withSize(15)
+        label.text = string
+        self.stackView.addArrangedSubview(label)
+        
+      } else {
+        formatter.dateFormat = "d MMMM"
+        let dateStr4 = formatter.string(from: start)
+        formatter2.dateFormat = "d MMMM"
+        let dateStr5 = formatter2.string(from: end)
+        let string = "\(dateStr4) - \(dateStr5)"
+        let label = UILabel()
+        label.myLabel()
+//        label.font = label.font.withSize(15)
+        label.text = string
+        self.stackView.addArrangedSubview(label)
+      }
+  }
+  
+}
+  }
 }
 
 // MARK: - NotePresenterToViewProtocol Methods
@@ -96,12 +162,11 @@ extension NoteViewController: NotePresenterToViewProtocol {
       self.spinner.stopAnimating()
       self.image.kf.setImage(with: data.image)
       self.label.text = data.title.capitalized
-            self.text.text = data.bodyText.withoutHtmlTags
-//      self.text.attributedText = data.bodyText.htmlToAttributedString
-//      self.text.font = self.text.font?.withSize(19)
+      self.text.text = data.bodyText.withoutHtmlTags
       self.note.text = self.noteText
       self.editButton.isHidden = false
       self.gradient.fadeView()
+      self.dates()
     }
   }
 }
@@ -126,4 +191,39 @@ extension String {
   var htmlToString: String {
     return htmlToAttributedString?.string ?? ""
   }
+}
+
+
+extension Date {
+  
+  func fullSame (date: Date, calendar: Calendar = .current) -> Bool{
+    let days1 = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+    let days2 = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+    return days1 == days2
+  }
+  
+  func sameDay (date: Date, calendar: Calendar = .current) -> Bool{
+    let days1 = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+    let days2 = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+    return days1.day == days2.day && days1.month == days2.month
+  }
+  
+  func sameTime (date: Date, calendar: Calendar = .current) -> Bool{
+    let days1 = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+    let days2 = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+    return days1.hour == days2.hour
+  }
+}
+
+
+extension UILabel {
+    func myLabel() {
+        textAlignment = .center
+//        textColor = .white
+//        backgroundColor = .lightGray
+        font = UIFont.systemFont(ofSize: 15)
+        numberOfLines = 0
+        lineBreakMode = .byCharWrapping
+        sizeToFit()
+    }
 }
